@@ -1,5 +1,7 @@
 package com.atguigu.jxc.controller;
 
+import com.atguigu.jxc.domain.ServiceVO;
+import com.atguigu.jxc.entity.Supplier;
 import com.atguigu.jxc.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,18 @@ public class SupplierController {
     @PostMapping("/list")
     public Map<String, Object> list(Integer page, Integer rows, String supplierName) {
         return supplierService.list(page, rows, supplierName);
+    }
+
+    /**
+     * 供应商添加或修改
+     *
+     * @param supplier 供应商信息
+     */
+    @ResponseBody
+    @PostMapping("/save")
+    public ServiceVO save(Supplier supplier) {
+        supplierService.save(supplier);
+        return new ServiceVO(100, "请求成功", null);
     }
 
 

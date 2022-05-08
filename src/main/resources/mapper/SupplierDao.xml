@@ -29,4 +29,36 @@
             </if>
         </where>
     </select>
+
+    <update id="updateSupplier">
+        update t_supplier
+        <set>
+            <if test="supplierName != null and supplierName != ''">
+                supplier_name = #{supplierName}
+            </if>
+            <if test="contacts != null and contacts != ''">
+                ,contacts = #{contacts}
+            </if>
+            <if test="phoneNumber != null and phoneNumber != ''">
+                ,phone_number = #{phoneNumber}
+            </if>
+            <if test="address != null and address != ''">
+                ,address = #{address}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                ,remarks = #{remarks}
+            </if>
+        </set>
+        where supplier_id = #{supplierId}
+    </update>
+
+    <insert id="addSupplier">
+        insert into t_supplier
+        values (null,
+                #{supplierName},
+                #{contacts},
+                #{phoneNumber},
+                #{address},
+                #{remarks})
+    </insert>
 </mapper>

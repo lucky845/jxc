@@ -46,4 +46,20 @@ public class SupplierServiceImpl implements SupplierService {
         retMap.put("rows", supplierList);
         return retMap;
     }
+
+    /**
+     * 供应商添加或修改
+     *
+     * @param supplier 供应商信息
+     */
+    @Override
+    public void save(Supplier supplier) {
+        // 1. 如果供应商信息不为空,就是修改,否者就是添加
+        if (supplier.getSupplierId() != null) {
+            supplierDao.updateSupplier(supplier);
+        } else {
+            supplierDao.addSupplier(supplier);
+        }
+
+    }
 }

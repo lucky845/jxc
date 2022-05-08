@@ -21,4 +21,18 @@ public interface SupplierDao {
      * @param supplierName 供应商名称
      */
     List<Supplier> getSupplierList(@Param("offSet") int offSet, @Param("rows") Integer rows, @Param("supplierName") String supplierName);
+
+    /**
+     * 修改供应商信息
+     *
+     * @param supplier 供应商信息
+     */
+    void updateSupplier(Supplier supplier);
+
+    /**
+     * 添加供应商信息
+     *
+     * @param supplier 供应商信息
+     */
+    void addSupplier(Supplier supplier);
 }
