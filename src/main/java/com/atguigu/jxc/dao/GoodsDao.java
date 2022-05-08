@@ -19,7 +19,7 @@ public interface GoodsDao {
      * @param codeOrName  商品编码或名称
      * @param goodsTypeId 商品类别id
      */
-    int getRoleCount(@Param("codeOrName") String codeOrName, @Param("goodsTypeId") Integer goodsTypeId);
+    int getGoodsCount(@Param("codeOrName") String codeOrName, @Param("goodsTypeId") Integer goodsTypeId);
 
     /**
      * 查询商品分页列表

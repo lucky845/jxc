@@ -57,7 +57,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Map<String, Object> listInventory(Integer page, Integer rows, String codeOrName, Integer goodsTypeId) {
         Map<String, Object> retMap = new HashMap<>();
-        int total = goodsDao.getRoleCount(codeOrName, goodsTypeId);
+        int total = goodsDao.getGoodsCount(codeOrName, goodsTypeId);
         page = page == 0 ? 1 : page;
         int offSet = (page - 1) * rows;
         List<Goods> goodsList = goodsDao.getGoodsList(offSet, rows, codeOrName, goodsTypeId);

@@ -27,7 +27,7 @@
         FROM t_goods
     </select>
 
-    <select id="getRoleCount" resultType="java.lang.Integer">
+    <select id="getGoodsCount" resultType="java.lang.Integer">
         select
         count(*)
         from
