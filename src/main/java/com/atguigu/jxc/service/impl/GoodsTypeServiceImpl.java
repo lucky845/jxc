@@ -50,7 +50,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
                     parentMap.put("state", "open");
                 }
                 parentMap.put("iconCls", "goods-type");
-                parentMap.put("attributes", new HashMap<>().put("state", goodsType.getGoodsTypeState()));
+                HashMap<Object, Object> map = new HashMap<>();
+                map.put("state", goodsType.getGoodsTypeState());
+                parentMap.put("attributes", map);
                 // 获取根节点下的所有子节点
                 List<Map<String, Object>> childrenList = getChilren(goodsType.getGoodsTypeId(), allGoodsTypeList);
                 // 给根节点设置子节点
@@ -84,7 +86,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
                     parentMap.put("state", "open");
                 }
                 parentMap.put("iconCls", "goods-type");
-                parentMap.put("attributes", new HashMap<>().put("state", goodsType.getGoodsTypeState()));
+                HashMap<Object, Object> map = new HashMap<>();
+                map.put("state", goodsType.getGoodsTypeState());
+                parentMap.put("attributes", map);
                 childrenList.add(parentMap);
             }
         }
@@ -98,5 +102,16 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
             return new ArrayList<>();
         }
         return childrenList;
+    }
+
+    /**
+     * 新增分类
+     *
+     * @param goodsTypeName 商品类型名称
+     * @param pId           父id
+     */
+    @Override
+    public void save(String goodsTypeName, Integer pId) {
+
     }
 }
