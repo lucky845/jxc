@@ -18,4 +18,14 @@ public interface GoodsService {
      * @param goodsTypeId 商品类别ID
      */
     Map<String, Object> listInventory(Integer page, Integer rows, String codeOrName, Integer goodsTypeId);
+
+    /**
+     * 分页查询商品信息
+     *
+     * @param page        当前页
+     * @param rows        每页显示条数
+     * @param goodsName   商品名称
+     * @param goodsTypeId 商品类别ID
+     */
+    Map<String, Object> list(Integer page, Integer rows, String goodsName, Integer goodsTypeId);
 }

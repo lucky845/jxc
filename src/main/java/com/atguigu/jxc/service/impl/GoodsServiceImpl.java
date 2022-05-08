@@ -68,4 +68,27 @@ public class GoodsServiceImpl implements GoodsService {
         retMap.put("rows", goodsList);
         return retMap;
     }
+
+    /**
+     * 分页查询商品信息
+     *
+     * @param page        当前页
+     * @param rows        每页显示条数
+     * @param goodsName   商品名称
+     * @param goodsTypeId 商品类别ID
+     */
+    @Override
+    public Map<String, Object> list(Integer page, Integer rows, String goodsName, Integer goodsTypeId) {
+        Map<String, Object> retMap = new HashMap<>();
+        int total = goodsDao.getGoodsCount(goodsName, goodsTypeId);
+        page = page == 0 ? 1 : page;
+        int offSet = (page - 1) * rows;
+        List<Goods> goodsList = goodsDao.getGoodsList(offSet, rows, goodsName, goodsTypeId);
+
+        logService.save(new Log(Log.SELECT_ACTION, "分页查询所有商品信息"));
+
+        retMap.put("total", total);
+        retMap.put("rows", goodsList);
+        return retMap;
+    }
 }
