@@ -35,4 +35,11 @@ public interface SupplierDao {
      * @param supplier 供应商信息
      */
     void addSupplier(Supplier supplier);
+
+    /**
+     * 删除供应商
+     *
+     * @param idArray 供应商id
+     */
+    void delete(@Param("idArray") String[] idArray);
 }

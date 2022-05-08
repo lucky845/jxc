@@ -61,4 +61,14 @@
                 #{address},
                 #{remarks})
     </insert>
+
+    <delete id="delete">
+        delete
+        from t_supplier
+        <where>
+            <foreach collection="idArray" item="id" separator=",">
+                supplier_id = #{id}
+            </foreach>
+        </where>
+    </delete>
 </mapper>

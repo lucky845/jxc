@@ -21,4 +21,11 @@ public interface SupplierService {
      * @param supplier 供应商信息
      */
     void save(Supplier supplier);
+
+    /**
+     * 删除供应商
+     *
+     * @param ids 供应商id
+     */
+    void delete(String ids);
 }

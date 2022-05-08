@@ -49,5 +49,16 @@ public class SupplierController {
         return new ServiceVO(100, "请求成功", null);
     }
 
+    /**
+     * 删除供应商
+     *
+     * @param ids 供应商id
+     */
+    @ResponseBody
+    @PostMapping("/delete")
+    public ServiceVO delete(String ids) {
+        supplierService.delete(ids);
+        return new ServiceVO(100, "请求成功", null);
+    }
 
 }

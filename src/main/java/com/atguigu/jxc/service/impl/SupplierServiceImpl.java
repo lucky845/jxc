@@ -62,4 +62,15 @@ public class SupplierServiceImpl implements SupplierService {
         }
 
     }
+
+    /**
+     * 删除供应商
+     *
+     * @param ids 供应商id
+     */
+    @Override
+    public void delete(String ids) {
+        String[] idArray = ids.split(",");
+        supplierDao.delete(idArray);
+    }
 }
