@@ -46,4 +46,21 @@ public class CustomerServiceImpl implements CustomerService {
         retMap.put("rows", customerList);
         return retMap;
     }
+
+    /**
+     * 添加或修改客户信息
+     *
+     * @param customer 客户信息
+     */
+    @Override
+    public void save(Customer customer) {
+        if (customer.getCustomerId() != null) {
+            customerDao.update(customer);
+            logService.save(new Log(Log.UPDATE_ACTION, "修改客户信息"));
+        } else {
+            customerDao.addCustomer(customer);
+            logService.save(new Log(Log.INSERT_ACTION, "新增客户信息"));
+        }
+
+    }
 }

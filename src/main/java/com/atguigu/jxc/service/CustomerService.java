@@ -1,5 +1,7 @@
 package com.atguigu.jxc.service;
 
+import com.atguigu.jxc.entity.Customer;
+
 import java.util.Map;
 
 public interface CustomerService {
@@ -12,4 +14,11 @@ public interface CustomerService {
      * @param customerName 客户名称
      */
     Map<String, Object> list(Integer page, Integer rows, String customerName);
+
+    /**
+     * 添加或修改客户信息
+     *
+     * @param customer 客户信息
+     */
+    void save(Customer customer);
 }

@@ -11,6 +11,37 @@
         <result column="remarks" property="remarks"/>
     </resultMap>
 
+    <insert id="addCustomer">
+        insert into t_customer
+        values (null,
+                #{customerName},
+                #{contacts},
+                #{phoneNumber},
+                #{address},
+                #{remarks})
+    </insert>
+
+    <update id="update">
+        update t_customer
+        <set>
+            <if test="customerName != null and customerName != ''">
+                customer_name = #{customerName}
+            </if>
+            <if test="contacts != null and contacts != ''">
+                ,contacts = #{contacts}
+            </if>
+            <if test="phoneNumber != null and phoneNumber != ''">
+                ,phone_number = #{phoneNumber}
+            </if>
+            <if test="address != null and address != ''">
+                ,address = #{address}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                ,remarks = #{remarks}
+            </if>
+        </set>
+    </update>
+
     <select id="getCustomerCount" resultType="java.lang.Integer">
         select
         count(*)

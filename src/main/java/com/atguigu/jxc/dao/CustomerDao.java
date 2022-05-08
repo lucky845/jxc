@@ -23,4 +23,18 @@ public interface CustomerDao {
      */
     List<Customer> getCustomerList(@Param("offset") int offset, @Param("rows") Integer rows, @Param("customerName") String customerName);
 
+    /**
+     * 修改客户信息
+     *
+     * @param customer 客户信息
+     */
+    void update(Customer customer);
+
+    /**
+     * 新增客户信息
+     *
+     * @param customer 客户信息
+     */
+    void addCustomer(Customer customer);
+
 }

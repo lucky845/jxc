@@ -1,5 +1,7 @@
 package com.atguigu.jxc.controller;
 
+import com.atguigu.jxc.domain.ServiceVO;
+import com.atguigu.jxc.entity.Customer;
 import com.atguigu.jxc.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,5 +34,18 @@ public class CustomerController {
     public Map<String, Object> list(Integer page, Integer rows, String customerName) {
         return customerService.list(page, rows, customerName);
     }
+
+    /**
+     * 客户添加或修改
+     *
+     * @param customer 客户信息
+     */
+    @ResponseBody
+    @PostMapping("/save")
+    public ServiceVO save(Customer customer) {
+        customerService.save(customer);
+        return new ServiceVO(100, "请求成功", null);
+    }
+
 
 }
