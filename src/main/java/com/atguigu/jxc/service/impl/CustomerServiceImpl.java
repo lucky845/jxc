@@ -63,4 +63,16 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
     }
+
+    /**
+     * 删除客户信息
+     *
+     * @param ids 客户信息id
+     */
+    @Override
+    public void delete(String ids) {
+        String[] idArray = ids.split(",");
+        customerDao.delete(idArray);
+        logService.save(new Log(Log.DELETE_ACTION, "删除客户信息"));
+    }
 }

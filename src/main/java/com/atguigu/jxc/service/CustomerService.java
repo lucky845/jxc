@@ -21,4 +21,11 @@ public interface CustomerService {
      * @param customer 客户信息
      */
     void save(Customer customer);
+
+    /**
+     * 删除客户信息
+     *
+     * @param ids 客户信息id
+     */
+    void delete(String ids);
 }

@@ -37,4 +37,10 @@ public interface CustomerDao {
      */
     void addCustomer(Customer customer);
 
+    /**
+     * 删除客户信息
+     *
+     * @param idArray 客户id
+     */
+    void delete(@Param("idArray") String[] idArray);
 }

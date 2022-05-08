@@ -40,7 +40,18 @@
                 ,remarks = #{remarks}
             </if>
         </set>
+        where customer_id = #{customerId}
     </update>
+
+    <delete id="delete">
+        delete
+        from t_customer
+        <where>
+            <foreach collection="idArray" item="id" separator=",">
+                customer_id = #{id}
+            </foreach>
+        </where>
+    </delete>
 
     <select id="getCustomerCount" resultType="java.lang.Integer">
         select

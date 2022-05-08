@@ -47,5 +47,15 @@ public class CustomerController {
         return new ServiceVO(100, "请求成功", null);
     }
 
-
+    /**
+     * 删除客户信息
+     *
+     * @param ids 客户信息id
+     */
+    @ResponseBody
+    @PostMapping("/delete")
+    public ServiceVO delete(String ids) {
+        customerService.delete(ids);
+        return new ServiceVO(100, "请求成功", null);
+    }
 }
