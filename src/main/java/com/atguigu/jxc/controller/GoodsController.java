@@ -1,20 +1,20 @@
 package com.atguigu.jxc.controller;
 
 import com.atguigu.jxc.domain.ServiceVO;
-import com.atguigu.jxc.entity.Goods;
 import com.atguigu.jxc.service.GoodsService;
-import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
 /**
  * @description 商品信息Controller
  */
+@Controller
 public class GoodsController {
 
     @Autowired
@@ -22,12 +22,17 @@ public class GoodsController {
 
     /**
      * 分页查询商品库存信息
-     * @param page 当前页
-     * @param rows 每页显示条数
-     * @param codeOrName 商品编码或名称
+     *
+     * @param page        当前页
+     * @param rows        每页显示条数
+     * @param codeOrName  商品编码或名称
      * @param goodsTypeId 商品类别ID
-     * @return
      */
+    @ResponseBody
+    @PostMapping("/goods/listInventory")
+    public Map<String, Object> listInventory(Integer page, Integer rows, String codeOrName, Integer goodsTypeId) {
+        return goodsService.listInventory(page, rows, codeOrName, goodsTypeId);
+    }
 
 
     /**
@@ -42,6 +47,7 @@ public class GoodsController {
 
     /**
      * 生成商品编码
+     *
      * @return
      */
     @RequestMapping("/getCode")

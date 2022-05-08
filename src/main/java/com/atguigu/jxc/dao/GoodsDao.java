@@ -13,5 +13,21 @@ public interface GoodsDao {
 
     String getMaxCode();
 
+    /**
+     * 查询总记录数
+     *
+     * @param codeOrName  商品编码或名称
+     * @param goodsTypeId 商品类别id
+     */
+    int getRoleCount(@Param("codeOrName") String codeOrName, @Param("goodsTypeId") Integer goodsTypeId);
 
+    /**
+     * 查询商品分页列表
+     *
+     * @param offSet      当前页码
+     * @param rows        每页记录数
+     * @param codeOrName  商品编码或名称
+     * @param goodsTypeId 商品类别id
+     */
+    List<Goods> getGoodsList(@Param("offSet") int offSet, @Param("rows") Integer rows, @Param("codeOrName") String codeOrName, @Param("goodsTypeId") Integer goodsTypeId);
 }
