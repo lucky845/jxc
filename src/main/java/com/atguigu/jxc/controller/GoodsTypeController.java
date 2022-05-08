@@ -37,6 +37,8 @@ public class GoodsTypeController {
      * @param goodsTypeName 商品类型名称
      * @param pId           父id
      */
+    @ResponseBody
+    @PostMapping("/save")
     public ServiceVO save(String goodsTypeName, Integer pId) {
         goodsTypeService.save(goodsTypeName, pId);
         return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS, null);
