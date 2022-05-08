@@ -62,7 +62,7 @@ public class GoodsServiceImpl implements GoodsService {
         int offSet = (page - 1) * rows;
         List<Goods> goodsList = goodsDao.getGoodsList(offSet, rows, codeOrName, goodsTypeId);
 
-        logService.save(new Log(Log.SELECT_ACTION, "分页查询角色信息"));
+        logService.save(new Log(Log.SELECT_ACTION, "分页查询商品库存信息"));
 
         retMap.put("total", total);
         retMap.put("rows", goodsList);
