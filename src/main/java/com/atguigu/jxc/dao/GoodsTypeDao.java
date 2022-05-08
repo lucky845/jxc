@@ -16,4 +16,10 @@ public interface GoodsTypeDao {
      */
     List<GoodsType> getGoodsTypeList();
 
+    /**
+     * 新增分类
+     *
+     * @param goodsType 分类信息
+     */
+    void addGoodsType(GoodsType goodsType);
 }

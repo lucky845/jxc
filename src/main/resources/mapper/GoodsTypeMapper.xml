@@ -29,6 +29,14 @@
         <result column="goods_type_id" property="goodsTypeId" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <insert id="addGoodsType">
+        insert into t_goods_type
+        values (null,
+                goods_type_name,
+                goods_type_state,
+                p_id)
+    </insert>
+
     <update id="updateGoodsTypeState" parameterType="com.atguigu.jxc.entity.GoodsType">
         UPDATE t_goods_type
         SET goods_type_state = #{goodsTypeState}

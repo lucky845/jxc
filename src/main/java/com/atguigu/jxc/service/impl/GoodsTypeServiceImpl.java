@@ -112,6 +112,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
      */
     @Override
     public void save(String goodsTypeName, Integer pId) {
-
+        // 因为新添加,所以一定是叶子节点
+        GoodsType goodsType = new GoodsType(goodsTypeName, 0, pId);
+        goodsTypeDao.addGoodsType(goodsType);
+        logService.save(new Log(Log.INSERT_ACTION, "新增商品分类信息"));
     }
 }
