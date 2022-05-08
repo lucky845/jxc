@@ -72,5 +72,6 @@ public class SupplierServiceImpl implements SupplierService {
     public void delete(String ids) {
         String[] idArray = ids.split(",");
         supplierDao.delete(idArray);
+        logService.save(new Log(Log.DELETE_ACTION, "删除供应商信息"));
     }
 }
