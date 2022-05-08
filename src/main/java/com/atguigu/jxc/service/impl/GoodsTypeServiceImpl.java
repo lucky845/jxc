@@ -2,6 +2,7 @@ package com.atguigu.jxc.service.impl;
 
 import com.atguigu.jxc.dao.GoodsTypeDao;
 import com.atguigu.jxc.entity.GoodsType;
+import com.atguigu.jxc.entity.Log;
 import com.atguigu.jxc.service.GoodsTypeService;
 import com.atguigu.jxc.service.LogService;
 import com.google.gson.Gson;
@@ -57,6 +58,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
             }
         }
         retList.add(parentMap);
+
+        logService.save(new Log(Log.SELECT_ACTION, "查询所有分类树"));
+
         return new Gson().toJson(retList);
     }
 
