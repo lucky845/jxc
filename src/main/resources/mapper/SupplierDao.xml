@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.jxc.dao.SupplierDao">
+
+    <resultMap id="BaseResultMap" type="com.atguigu.jxc.entity.Supplier">
+        <result column="supplier_id" property="supplierId"/>
+        <result column="supplier_name" property="supplierName"/>
+        <result column="contacts" property="contacts"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="address" property="address"/>
+        <result column="remarks" property="remarks"/>
+    </resultMap>
+
+    <select id="getSupplierCount" resultType="java.lang.Integer">
+        select count(*) from t_supplier
+        <where>
+            <if test="supplierName != null and supplierName != ''">
+                supplier_name like CONCAT('%', #{supplierName} ,'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getSupplierList" resultMap="BaseResultMap">
+        select *
+        from t_supplier
+        <where>
+            <if test="supplierName != null and supplierName != ''">
+                supplier_name like CONCAT('%', #{supplierName} ,'%')
+            </if>
+        </where>
+    </select>
+</mapper>
