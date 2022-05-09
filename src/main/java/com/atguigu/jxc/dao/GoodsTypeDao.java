@@ -1,6 +1,7 @@
 package com.atguigu.jxc.dao;
 
 import com.atguigu.jxc.entity.GoodsType;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,4 +23,11 @@ public interface GoodsTypeDao {
      * @param goodsType 分类信息
      */
     void addGoodsType(GoodsType goodsType);
+
+    /**
+     * 删除商品分类
+     *
+     * @param goodsTypeId 商品分类id
+     */
+    void delete(@Param("goodsTypeId") Integer goodsTypeId);
 }

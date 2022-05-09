@@ -43,6 +43,12 @@
         WHERE goods_type_id = #{goodsTypeId}
     </update>
 
+    <delete id="delete">
+        delete
+        from t_goods_type
+        where goods_type_id = #{goodsTypeId}
+    </delete>
+
     <select id="getGoodsTypeList" resultMap="BaseResultMap">
         select *
         from t_goods_type

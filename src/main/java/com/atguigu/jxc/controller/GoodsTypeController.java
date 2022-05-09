@@ -41,7 +41,19 @@ public class GoodsTypeController {
     @PostMapping("/save")
     public ServiceVO save(String goodsTypeName, Integer pId) {
         goodsTypeService.save(goodsTypeName, pId);
-        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS, null);
+        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
+    }
+
+    /**
+     * 删除分类
+     *
+     * @param goodsTypeId 商品分类id
+     */
+    @ResponseBody
+    @PostMapping("/delete")
+    public ServiceVO delete(Integer goodsTypeId) {
+        goodsTypeService.delete(goodsTypeId);
+        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
     }
 
 }

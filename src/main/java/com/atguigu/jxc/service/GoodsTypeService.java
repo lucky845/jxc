@@ -14,4 +14,12 @@ public interface GoodsTypeService {
      * @param pId           父id
      */
     void save(String goodsTypeName, Integer pId);
+
+    /**
+     * 删除分类
+     *
+     * @param goodsTypeId 商品分类id
+     */
+    void delete(Integer goodsTypeId);
+
 }

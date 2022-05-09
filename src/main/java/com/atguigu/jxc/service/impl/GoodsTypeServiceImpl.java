@@ -112,9 +112,62 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
      */
     @Override
     public void save(String goodsTypeName, Integer pId) {
+        // 如果父节点下原来没有子节点，现在增加了一个子节点，就需要改变父节点的状态
+        int count = 0;
+        GoodsType goodsType = null;
+        List<GoodsType> goodsTypeList = goodsTypeDao.getGoodsTypeList();
+        for (GoodsType type : goodsTypeList) {
+            if (type.getPId().equals(pId)) {
+                count++;
+            }
+            if (type.getGoodsTypeId().equals(pId)) {
+                goodsType = type;
+            }
+        }
+        if (goodsType != null && count == 0) {
+            goodsType.setGoodsTypeState(1);
+            goodsTypeDao.updateGoodsTypeState(goodsType);
+        }
         // 因为新添加,所以一定是叶子节点
-        GoodsType goodsType = new GoodsType(goodsTypeName, 0, pId);
-        goodsTypeDao.addGoodsType(goodsType);
+        GoodsType goodsType1 = new GoodsType(goodsTypeName, 0, pId);
+        goodsTypeDao.addGoodsType(goodsType1);
         logService.save(new Log(Log.INSERT_ACTION, "新增商品分类信息"));
+    }
+
+    /**
+     * 删除分类
+     *
+     * @param goodsTypeId 商品分类id
+     */
+    @Override
+    public void delete(Integer goodsTypeId) {
+        int count = 0;
+        GoodsType goodsType1 = null;
+        GoodsType goodsType2 = null;
+        // 先判断当前分类id下面是否有其他节点
+        List<GoodsType> goodsTypeList = goodsTypeDao.getGoodsTypeList();
+        for (GoodsType goodsType : goodsTypeList) {
+            if (goodsType.getPId().equals(goodsTypeId)) {
+                // 下面至少有一个子节点，禁止删除（已经在前端实现
+                count++;
+            }
+            // 先查询到当前的goodsType
+            if (goodsType.getGoodsTypeId().equals(goodsTypeId)) {
+                // 再查询父节点对象
+                goodsType1 = goodsType;
+            }
+            if (goodsType1 != null && goodsType1.getPId().equals(goodsTypeId)) {
+                goodsType2 = goodsType;
+            }
+        }
+
+        // 再判断父节点下面是不是只有当前节点，如果只有当前节点，那么就需要把父节点改为叶子节点
+        if (goodsType2 != null && count == 1) {
+            goodsType2.setGoodsTypeState(0);
+        }
+        goodsTypeDao.delete(goodsTypeId);
+
+        logService.save(new Log(Log.DELETE_ACTION, "删除商品分类信息"));
+
     }
 }
