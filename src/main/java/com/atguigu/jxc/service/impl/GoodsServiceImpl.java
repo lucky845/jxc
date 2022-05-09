@@ -148,12 +148,34 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Map<String, Object> getNoInventoryQuantity(Integer page, Integer rows, String nameOrCode) {
         Map<String, Object> retMap = new HashMap<>();
-        int total = goodsDao.getNoInventoryQuantityCount(nameOrCode);
+        int total = goodsDao.getNoInventoryQuantityCount(nameOrCode, 0);
         page = page == 0 ? 1 : page;
         int offSet = (page - 1) * rows;
-        List<Goods> goodsList = goodsDao.getNoInventoryQuantityList(offSet, rows, nameOrCode);
+        List<Goods> goodsList = goodsDao.getNoInventoryQuantityList(offSet, rows, nameOrCode, 0);
 
         logService.save(new Log(Log.SELECT_ACTION, "分页查询无库存商品信息"));
+
+        retMap.put("total", total);
+        retMap.put("rows", goodsList);
+        return retMap;
+    }
+
+    /**
+     * 分页查询有库存商品信息
+     *
+     * @param page       当前页
+     * @param rows       每页显示条数
+     * @param nameOrCode 商品名称或商品编码
+     */
+    @Override
+    public Map<String, Object> getHasInventoryQuantity(Integer page, Integer rows, String nameOrCode) {
+        Map<String, Object> retMap = new HashMap<>();
+        int total = goodsDao.getHasInventoryQuantityCount(nameOrCode, 0);
+        page = page == 0 ? 1 : page;
+        int offSet = (page - 1) * rows;
+        List<Goods> goodsList = goodsDao.getHasInventoryQuantityList(offSet, rows, nameOrCode, 0);
+
+        logService.save(new Log(Log.SELECT_ACTION, "分页查询有库存商品信息"));
 
         retMap.put("total", total);
         retMap.put("rows", goodsList);
