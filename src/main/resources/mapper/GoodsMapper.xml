@@ -20,6 +20,8 @@
         <result column="state" property="state"/>
         <result column="goods_unit" property="goodsUnit"/>
         <result column="goods_type_id" property="goodsTypeId"/>
+        <result column="goods_type_name" property="goodsTypeName"/>
+        <result column="goods_num" property="saleTotal"/>
     </resultMap>
 
     <select id="getMaxCode" resultType="java.lang.String">
@@ -57,13 +59,16 @@
         g.purchasing_price,
         g.remarks,
         g.selling_price,
-        t.goods_type_state as state,
+        g.state,
         g.goods_unit,
         g.goods_type_id,
-        t.goods_type_name
+        t.goods_type_name,
+        s.goods_num
         from t_goods as g
         left join t_goods_type as t
         on g.goods_type_id = t.goods_type_id
+        left join t_sale_list_goods as s
+        on g.goods_type_id = s.goods_type_id
         <where>
             <if test="codeOrName != null and codeOrName != ''">
                 or g.goods_code like CONCAT('%', #{codeOrName} ,'%')
