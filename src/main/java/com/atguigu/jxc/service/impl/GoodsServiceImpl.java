@@ -127,11 +127,36 @@ public class GoodsServiceImpl implements GoodsService {
     public void delete(Integer goodsId) {
         // 要判断商品状态(入库)、有进货和销售单据的不能删除
         Goods goods = goodsDao.getGoods(goodsId);
+        logService.save(new Log(Log.SELECT_ACTION, "查询商品信息"));
         Integer saleTotal = saleListGoodsDao.getSaleListTotalByGoodsId(goodsId);
+        logService.save(new Log(Log.SELECT_ACTION, "查询销售单据数"));
         Integer purchaseTotal = purchaseListGoodsDao.getPurchaseListTotalByGoodsId(goodsId);
+        logService.save(new Log(Log.SELECT_ACTION, "查询进货单据数"));
         if (goods.getState() != 1 && saleTotal.equals(0) && purchaseTotal.equals(0)) {
             goodsDao.delete(goodsId);
+            logService.save(new Log(Log.DELETE_ACTION, "删除商品信息"));
         }
+    }
 
+    /**
+     * 分页查询无库存商品信息
+     *
+     * @param page       当前页
+     * @param rows       每页显示条数
+     * @param nameOrCode 商品名称或商品编码
+     */
+    @Override
+    public Map<String, Object> getNoInventoryQuantity(Integer page, Integer rows, String nameOrCode) {
+        Map<String, Object> retMap = new HashMap<>();
+        int total = goodsDao.getNoInventoryQuantityCount(nameOrCode);
+        page = page == 0 ? 1 : page;
+        int offSet = (page - 1) * rows;
+        List<Goods> goodsList = goodsDao.getNoInventoryQuantityList(offSet, rows, nameOrCode);
+
+        logService.save(new Log(Log.SELECT_ACTION, "分页查询无库存商品信息"));
+
+        retMap.put("total", total);
+        retMap.put("rows", goodsList);
+        return retMap;
     }
 }

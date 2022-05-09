@@ -90,11 +90,16 @@ public class GoodsController {
 
     /**
      * 分页查询无库存商品信息
-     * @param page 当前页
-     * @param rows 每页显示条数
+     *
+     * @param page       当前页
+     * @param rows       每页显示条数
      * @param nameOrCode 商品名称或商品编码
-     * @return
      */
+    @ResponseBody
+    @PostMapping("/getNoInventoryQuantity")
+    public Map<String, Object> getNoInventoryQuantity(Integer page, Integer rows, String nameOrCode) {
+        return goodsService.getNoInventoryQuantity(page, rows, nameOrCode);
+    }
 
 
     /**

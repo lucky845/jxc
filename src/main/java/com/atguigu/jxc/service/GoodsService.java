@@ -43,4 +43,13 @@ public interface GoodsService {
      * @param goodsId 商品id
      */
     void delete(Integer goodsId);
+
+    /**
+     * 分页查询无库存商品信息
+     *
+     * @param page       当前页
+     * @param rows       每页显示条数
+     * @param nameOrCode 商品名称或商品编码
+     */
+    Map<String, Object> getNoInventoryQuantity(Integer page, Integer rows, String nameOrCode);
 }

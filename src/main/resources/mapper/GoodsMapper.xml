@@ -161,5 +161,52 @@
         where goods_id = #{goodsId}
     </select>
 
+    <select id="getNoInventoryQuantityCount" resultType="java.lang.Integer">
+        select count(*) from t_goods
+        <where>
+            <if test="nameOrCode != null and nameOrCode != ''">
+                or g.goods_code like CONCAT('%', #{nameOrCode} ,'%')
+            </if>
+            <if test="nameOrCode != null and nameOrCode != ''">
+                or g.goods_name like CONCAT('%', #{nameOrCode} ,'%')
+            </if>
+            and inventory_quantity = 0
+        </where>
+    </select>
+
+    <select id="getNoInventoryQuantityList" resultMap="BaseResultMap">
+        select g.goods_id,
+        g.goods_code,
+        g.goods_name,
+        g.inventory_quantity,
+        g.last_purchasing_price,
+        g.min_num,
+        g.goods_model,
+        g.goods_producer,
+        g.purchasing_price,
+        g.remarks,
+        g.selling_price,
+        g.state,
+        g.goods_unit,
+        g.goods_type_id,
+        t.goods_type_name,
+        s.goods_num
+        from t_goods as g
+        left join t_goods_type as t
+        on g.goods_type_id = t.goods_type_id
+        left join t_sale_list_goods as s
+        on g.goods_type_id = s.goods_type_id
+        <where>
+            <if test="nameOrCode != null and nameOrCode != ''">
+                or g.goods_code like CONCAT('%', #{nameOrCode} ,'%')
+            </if>
+            <if test="nameOrCode != null and nameOrCode != ''">
+                or g.goods_name like CONCAT('%', #{nameOrCode} ,'%')
+            </if>
+            and inventory_quantity = 0
+        </where>
+        LIMIT #{offSet}, #{rows}
+    </select>
+
 
 </mapper>

@@ -58,4 +58,20 @@ public interface GoodsDao {
      * @param goodsId 商品id
      */
     void delete(@Param("goodsId") Integer goodsId);
+
+    /**
+     * 查询无库存商品的总件数
+     *
+     * @param nameOrCode 商品名称或编码
+     */
+    int getNoInventoryQuantityCount(@Param("nameOrCode") String nameOrCode);
+
+    /**
+     * 查询无库存商品集合
+     *
+     * @param offSet     当前页码
+     * @param rows       每页记录数
+     * @param nameOrCode 商品名称或编码
+     */
+    List<Goods> getNoInventoryQuantityList(@Param("offSet") int offSet, @Param("rows") Integer rows, @Param("nameOrCode") String nameOrCode);
 }
