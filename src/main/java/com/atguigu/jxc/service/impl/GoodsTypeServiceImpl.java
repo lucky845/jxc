@@ -127,6 +127,7 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
         if (goodsType != null && count == 0) {
             goodsType.setGoodsTypeState(1);
             goodsTypeDao.updateGoodsTypeState(goodsType);
+            logService.save(new Log(Log.UPDATE_ACTION, "修改商品分类信息"));
         }
         // 因为新添加,所以一定是叶子节点
         GoodsType goodsType1 = new GoodsType(goodsTypeName, 0, pId);
@@ -147,16 +148,20 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
         // 先判断当前分类id下面是否有其他节点
         List<GoodsType> goodsTypeList = goodsTypeDao.getGoodsTypeList();
         for (GoodsType goodsType : goodsTypeList) {
-            if (goodsType.getPId().equals(goodsTypeId)) {
+            // 先查询到当前的goodsType
+            if (goodsType.getGoodsTypeId().equals(goodsTypeId)) {
+                goodsType1 = goodsType;
+            }
+        }
+        for (GoodsType goodsType : goodsTypeList) {
+            if (goodsType1 != null && goodsType1.getPId().equals(goodsType.getPId())) {
                 // 下面至少有一个子节点，禁止删除（已经在前端实现
                 count++;
             }
-            // 先查询到当前的goodsType
-            if (goodsType.getGoodsTypeId().equals(goodsTypeId)) {
-                // 再查询父节点对象
-                goodsType1 = goodsType;
-            }
-            if (goodsType1 != null && goodsType1.getPId().equals(goodsTypeId)) {
+        }
+        for (GoodsType goodsType : goodsTypeList) {
+            // 再查询父节点对象
+            if (goodsType1 != null && goodsType1.getPId().equals(goodsType.getGoodsTypeId())) {
                 goodsType2 = goodsType;
             }
         }
@@ -164,6 +169,8 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
         // 再判断父节点下面是不是只有当前节点，如果只有当前节点，那么就需要把父节点改为叶子节点
         if (goodsType2 != null && count == 1) {
             goodsType2.setGoodsTypeState(0);
+            goodsTypeDao.updateGoodsTypeState(goodsType2);
+            logService.save(new Log(Log.UPDATE_ACTION, "修改商品分类信息"));
         }
         goodsTypeDao.delete(goodsTypeId);
 

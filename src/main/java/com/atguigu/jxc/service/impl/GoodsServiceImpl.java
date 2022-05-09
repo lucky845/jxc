@@ -91,4 +91,14 @@ public class GoodsServiceImpl implements GoodsService {
         retMap.put("rows", goodsList);
         return retMap;
     }
+
+    /**
+     * 商品添加或修改
+     *
+     * @param goods 商品对象
+     */
+    @Override
+    public void save(Goods goods) {
+
+    }
 }

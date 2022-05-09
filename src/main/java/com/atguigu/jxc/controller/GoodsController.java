@@ -1,6 +1,8 @@
 package com.atguigu.jxc.controller;
 
 import com.atguigu.jxc.domain.ServiceVO;
+import com.atguigu.jxc.domain.SuccessCode;
+import com.atguigu.jxc.entity.Goods;
 import com.atguigu.jxc.service.GoodsService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,9 +65,15 @@ public class GoodsController {
 
     /**
      * 添加或修改商品信息
+     *
      * @param goods 商品信息实体
-     * @return
      */
+    @ResponseBody
+    @PostMapping("/save")
+    public ServiceVO save(Goods goods) {
+        goodsService.save(goods);
+        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
+    }
 
     /**
      * 删除商品信息

@@ -1,6 +1,7 @@
 package com.atguigu.jxc.service;
 
 import com.atguigu.jxc.domain.ServiceVO;
+import com.atguigu.jxc.entity.Goods;
 
 import java.util.Map;
 
@@ -28,4 +29,11 @@ public interface GoodsService {
      * @param goodsTypeId 商品类别ID
      */
     Map<String, Object> list(Integer page, Integer rows, String goodsName, Integer goodsTypeId);
+
+    /**
+     * 商品添加或修改
+     *
+     * @param goods 商品对象
+     */
+    void save(Goods goods);
 }
