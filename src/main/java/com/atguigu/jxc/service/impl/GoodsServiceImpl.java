@@ -99,6 +99,14 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public void save(Goods goods) {
-
+        if (goods.getGoodsId() != null) {
+            // 修改
+            goodsDao.updateGoods(goods);
+        } else {
+            // 添加
+            goods.setState(0);
+            goods.setInventoryQuantity(0);
+            goodsDao.addGoods(goods);
+        }
     }
 }

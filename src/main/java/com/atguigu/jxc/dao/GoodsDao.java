@@ -30,4 +30,18 @@ public interface GoodsDao {
      * @param goodsTypeId 商品类别id
      */
     List<Goods> getGoodsList(@Param("offSet") int offSet, @Param("rows") Integer rows, @Param("codeOrName") String codeOrName, @Param("goodsTypeId") Integer goodsTypeId);
+
+    /**
+     * 修改商品信息
+     *
+     * @param goods 商品信息
+     */
+    void updateGoods(Goods goods);
+
+    /**
+     * 添加商品信息
+     *
+     * @param goods 商品信息
+     */
+    void addGoods(Goods goods);
 }

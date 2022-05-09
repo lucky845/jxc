@@ -57,7 +57,8 @@ public class GoodsController {
      *
      * @return
      */
-    @RequestMapping("/getCode")
+    @ResponseBody
+    @PostMapping("/getCode")
     @RequiresPermissions(value = "商品管理")
     public ServiceVO getCode() {
         return goodsService.getCode();

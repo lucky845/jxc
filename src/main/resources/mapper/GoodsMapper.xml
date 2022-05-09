@@ -24,6 +24,72 @@
         <result column="goods_num" property="saleTotal"/>
     </resultMap>
 
+    <insert id="addGoods">
+        insert into t_goods(goods_code,
+                            goods_name,
+                            inventory_quantity,
+                            min_num,
+                            goods_model,
+                            goods_producer,
+                            purchasing_price,
+                            last_purchasing_price,
+                            remarks,
+                            selling_price,
+                            state,
+                            goods_unit,
+                            goods_type_id)
+        values (#{goodsCode},
+                #{goodsName},
+                #{inventoryQuantity},
+                #{minNum},
+                #{goodsModel},
+                #{goodsProducer},
+                #{purchasingPrice},
+                #{lastPurchasingPrice},
+                #{remarks},
+                #{sellingPrice},
+                #{state},
+                #{goodsUnit},
+                #{goodsTypeId})
+    </insert>
+
+    <update id="updateGoods">
+        update t_goods
+        <set>
+            <if test="goodsCode != null and goodsCode != ''">
+                goods_code = #{goodsCode}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                ,goods_name = #{goodsName}
+            </if>
+            <if test="lastPurchasingPrice != null and lastPurchasingPrice != ''">
+                ,last_purchasing_price = #{lastPurchasingPrice}
+            </if>
+            <if test="minNum != null and minNum != ''">
+                ,min_num = #{minNum}
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                ,goods_model = #{goodsModel}
+            </if>
+            <if test="goodsProducer != null and goodsProducer != ''">
+                ,goods_producer = #{goodsProducer}
+            </if>
+            <if test="purchasingPrice != null and purchasingPrice != ''">
+                ,purchasing_price = #{purchasingPrice}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                ,remarks = #{remarks}
+            </if>
+            <if test="sellingPrice != null and sellingPrice != ''">
+                ,selling_price = #{sellingPrice}
+            </if>
+            <if test="goodsUnit != null and goodsUnit != ''">
+                ,goods_unit = #{goodsUnit}
+            </if>
+        </set>
+        where goods_id = #{goodsId}
+    </update>
+
     <select id="getMaxCode" resultType="java.lang.String">
         SELECT MAX(goods_code)
         FROM t_goods
