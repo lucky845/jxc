@@ -78,9 +78,15 @@ public class GoodsController {
 
     /**
      * 删除商品信息
+     *
      * @param goodsId 商品ID
-     * @return
      */
+    @ResponseBody
+    @PostMapping("/delete")
+    public ServiceVO delete(Integer goodsId) {
+        goodsService.delete(goodsId);
+        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
+    }
 
     /**
      * 分页查询无库存商品信息

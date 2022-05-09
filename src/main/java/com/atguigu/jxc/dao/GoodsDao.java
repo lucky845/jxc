@@ -44,4 +44,18 @@ public interface GoodsDao {
      * @param goods 商品信息
      */
     void addGoods(Goods goods);
+
+    /**
+     * 查询商品信息
+     *
+     * @param goodsId 商品id
+     */
+    Goods getGoods(@Param("goodsId") Integer goodsId);
+
+    /**
+     * 删除商品信息
+     *
+     * @param goodsId 商品id
+     */
+    void delete(@Param("goodsId") Integer goodsId);
 }

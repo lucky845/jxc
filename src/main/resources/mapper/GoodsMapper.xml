@@ -90,6 +90,12 @@
         where goods_id = #{goodsId}
     </update>
 
+    <delete id="delete">
+        delete
+        from t_goods
+        where goods_id = #{goodsId}
+    </delete>
+
     <select id="getMaxCode" resultType="java.lang.String">
         SELECT MAX(goods_code)
         FROM t_goods
@@ -147,6 +153,12 @@
             </if>
         </where>
         LIMIT #{offSet}, #{rows}
+    </select>
+
+    <select id="getGoods" resultMap="BaseResultMap">
+        select *
+        from t_goods
+        where goods_id = #{goodsId}
     </select>
 
 

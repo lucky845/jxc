@@ -34,4 +34,6 @@ public interface PurchaseListGoodsDao {
     List<PurchaseListGoods> getPurchaseListGoods(@Param("purchaseListId") Integer purchaseListId,
                                                  @Param("goodsTypeId") Integer goodsTypeId,
                                                  @Param("codeOrName") String codeOrName);
+
+    Integer getPurchaseListTotalByGoodsId(@Param("goodsId") Integer goodsId);
 }

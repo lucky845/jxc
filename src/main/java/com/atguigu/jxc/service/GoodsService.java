@@ -36,4 +36,11 @@ public interface GoodsService {
      * @param goods 商品对象
      */
     void save(Goods goods);
+
+    /**
+     * 删除商品信息
+     *
+     * @param goodsId 商品id
+     */
+    void delete(Integer goodsId);
 }

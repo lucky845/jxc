@@ -38,7 +38,9 @@ public interface SaleListGoodsDao {
                                          @Param("goodsTypeId") Integer goodsTypeId,
                                          @Param("codeOrName") String codeOrName);
 
-    List<SaleData> getSaleDataByDay(@Param("sTime") String sTime,@Param("eTime") String eTime);
+    List<SaleData> getSaleDataByDay(@Param("sTime") String sTime, @Param("eTime") String eTime);
 
-    List<SaleData> getSaleDataByMonth(@Param("sTime") String sTime,@Param("eTime") String eTime);
+    List<SaleData> getSaleDataByMonth(@Param("sTime") String sTime, @Param("eTime") String eTime);
+
+    Integer getSaleListTotalByGoodsId(@Param("goodsId") Integer goodsId);
 }

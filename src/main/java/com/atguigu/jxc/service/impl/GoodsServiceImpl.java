@@ -1,6 +1,8 @@
 package com.atguigu.jxc.service.impl;
 
 import com.atguigu.jxc.dao.GoodsDao;
+import com.atguigu.jxc.dao.PurchaseListGoodsDao;
+import com.atguigu.jxc.dao.SaleListGoodsDao;
 import com.atguigu.jxc.domain.ServiceVO;
 import com.atguigu.jxc.domain.SuccessCode;
 import com.atguigu.jxc.entity.Goods;
@@ -22,6 +24,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private GoodsDao goodsDao;
+
+    @Autowired
+    private SaleListGoodsDao saleListGoodsDao;
+
+    @Autowired
+    private PurchaseListGoodsDao purchaseListGoodsDao;
 
     @Autowired
     private LogService logService;
@@ -108,5 +116,22 @@ public class GoodsServiceImpl implements GoodsService {
             goods.setInventoryQuantity(0);
             goodsDao.addGoods(goods);
         }
+    }
+
+    /**
+     * 删除商品信息
+     *
+     * @param goodsId 商品id
+     */
+    @Override
+    public void delete(Integer goodsId) {
+        // 要判断商品状态(入库)、有进货和销售单据的不能删除
+        Goods goods = goodsDao.getGoods(goodsId);
+        Integer saleTotal = saleListGoodsDao.getSaleListTotalByGoodsId(goodsId);
+        Integer purchaseTotal = purchaseListGoodsDao.getPurchaseListTotalByGoodsId(goodsId);
+        if (goods.getState() != 1 && saleTotal.equals(0) && purchaseTotal.equals(0)) {
+            goodsDao.delete(goodsId);
+        }
+
     }
 }
