@@ -95,4 +95,12 @@ public interface GoodsDao {
      */
     List<Goods> getHasInventoryQuantityList(@Param("offSet") int offSet, @Param("rows") Integer rows, @Param("nameOrCode") String nameOrCode, @Param("inventoryQuantity") int inventoryQuantity);
 
+    /**
+     * 添加商品期初库存
+     *
+     * @param goodsId           商品ID
+     * @param inventoryQuantity 库存
+     * @param purchasingPrice   成本价
+     */
+    void saveStock(@Param("goodsId") Integer goodsId, @Param("inventoryQuantity") Integer inventoryQuantity, @Param("purchasingPrice") double purchasingPrice);
 }

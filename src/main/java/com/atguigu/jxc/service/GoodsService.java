@@ -61,4 +61,13 @@ public interface GoodsService {
      * @param nameOrCode 商品名称或商品编码
      */
     Map<String, Object> getHasInventoryQuantity(Integer page, Integer rows, String nameOrCode);
+
+    /**
+     * 添加商品期初库存
+     *
+     * @param goodsId           商品ID
+     * @param inventoryQuantity 库存
+     * @param purchasingPrice   成本价
+     */
+    void saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice);
 }

@@ -181,4 +181,17 @@ public class GoodsServiceImpl implements GoodsService {
         retMap.put("rows", goodsList);
         return retMap;
     }
+
+    /**
+     * 添加商品期初库存
+     *
+     * @param goodsId           商品ID
+     * @param inventoryQuantity 库存
+     * @param purchasingPrice   成本价
+     */
+    @Override
+    public void saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice) {
+        goodsDao.saveStock(goodsId, inventoryQuantity, purchasingPrice);
+        logService.save(new Log(Log.INSERT_ACTION, "添加商品初期库存"));
+    }
 }

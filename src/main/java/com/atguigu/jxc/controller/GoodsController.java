@@ -117,11 +117,17 @@ public class GoodsController {
 
     /**
      * 添加商品期初库存
-     * @param goodsId 商品ID
+     *
+     * @param goodsId           商品ID
      * @param inventoryQuantity 库存
-     * @param purchasingPrice 成本价
-     * @return
+     * @param purchasingPrice   成本价
      */
+    @ResponseBody
+    @PostMapping("/saveStock")
+    public ServiceVO saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice) {
+        goodsService.saveStock(goodsId, inventoryQuantity, purchasingPrice);
+        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
+    }
 
     /**
      * 删除商品库存

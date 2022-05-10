@@ -90,6 +90,19 @@
         where goods_id = #{goodsId}
     </update>
 
+    <update id="saveStock">
+        update t_goods
+        <set>
+            <if test="inventoryQuantity != null and inventoryQuantity != ''">
+                inventory_quantity = #{inventoryQuantity}
+            </if>
+            <if test="purchasingPrice != null and purchasingPrice != ''">
+                ,purchasing_price = #{purchasingPrice}
+            </if>
+        </set>
+        where goods_id = #{goodsId}
+    </update>
+
     <delete id="delete">
         delete
         from t_goods
@@ -120,27 +133,11 @@
     </select>
 
     <select id="getGoodsList" resultMap="BaseResultMap">
-        select g.goods_id,
-        g.goods_code,
-        g.goods_name,
-        g.inventory_quantity,
-        g.last_purchasing_price,
-        g.min_num,
-        g.goods_model,
-        g.goods_producer,
-        g.purchasing_price,
-        g.remarks,
-        g.selling_price,
-        g.state,
-        g.goods_unit,
-        g.goods_type_id,
-        t.goods_type_name,
-        s.goods_num
+        select g.*, t.goods_type_name,s.goods_num
         from t_goods as g
-        left join t_goods_type as t
-        on g.goods_type_id = t.goods_type_id
-        left join t_sale_list_goods as s
-        on g.goods_type_id = s.goods_type_id
+        left join t_goods_type as t on g.goods_type_id = t.goods_type_id
+        left join (select goods_id, sum(goods_num) goods_num from t_sale_list_goods group by goods_id) as s on
+        g.goods_id = s.goods_id
         <where>
             <if test="codeOrName != null and codeOrName != ''">
                 or g.goods_code like CONCAT('%', #{codeOrName} ,'%')
@@ -175,27 +172,11 @@
     </select>
 
     <select id="getNoInventoryQuantityList" resultMap="BaseResultMap">
-        select g.goods_id,
-        g.goods_code,
-        g.goods_name,
-        g.inventory_quantity,
-        g.last_purchasing_price,
-        g.min_num,
-        g.goods_model,
-        g.goods_producer,
-        g.purchasing_price,
-        g.remarks,
-        g.selling_price,
-        g.state,
-        g.goods_unit,
-        g.goods_type_id,
-        t.goods_type_name,
-        s.goods_num
+        select g.*, t.goods_type_name,s.goods_num
         from t_goods as g
-        left join t_goods_type as t
-        on g.goods_type_id = t.goods_type_id
-        left join t_sale_list_goods as s
-        on g.goods_type_id = s.goods_type_id
+        left join t_goods_type as t on g.goods_type_id = t.goods_type_id
+        left join (select goods_id, sum(goods_num) goods_num from t_sale_list_goods group by goods_id) as s on
+        g.goods_id = s.goods_id
         <where>
             <if test="nameOrCode != null and nameOrCode != ''">
                 or g.goods_code like CONCAT('%', #{nameOrCode} ,'%')
@@ -222,27 +203,11 @@
     </select>
 
     <select id="getHasInventoryQuantityList" resultMap="BaseResultMap">
-        select g.goods_id,
-        g.goods_code,
-        g.goods_name,
-        g.inventory_quantity,
-        g.last_purchasing_price,
-        g.min_num,
-        g.goods_model,
-        g.goods_producer,
-        g.purchasing_price,
-        g.remarks,
-        g.selling_price,
-        g.state,
-        g.goods_unit,
-        g.goods_type_id,
-        t.goods_type_name,
-        s.goods_num
+        select g.*, t.goods_type_name,s.goods_num
         from t_goods as g
-        left join t_goods_type as t
-        on g.goods_type_id = t.goods_type_id
-        left join t_sale_list_goods as s
-        on g.goods_type_id = s.goods_type_id
+        left join t_goods_type as t on g.goods_type_id = t.goods_type_id
+        left join (select goods_id, sum(goods_num) goods_num from t_sale_list_goods group by goods_id) as s on
+        g.goods_id = s.goods_id
         <where>
             <if test="nameOrCode != null and nameOrCode != ''">
                 or g.goods_code like CONCAT('%', #{nameOrCode} ,'%')
