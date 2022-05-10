@@ -2,6 +2,8 @@ package com.atguigu.jxc.service;
 
 import com.atguigu.jxc.entity.OverflowList;
 
+import java.util.Map;
+
 public interface OverflowListGoodsService {
 
     /**
@@ -12,4 +14,11 @@ public interface OverflowListGoodsService {
      */
     void save(OverflowList overflowList, String overflowListGoodsStr);
 
+    /**
+     * 报溢单查询
+     *
+     * @param sTime 开始时间
+     * @param eTime 结束时间
+     */
+    Map<String, Object> list(String sTime, String eTime);
 }

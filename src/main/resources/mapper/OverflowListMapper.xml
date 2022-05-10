@@ -10,4 +10,10 @@
                 #{remarks},
                 #{userId})
     </insert>
+
+    <select id="list" resultType="com.atguigu.jxc.entity.OverflowList">
+        select *
+        from t_overflow_list
+        where overflow_date between #{sTime} and #{eTime}
+    </select>
 </mapper>

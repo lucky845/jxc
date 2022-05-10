@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -70,5 +71,19 @@ public class OverflowListGoodsServiceImpl implements OverflowListGoodsService {
         }
         overflowListGoodsDao.save(overflowListGoodsList);
         logService.save(new Log(Log.INSERT_ACTION, "保存报溢单信息"));
+    }
+
+    /**
+     * 报溢单查询
+     *
+     * @param sTime 开始时间
+     * @param eTime 结束时间
+     */
+    @Override
+    public Map<String, Object> list(String sTime, String eTime) {
+        Map<String, Object> retMap = new HashMap<>();
+        List<OverflowList> overflowListList = overflowListDao.list(sTime, eTime);
+        retMap.put("rows", overflowListList);
+        return retMap;
     }
 }
