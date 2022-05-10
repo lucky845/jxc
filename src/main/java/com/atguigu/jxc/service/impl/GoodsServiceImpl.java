@@ -173,12 +173,7 @@ public class GoodsServiceImpl implements GoodsService {
     public void delete(Integer goodsId) {
         // 要判断商品状态(入库)、有进货和销售单据的不能删除
         Goods goods = goodsDao.getGoods(goodsId);
-        logService.save(new Log(Log.SELECT_ACTION, "查询商品信息"));
-        Integer saleTotal = saleListGoodsDao.getSaleListTotalByGoodsId(goodsId);
-        logService.save(new Log(Log.SELECT_ACTION, "查询销售单据数"));
-        Integer purchaseTotal = purchaseListGoodsDao.getPurchaseListTotalByGoodsId(goodsId);
-        logService.save(new Log(Log.SELECT_ACTION, "查询进货单据数"));
-        if (goods.getState() != 1 && saleTotal.equals(0) && purchaseTotal.equals(0)) {
+        if (goods.getState() != 1 && goods.getState() != 2) {
             goodsDao.delete(goodsId);
             logService.save(new Log(Log.DELETE_ACTION, "删除商品信息"));
         }
@@ -239,5 +234,22 @@ public class GoodsServiceImpl implements GoodsService {
     public void saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice) {
         goodsDao.saveStock(goodsId, inventoryQuantity, purchasingPrice);
         logService.save(new Log(Log.INSERT_ACTION, "添加商品初期库存"));
+    }
+
+    /**
+     * 删除商品库存
+     *
+     * @param goodsId 商品ID
+     */
+    @Override
+    public void deleteStock(Integer goodsId) {
+        // 要判断商品状态(入库)、有进货和销售单据的不能删除
+        Goods goods = goodsDao.getGoods(goodsId);
+        if (goods.getState() != 1 && goods.getState() != 2) {
+            goods.setInventoryQuantity(0);
+            goods.setPurchasingPrice(0.0);
+            goodsDao.updateGoods(goods);
+            logService.save(new Log(Log.DELETE_ACTION, "删除商品库存信息"));
+        }
     }
 }

@@ -131,9 +131,15 @@ public class GoodsController {
 
     /**
      * 删除商品库存
+     *
      * @param goodsId 商品ID
-     * @return
      */
+    @ResponseBody
+    @PostMapping("/deleteStock")
+    public ServiceVO deleteStock(Integer goodsId) {
+        goodsService.deleteStock(goodsId);
+        return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
+    }
 
     /**
      * 查询库存报警商品信息

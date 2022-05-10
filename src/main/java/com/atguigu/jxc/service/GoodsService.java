@@ -70,4 +70,11 @@ public interface GoodsService {
      * @param purchasingPrice   成本价
      */
     void saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice);
+
+    /**
+     * 删除商品库存
+     *
+     * @param goodsId 商品ID
+     */
+    void deleteStock(Integer goodsId);
 }
