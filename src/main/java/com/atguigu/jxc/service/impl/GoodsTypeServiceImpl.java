@@ -79,7 +79,7 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
                 Map<String, Object> parentMap = new HashMap<>();
                 parentMap.put("id", goodsType.getGoodsTypeId());
                 parentMap.put("text", goodsType.getGoodsTypeName());
-                if (goodsType.getPId() == -1 || goodsType.getPId() == 1) {
+                if (goodsType.getGoodsTypeState() == 1) {
                     parentMap.put("state", "closed");
                 } else {
                     // 叶子节点
