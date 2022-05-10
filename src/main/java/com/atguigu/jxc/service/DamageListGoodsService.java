@@ -21,4 +21,11 @@ public interface DamageListGoodsService {
      * @param eTime 结束时间
      */
     Map<String, Object> list(String sTime, String eTime);
+
+    /**
+     * 查询报损单商品信息
+     *
+     * @param damageListId 报损单id
+     */
+    Map<String, Object> goodsList(Integer damageListId);
 }

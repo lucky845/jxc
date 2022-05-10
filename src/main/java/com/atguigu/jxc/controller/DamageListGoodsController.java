@@ -50,4 +50,14 @@ public class DamageListGoodsController {
         return damageListGoodsService.list(sTime, eTime);
     }
 
+    /**
+     * 查询报损单商品信息
+     *
+     * @param damageListId 报损单id
+     */
+    @PostMapping("/goodsList")
+    public Map<String, Object> goodsList(Integer damageListId) {
+        return damageListGoodsService.goodsList(damageListId);
+    }
+
 }

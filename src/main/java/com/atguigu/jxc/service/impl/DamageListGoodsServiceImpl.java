@@ -87,4 +87,17 @@ public class DamageListGoodsServiceImpl implements DamageListGoodsService {
         retMap.put("rows", damageListList);
         return retMap;
     }
+
+    /**
+     * 查询报损单商品信息
+     *
+     * @param damageListId 报损单id
+     */
+    @Override
+    public Map<String, Object> goodsList(Integer damageListId) {
+        Map<String, Object> retMap = new HashMap<>();
+        List<DamageListGoods> damageListGoodsList = damageListDao.goodsList(damageListId);
+        retMap.put("rows", damageListGoodsList);
+        return retMap;
+    }
 }
