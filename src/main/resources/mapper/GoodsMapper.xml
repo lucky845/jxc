@@ -99,6 +99,7 @@
             <if test="purchasingPrice != null and purchasingPrice != ''">
                 ,purchasing_price = #{purchasingPrice}
             </if>
+            ,state = #{state}
         </set>
         where goods_id = #{goodsId}
     </update>
@@ -108,12 +109,14 @@
         from t_goods
         where goods_id = #{goodsId}
     </delete>
-    <delete id="deleteStock">
+
+    <update id="deleteStock">
         update t_goods
         set purchasing_price   = #{purchasingPrice},
-            inventory_quantity = #{inventoryQuantity}
+            inventory_quantity = #{inventoryQuantity},
+            state              = #{state}
         where goods_id = #{goodsId}
-    </delete>
+    </update>
 
     <select id="getMaxCode" resultType="java.lang.String">
         SELECT MAX(goods_code)

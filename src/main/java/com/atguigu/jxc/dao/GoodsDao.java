@@ -100,9 +100,10 @@ public interface GoodsDao {
      *
      * @param goodsId           商品ID
      * @param inventoryQuantity 库存
+     * @param state             商品状态
      * @param purchasingPrice   成本价
      */
-    void saveStock(@Param("goodsId") Integer goodsId, @Param("inventoryQuantity") Integer inventoryQuantity, @Param("purchasingPrice") double purchasingPrice);
+    void saveStock(@Param("goodsId") Integer goodsId, @Param("inventoryQuantity") Integer inventoryQuantity, @Param("purchasingPrice") double purchasingPrice, @Param("state") Integer state);
 
     /**
      * 删除商品库存
