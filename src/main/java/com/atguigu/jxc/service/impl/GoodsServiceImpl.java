@@ -232,7 +232,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public void saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice) {
-        goodsDao.saveStock(goodsId, inventoryQuantity, purchasingPrice, 1);
+        goodsDao.saveStock(goodsId, inventoryQuantity, purchasingPrice);
         logService.save(new Log(Log.INSERT_ACTION, "添加商品初期库存"));
     }
 
@@ -248,7 +248,6 @@ public class GoodsServiceImpl implements GoodsService {
         if (goods.getState() != 1 && goods.getState() != 2) {
             goods.setInventoryQuantity(0);
             goods.setPurchasingPrice(0.0);
-            goods.setState(0);
             goodsDao.deleteStock(goods);
             logService.save(new Log(Log.DELETE_ACTION, "删除商品库存信息"));
         }
