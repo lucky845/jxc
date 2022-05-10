@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.jxc.dao.OverflowListDao">
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="overflow_list_id" keyProperty="overflowIListId">
+        insert into t_overflow_list(overflow_list_id, overflow_number, overflow_date, remarks, user_id)
+        VALUES (null,
+                #{overflowNumber},
+                #{overflowDate},
+                #{remarks},
+                #{userId})
+    </insert>
+</mapper>
