@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @author lucky845
@@ -36,6 +37,17 @@ public class DamageListGoodsController {
         damageList.setUserId(user.getUserId());
         damageListGoodsService.save(damageList, damageListGoodsStr);
         return new ServiceVO(SuccessCode.SUCCESS_CODE, SuccessCode.SUCCESS_MESS);
+    }
+
+    /**
+     * 报损单查询
+     *
+     * @param sTime 开始时间
+     * @param eTime 结束时间
+     */
+    @PostMapping("/list")
+    public Map<String, Object> list(String sTime, String eTime) {
+        return damageListGoodsService.list(sTime, eTime);
     }
 
 }

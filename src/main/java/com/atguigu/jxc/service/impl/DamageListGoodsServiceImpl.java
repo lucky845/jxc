@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -71,5 +72,19 @@ public class DamageListGoodsServiceImpl implements DamageListGoodsService {
         }
         damageListGoodsDao.save(damageListGoodsList);
         logService.save(new Log(Log.INSERT_ACTION, "保存报损单信息"));
+    }
+
+    /**
+     * 报损单查询
+     *
+     * @param sTime 开始时间
+     * @param eTime 结束时间
+     */
+    @Override
+    public Map<String, Object> list(String sTime, String eTime) {
+        Map<String, Object> retMap = new HashMap<>();
+        List<DamageList> damageListList = damageListDao.list(sTime, eTime);
+        retMap.put("rows", damageListList);
+        return retMap;
     }
 }

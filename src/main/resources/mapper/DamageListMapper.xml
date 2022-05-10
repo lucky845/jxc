@@ -10,4 +10,10 @@
                 #{remarks},
                 #{userId})
     </insert>
+
+    <select id="list" resultType="com.atguigu.jxc.entity.DamageList">
+        select *
+        from t_damage_list
+        where damage_date between #{sTime} and #{eTime}
+    </select>
 </mapper>
