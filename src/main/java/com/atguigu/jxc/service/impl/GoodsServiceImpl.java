@@ -1,17 +1,21 @@
 package com.atguigu.jxc.service.impl;
 
 import com.atguigu.jxc.dao.GoodsDao;
+import com.atguigu.jxc.dao.GoodsTypeDao;
 import com.atguigu.jxc.dao.PurchaseListGoodsDao;
 import com.atguigu.jxc.dao.SaleListGoodsDao;
 import com.atguigu.jxc.domain.ServiceVO;
 import com.atguigu.jxc.domain.SuccessCode;
 import com.atguigu.jxc.entity.Goods;
+import com.atguigu.jxc.entity.GoodsType;
 import com.atguigu.jxc.entity.Log;
 import com.atguigu.jxc.service.GoodsService;
+import com.atguigu.jxc.service.GoodsTypeService;
 import com.atguigu.jxc.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +34,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private PurchaseListGoodsDao purchaseListGoodsDao;
+
+    @Autowired
+    private GoodsTypeService goodsTypeService;
+
+    @Autowired
+    private GoodsTypeDao goodsTypeDao;
 
     @Autowired
     private LogService logService;
@@ -68,7 +78,25 @@ public class GoodsServiceImpl implements GoodsService {
         int total = goodsDao.getGoodsCount(codeOrName, goodsTypeId);
         page = page == 0 ? 1 : page;
         int offSet = (page - 1) * rows;
-        List<Goods> goodsList = goodsDao.getGoodsList(offSet, rows, codeOrName, goodsTypeId);
+        // 查询所有的子节点
+        List<Integer> childrenIdList = null;
+        List<Goods> goodsList = new ArrayList<>();
+        List<Goods> temp = new ArrayList<>();
+        if (goodsTypeId != null && goodsTypeId != 1) {
+            List<GoodsType> allGoodsTypeList = goodsTypeDao.getGoodsTypeList();
+            childrenIdList = goodsTypeService.getChildrenIdList(goodsTypeId, allGoodsTypeList);
+            if (childrenIdList.size() == 0) {
+                // 没有子节点
+                goodsList = goodsDao.getGoodsList(offSet, rows, codeOrName, goodsTypeId);
+            } else {
+                for (Integer childrenId : childrenIdList) {
+                    temp = goodsDao.getGoodsList(offSet, rows, codeOrName, childrenId);
+                    goodsList.addAll(temp);
+                }
+            }
+        } else {
+            goodsList = goodsDao.getGoodsList(offSet, rows, codeOrName, null);
+        }
 
         logService.save(new Log(Log.SELECT_ACTION, "分页查询商品库存信息"));
 
@@ -91,7 +119,25 @@ public class GoodsServiceImpl implements GoodsService {
         int total = goodsDao.getGoodsCount(goodsName, goodsTypeId);
         page = page == 0 ? 1 : page;
         int offSet = (page - 1) * rows;
-        List<Goods> goodsList = goodsDao.getGoodsList(offSet, rows, goodsName, goodsTypeId);
+        // 查询所有的子节点
+        List<Integer> childrenIdList = null;
+        List<Goods> goodsList = new ArrayList<>();
+        List<Goods> temp = new ArrayList<>();
+        if (goodsTypeId != null && goodsTypeId != 1) {
+            List<GoodsType> allGoodsTypeList = goodsTypeDao.getGoodsTypeList();
+            childrenIdList = goodsTypeService.getChildrenIdList(goodsTypeId, allGoodsTypeList);
+            if (childrenIdList.size() == 0) {
+                // 没有子节点
+                goodsList = goodsDao.getGoodsList(offSet, rows, goodsName, goodsTypeId);
+            } else {
+                for (Integer childrenId : childrenIdList) {
+                    temp = goodsDao.getGoodsList(offSet, rows, goodsName, childrenId);
+                    goodsList.addAll(temp);
+                }
+            }
+        } else {
+            goodsList = goodsDao.getGoodsList(offSet, rows, goodsName, null);
+        }
 
         logService.save(new Log(Log.SELECT_ACTION, "分页查询所有商品信息"));
 

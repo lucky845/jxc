@@ -17,7 +17,7 @@ public class GoodsType {
     private String goodsTypeName;
     private Integer pId;
     private Integer goodsTypeState;
-    private List<Map<String, Object>> childrenList;
+    private List<Map<String, GoodsType>> childrenList;
 
     public GoodsType(String goodsTypeName, Integer goodsTypeState, Integer pId) {
         this.goodsTypeName = goodsTypeName;

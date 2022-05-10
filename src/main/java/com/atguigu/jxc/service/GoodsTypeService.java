@@ -1,5 +1,9 @@
 package com.atguigu.jxc.service;
 
+import com.atguigu.jxc.entity.GoodsType;
+
+import java.util.List;
+
 public interface GoodsTypeService {
 
     /**
@@ -22,4 +26,10 @@ public interface GoodsTypeService {
      */
     void delete(Integer goodsTypeId);
 
+    /**
+     * 根据父id查询所有的子id
+     *
+     * @param parentId 父id
+     */
+    List<Integer> getChildrenIdList(Integer parentId, List<GoodsType> allGoodsTypeList);
 }

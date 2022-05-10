@@ -1,5 +1,6 @@
 package com.atguigu.jxc.service.impl;
 
+import com.atguigu.jxc.dao.GoodsDao;
 import com.atguigu.jxc.dao.GoodsTypeDao;
 import com.atguigu.jxc.entity.GoodsType;
 import com.atguigu.jxc.entity.Log;
@@ -26,6 +27,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
 
     @Autowired
     private LogService logService;
+
+    @Autowired
+    private GoodsDao goodsDao;
 
     /**
      * 查询商品所有分类
@@ -102,6 +106,38 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
             return new ArrayList<>();
         }
         return childrenList;
+    }
+
+
+    /**
+     * 根据父id查询所有的子id
+     *
+     * @param parentId 父id
+     */
+    public List<Integer> getChildrenIdList(Integer parentId, List<GoodsType> allGoodsTypeList) {
+        List<Integer> childrenIdList = new ArrayList<>();
+
+        getChilren(parentId, allGoodsTypeList, childrenIdList);
+
+        // 递归获取子节点
+        for (Integer childrenId : childrenIdList) {
+            getChilren(childrenId, allGoodsTypeList, childrenIdList);
+        }
+
+        // 递归退出
+        if (childrenIdList.size() == 0) {
+            // 没有子节点,直接返回当前分类下的商品列表(在Goods里面判断)
+            return new ArrayList<>();
+        }
+        return childrenIdList;
+    }
+
+    private void getChilren(Integer parentId, List<GoodsType> allGoodsTypeList, List<Integer> childrenIdList) {
+        for (GoodsType goodsType : allGoodsTypeList) {
+            if (parentId.equals(goodsType.getPId())) {
+                childrenIdList.add(goodsType.getGoodsTypeId());
+            }
+        }
     }
 
     /**
