@@ -50,4 +50,14 @@ public class OverflowListGoodsController {
         return overflowListGoodsService.list(sTime, eTime);
     }
 
+    /**
+     * 查询报溢单商品信息
+     *
+     * @param overflowListId 报溢单id
+     */
+    @PostMapping("/goodsList")
+    public Map<String, Object> goodsList(Integer overflowListId) {
+        return overflowListGoodsService.goodsList(overflowListId);
+    }
+
 }

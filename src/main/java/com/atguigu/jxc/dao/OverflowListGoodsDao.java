@@ -1,6 +1,7 @@
 package com.atguigu.jxc.dao;
 
 import com.atguigu.jxc.entity.OverflowListGoods;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,4 +13,11 @@ public interface OverflowListGoodsDao {
      * @param overflowListGoodsList 报溢商品信息
      */
     void save(List<OverflowListGoods> overflowListGoodsList);
+
+    /**
+     * 查询报溢单商品信息
+     *
+     * @param overflowListId 报溢单id
+     */
+    List<OverflowListGoods> goodsList(@Param("overflowListId") Integer overflowListId);
 }

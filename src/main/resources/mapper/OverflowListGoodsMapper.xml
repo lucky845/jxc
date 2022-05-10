@@ -31,4 +31,10 @@
             #{damageListGoods.goodsTypeId}
         </foreach>
     </insert>
+
+    <select id="goodsList" resultType="com.atguigu.jxc.entity.OverflowListGoods">
+        select *
+        from t_overflow_list_goods
+        where overflow_list_id = #{overflowListId}
+    </select>
 </mapper>

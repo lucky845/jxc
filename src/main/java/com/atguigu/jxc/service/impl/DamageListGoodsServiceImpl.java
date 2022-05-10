@@ -96,7 +96,7 @@ public class DamageListGoodsServiceImpl implements DamageListGoodsService {
     @Override
     public Map<String, Object> goodsList(Integer damageListId) {
         Map<String, Object> retMap = new HashMap<>();
-        List<DamageListGoods> damageListGoodsList = damageListDao.goodsList(damageListId);
+        List<DamageListGoods> damageListGoodsList = damageListGoodsDao.goodsList(damageListId);
         retMap.put("rows", damageListGoodsList);
         return retMap;
     }

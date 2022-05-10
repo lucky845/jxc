@@ -21,4 +21,11 @@ public interface OverflowListGoodsService {
      * @param eTime 结束时间
      */
     Map<String, Object> list(String sTime, String eTime);
+
+    /**
+     * 查询报溢单商品信息
+     *
+     * @param overflowListId 报溢单id
+     */
+    Map<String, Object> goodsList(Integer overflowListId);
 }

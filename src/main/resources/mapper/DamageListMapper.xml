@@ -17,9 +17,4 @@
         where damage_date between #{sTime} and #{eTime}
     </select>
 
-    <select id="goodsList" resultType="com.atguigu.jxc.entity.DamageListGoods">
-        select *
-        from t_damage_list_goods
-        where damage_list_id = #{damageListId}
-    </select>
 </mapper>

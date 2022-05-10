@@ -86,4 +86,17 @@ public class OverflowListGoodsServiceImpl implements OverflowListGoodsService {
         retMap.put("rows", overflowListList);
         return retMap;
     }
+
+    /**
+     * 查询报溢单商品信息
+     *
+     * @param overflowListId 报溢单id
+     */
+    @Override
+    public Map<String, Object> goodsList(Integer overflowListId) {
+        Map<String, Object> retMap = new HashMap<>();
+        List<OverflowListGoods> overflowListGoodsList = overflowListGoodsDao.goodsList(overflowListId);
+        retMap.put("rows", overflowListGoodsList);
+        return retMap;
+    }
 }
