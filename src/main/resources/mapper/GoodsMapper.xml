@@ -227,4 +227,10 @@
         LIMIT #{offSet}, #{rows}
     </select>
 
+    <select id="listAlarm" resultMap="BaseResultMap">
+        select *
+        from t_goods
+        where min_num > inventory_quantity
+    </select>
+
 </mapper>

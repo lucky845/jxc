@@ -252,4 +252,16 @@ public class GoodsServiceImpl implements GoodsService {
             logService.save(new Log(Log.DELETE_ACTION, "删除商品库存信息"));
         }
     }
+
+    /**
+     * 查询库存报警商品信息
+     */
+    @Override
+    public Map<String, Object> listAlarm() {
+        Map<String, Object> retMap = new HashMap<>();
+        List<Goods> goodsList = goodsDao.listAlarm();
+        logService.save(new Log(Log.SELECT_ACTION, "查询库存报警商品信息"));
+        retMap.put("rows", goodsList);
+        return retMap;
+    }
 }

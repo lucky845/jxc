@@ -143,7 +143,11 @@ public class GoodsController {
 
     /**
      * 查询库存报警商品信息
-     * @return
      */
+    @ResponseBody
+    @PostMapping("/listAlarm")
+    public Map<String, Object> listAlarm() {
+        return goodsService.listAlarm();
+    }
 
 }

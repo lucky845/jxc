@@ -110,4 +110,10 @@ public interface GoodsDao {
      * @param goods 商品信息
      */
     void deleteStock(Goods goods);
+
+    /**
+     * 查询库存报警商品信息
+     */
+    List<Goods> listAlarm();
+
 }

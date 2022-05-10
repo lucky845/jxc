@@ -77,4 +77,10 @@ public interface GoodsService {
      * @param goodsId 商品ID
      */
     void deleteStock(Integer goodsId);
+
+    /**
+     * 查询库存报警商品信息
+     */
+    Map<String, Object> listAlarm();
+
 }
