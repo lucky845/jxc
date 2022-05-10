@@ -103,4 +103,11 @@ public interface GoodsDao {
      * @param purchasingPrice   成本价
      */
     void saveStock(@Param("goodsId") Integer goodsId, @Param("inventoryQuantity") Integer inventoryQuantity, @Param("purchasingPrice") double purchasingPrice);
+
+    /**
+     * 删除商品库存
+     *
+     * @param goods 商品信息
+     */
+    void deleteStock(Goods goods);
 }

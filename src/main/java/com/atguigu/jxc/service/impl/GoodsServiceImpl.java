@@ -248,7 +248,7 @@ public class GoodsServiceImpl implements GoodsService {
         if (goods.getState() != 1 && goods.getState() != 2) {
             goods.setInventoryQuantity(0);
             goods.setPurchasingPrice(0.0);
-            goodsDao.updateGoods(goods);
+            goodsDao.deleteStock(goods);
             logService.save(new Log(Log.DELETE_ACTION, "删除商品库存信息"));
         }
     }

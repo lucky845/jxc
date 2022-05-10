@@ -108,6 +108,12 @@
         from t_goods
         where goods_id = #{goodsId}
     </delete>
+    <delete id="deleteStock">
+        update t_goods
+        set purchasing_price   = #{purchasingPrice},
+            inventory_quantity = #{inventoryQuantity}
+        where goods_id = #{goodsId}
+    </delete>
 
     <select id="getMaxCode" resultType="java.lang.String">
         SELECT MAX(goods_code)
