@@ -19,16 +19,16 @@
         values
         <foreach collection="list" separator="," item="overflowListGoods" open="(" close=")">
             null,
-            #{damageListGoods.goodsId},
-            #{damageListGoods.goodsCode},
-            #{damageListGoods.goodsName},
-            #{damageListGoods.goodsModel},
-            #{damageListGoods.goodsUnit},
-            #{damageListGoods.goodsNum},
-            #{damageListGoods.price},
-            #{damageListGoods.total},
-            #{damageListGoods.overflowListId},
-            #{damageListGoods.goodsTypeId}
+            #{overflowListGoods.goodsId},
+            #{overflowListGoods.goodsCode},
+            #{overflowListGoods.goodsName},
+            #{overflowListGoods.goodsModel},
+            #{overflowListGoods.goodsUnit},
+            #{overflowListGoods.goodsNum},
+            #{overflowListGoods.price},
+            #{overflowListGoods.total},
+            #{overflowListGoods.overflowListId},
+            #{overflowListGoods.goodsTypeId}
         </foreach>
     </insert>
 
