@@ -51,7 +51,7 @@ $(_2).submit();
 if(_4.dirty){
 _7._propAttr("disabled",false);
 }
-};
+}
 function _8(_a,_b){
 var _c=$.data(_a,"form").options;
 var _d="easyui_frame_"+(new Date().getTime());
@@ -81,7 +81,7 @@ _11.attr("action",a);
 t?_11.attr("target",t):_11.removeAttr("target");
 _12.remove();
 }
-};
+}
 function _14(){
 var f=$("#"+_d);
 if(!f.length){
@@ -96,7 +96,7 @@ setTimeout(_14,100);
 catch(e){
 cb();
 }
-};
+}
 var _15=10;
 function cb(){
 var f=$("#"+_d);
@@ -114,25 +114,24 @@ setTimeout(cb,100);
 return;
 }
 }
-var ta=_17.find(">textarea");
-if(ta.length){
-_16=ta.val();
-}else{
-var pre=_17.find(">pre");
-if(pre.length){
-_16=pre.html();
+    var ta = _17.find(">textarea");
+    if (ta.length) {
+        _16 = ta.val();
+    } else {
+        var pre = _17.find(">pre");
+        if (pre.length) {
+            _16 = pre.html();
+        }
+    }
+} catch (e) {
+}
+    _c.success.call(_a, _16);
+    setTimeout(function () {
+        f.unbind();
+        f.remove();
+    }, 100);
 }
 }
-}
-catch(e){
-}
-_c.success.call(_a,_16);
-setTimeout(function(){
-f.unbind();
-f.remove();
-},100);
-};
-};
 function _9(_18,_19){
 var _1a=$.data(_18,"form").options;
 var _1b=new FormData($(_18)[0]);
@@ -155,7 +154,7 @@ return xhr;
 },data:_1b,dataType:"html",cache:false,contentType:false,processData:false,complete:function(res){
 _1a.success.call(_18,res.responseText);
 }});
-};
+}
 function _20(_21,_22){
 var _23=$.data(_21,"form").options;
 if(typeof _22=="string"){
@@ -185,7 +184,7 @@ _28.find("select[name=\""+_29+"\"]").val(val);
 }
 _23.onLoadSuccess.call(_21,_27);
 _28.form("validate");
-};
+}
 function _2a(_2c,val){
 var _2d=["switchbutton","radiobutton","checkbox"];
 for(var i=0;i<_2d.length;i++){
@@ -212,33 +211,33 @@ $(this)._propAttr("checked",true);
 return true;
 }
 return false;
-};
+}
 function _2f(v,val){
 if(v==String(val)||$.inArray(v,$.isArray(val)?val:[val])>=0){
 return true;
 }else{
 return false;
 }
-};
+}
 function _2b(_30,val){
 var _31=$(_21).find("[textboxName=\""+_30+"\"],[sliderName=\""+_30+"\"]");
 if(_31.length){
 for(var i=0;i<_23.fieldTypes.length;i++){
 var _32=_23.fieldTypes[i];
 var _33=_31.data(_32);
-if(_33){
-if(_33.options.multiple||_33.options.range){
-_31[_32]("setValues",val);
-}else{
-_31[_32]("setValue",val);
+    if (_33) {
+        if (_33.options.multiple || _33.options.range) {
+            _31[_32]("setValues", val);
+        } else {
+            _31[_32]("setValue", val);
+        }
+        return true;
+    }
 }
-return true;
+}
+    return false;
 }
 }
-}
-return false;
-};
-};
 function _34(_35){
 $("input,select,textarea",_35).each(function(){
 if($(this).hasClass("textbox-value")){
@@ -283,7 +282,7 @@ tmp=tmp.add(_3b);
 }
 }
 _38.form("validate");
-};
+}
 function _3c(_3d){
 _3d.reset();
 var _3e=$(_3d);
@@ -296,7 +295,7 @@ _41[_40]("reset");
 }
 }
 _3e.form("validate");
-};
+}
 function _42(_43){
 var _44=$.data(_43,"form").options;
 $(_43).unbind(".form");
@@ -323,7 +322,7 @@ _44.onChange.call(this,t);
 }
 });
 _45(_43,_44.novalidate);
-};
+}
 function _46(_47,_48){
 _48=_48||{};
 var _49=$.data(_47,"form");
@@ -332,7 +331,7 @@ $.extend(_49.options,_48);
 }else{
 $.data(_47,"form",{options:$.extend({},$.fn.form.defaults,$.fn.form.parseOptions(_47),_48)});
 }
-};
+}
 function _4a(_4b){
 if($.fn.validatebox){
 var t=$(_4b);
@@ -342,12 +341,12 @@ _4c.filter(":not(:disabled):first").focus();
 return _4c.length==0;
 }
 return true;
-};
+}
 function _45(_4d,_4e){
 var _4f=$.data(_4d,"form").options;
 _4f.novalidate=_4e;
 $(_4d).find(".validatebox-text:not(:disabled)").validatebox(_4e?"disableValidation":"enableValidation");
-};
+}
 $.fn.form=function(_50,_51){
 if(typeof _50=="string"){
 this.each(function(){

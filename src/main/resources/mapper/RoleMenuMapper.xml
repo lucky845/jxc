@@ -3,17 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.atguigu.jxc.dao.RoleMenuDao">
+<mapper namespace="com.lucky845.jxc.dao.RoleMenuDao">
 
     <delete id="deleteRoleMenuByRoleId" parameterType="java.lang.Integer">
-        DELETE FROM
-          t_role_menu
+        DELETE
+        FROM t_role_menu
         WHERE role_id = #{roleId}
     </delete>
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="roleMenuId" parameterType="com.atguigu.jxc.entity.RoleMenu">
+    <insert id="save" useGeneratedKeys="true" keyProperty="roleMenuId" parameterType="com.lucky845.jxc.entity.RoleMenu">
         INSERT INTO t_role_menu
-        (menu_id, role_id)
+            (menu_id, role_id)
         VALUES (#{menuId}, #{roleId})
     </insert>
 

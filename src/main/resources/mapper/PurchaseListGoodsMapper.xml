@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.atguigu.jxc.dao.PurchaseListGoodsDao">
+<mapper namespace="com.lucky845.jxc.dao.PurchaseListGoodsDao">
 
-    <resultMap id="BaseResultMap" type="com.atguigu.jxc.entity.PurchaseList">
+    <resultMap id="BaseResultMap" type="com.lucky845.jxc.entity.PurchaseList">
         <result column="purchase_list_id" property="purchaseListId" jdbcType="INTEGER"/>
         <result column="purchase_number" property="purchaseNumber" jdbcType="VARCHAR"/>
         <result column="amount_paid" property="amountPaid" jdbcType="DECIMAL"/>
@@ -19,7 +19,7 @@
         <result column="true_name" property="trueName" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <resultMap id="BaseResultMap02" type="com.atguigu.jxc.entity.PurchaseListGoods">
+    <resultMap id="BaseResultMap02" type="com.lucky845.jxc.entity.PurchaseListGoods">
         <result column="purchase_list_goods_id" property="purchaseListGoodsId" jdbcType="INTEGER"/>
         <result column="goods_id" property="goodsId" jdbcType="INTEGER"/>
         <result column="goods_code" property="goodsCode" jdbcType="VARCHAR"/>
@@ -34,7 +34,7 @@
     </resultMap>
 
     <insert id="savePurchaseList" useGeneratedKeys="true" keyProperty="purchaseListId"
-            parameterType="com.atguigu.jxc.entity.PurchaseList">
+            parameterType="com.lucky845.jxc.entity.PurchaseList">
         INSERT INTO t_purchase_list
         (purchase_number, amount_paid, amount_payable, purchase_date,
          remarks, state, supplier_id, user_id)
@@ -43,7 +43,7 @@
     </insert>
 
     <insert id="savePurchaseListGoods" useGeneratedKeys="true" keyProperty="purchaseListGoodsId"
-            parameterType="com.atguigu.jxc.entity.PurchaseListGoods">
+            parameterType="com.lucky845.jxc.entity.PurchaseListGoods">
         INSERT INTO t_purchase_list_goods
         (goods_id, goods_code, goods_name, goods_model, goods_unit,
          goods_num, price, total, purchase_list_id, goods_type_id)

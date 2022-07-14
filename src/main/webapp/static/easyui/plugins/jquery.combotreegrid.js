@@ -51,7 +51,7 @@ _4.onClickRow.call(this,_e);
 _11(_2);
 _4.onCheckNode.call(this,_f,_10);
 }}));
-};
+}
 function _11(_12){
 var _13=$.data(_12,"combotreegrid");
 var _14=_13.options;
@@ -69,7 +69,7 @@ vv.push(row[_14.idField]);
 }
 vv=vv.concat(_14.unselectedValues);
 _16(_12,vv);
-};
+}
 function _16(_17,_18){
 var _19=$.data(_17,"combotreegrid");
 var _1a=_19.options;
@@ -116,25 +116,27 @@ $.map(_1b.treegrid("getCheckedNodes"),function(row){
 var id=String(row[_1a.idField]);
 if($.inArray(id,vv)==-1){
 vv.push(id);
-ss.push(_1f(row));
+    ss.push(_1f(row));
 }
 });
 }
-if(!_19.remainText){
-var s=ss.join(_1a.separator);
-if($(_17).combo("getText")!=s){
-$(_17).combo("setText",s);
+    if (!_19.remainText) {
+        var s = ss.join(_1a.separator);
+        if ($(_17).combo("getText") != s) {
+            $(_17).combo("setText", s);
+        }
+    }
+    $(_17).combo("setValues", vv);
+
+    function _20(_21, a) {
+        var _22 = $.easyui.getArrayItem(a, _1a.idField, _21);
+        return _22 ? _1f(_22) : undefined;
+    }
+
+    function _1f(row) {
+        return row[_1a.textField || ""] || row[_1a.treeField];
+    }
 }
-}
-$(_17).combo("setValues",vv);
-function _20(_21,a){
-var _22=$.easyui.getArrayItem(a,_1a.idField,_21);
-return _22?_1f(_22):undefined;
-};
-function _1f(row){
-return row[_1a.textField||""]||row[_1a.treeField];
-};
-};
 function _23(_24,q){
 var _25=$.data(_24,"combotreegrid");
 var _26=_25.options;
@@ -176,23 +178,24 @@ return false;
 }
 });
 }
-if(v!=undefined){
-vv.push(v);
-}else{
-vv.push(q);
-}
+    if (v != undefined) {
+        vv.push(v);
+    } else {
+        vv.push(q);
+    }
 }
 });
-_28(vv);
-_25.remainText=false;
+    _28(vv);
+    _25.remainText = false;
 }
 }
-function _28(vv){
-if(!_26.reversed){
-$(_24).combotreegrid("setValues",vv);
+
+    function _28(vv) {
+        if (!_26.reversed) {
+            $(_24).combotreegrid("setValues", vv);
+        }
+    }
 }
-};
-};
 function _2a(_2b){
 var _2c=$.data(_2b,"combotreegrid");
 var _2d=_2c.options;
@@ -231,7 +234,7 @@ $(_2b).combotreegrid("setValues",vv);
 if(!_2d.multiple){
 $(_2b).combotreegrid("hidePanel");
 }
-};
+}
 $.fn.combotreegrid=function(_2f,_30){
 if(typeof _2f=="string"){
 var _31=$.fn.combotreegrid.methods[_2f];

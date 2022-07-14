@@ -19,7 +19,7 @@ t.removeAttr("name").attr("checkboxName",_5);
 _4.find(".checkbox-value").attr("name",_5);
 }
 return _4;
-};
+}
 function _6(_7){
 var _8=$.data(_7,"checkbox");
 var _9=_8.options;
@@ -48,7 +48,7 @@ $(_8.label).remove();
 $(_7).checkbox("setValue",_9.value);
 _c(_7,_9.checked);
 _d(_7,_9.disabled);
-};
+}
 function _e(_f){
 var _10=$.data(_f,"checkbox");
 var _11=_10.options;
@@ -58,7 +58,7 @@ if(!_11.disabled){
 _c(_f,!_11.checked);
 }
 });
-};
+}
 function _13(_14){
 var _15=$.data(_14,"checkbox");
 var _16=_15.options;
@@ -72,7 +72,7 @@ _15.label._size({width:_16.labelWidth,height:_17.outerHeight()},_17);
 _15.label.css("lineHeight",_17.outerHeight()+"px");
 }
 }
-};
+}
 function _c(_18,_19){
 var _1a=$.data(_18,"checkbox");
 var _1b=_1a.options;
@@ -88,7 +88,7 @@ if(_1b.checked!=_19){
 _1b.checked=_19;
 _1b.onChange.call(_18,_19);
 }
-};
+}
 function _d(_1e,_1f){
 var _20=$.data(_1e,"checkbox");
 var _21=_20.options;
@@ -102,7 +102,7 @@ _22.addClass("checkbox-disabled");
 $(_1e).add(rv)._propAttr("disabled",false);
 _22.removeClass("checkbox-disabled");
 }
-};
+}
 $.fn.checkbox=function(_23,_24){
 if(typeof _23=="string"){
 return $.fn.checkbox.methods[_23](this,_24);

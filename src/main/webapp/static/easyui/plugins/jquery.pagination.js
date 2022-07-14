@@ -114,29 +114,31 @@ var td=$("<td></td>").appendTo(tr);
 $(_4.buttons).appendTo(td).show();
 }
 }
-$("<div style=\"clear:both;\"></div>").appendTo(_5);
-function _9(_c){
-var _d=_4.nav[_c];
-var a=$("<a href=\"javascript:;\"></a>").appendTo(tr);
-a.wrap("<td></td>");
-a.linkbutton({iconCls:_d.iconCls,plain:true}).unbind(".pagination").bind("click.pagination",function(){
-_d.handler.call(_2);
-});
-return a;
-};
-function _6(aa,_e){
-var _f=$.inArray(_e,aa);
-if(_f>=0){
-aa.splice(_f,1);
+    $("<div style=\"clear:both;\"></div>").appendTo(_5);
+
+    function _9(_c) {
+        var _d = _4.nav[_c];
+        var a = $("<a href=\"javascript:;\"></a>").appendTo(tr);
+        a.wrap("<td></td>");
+        a.linkbutton({iconCls: _d.iconCls, plain: true}).unbind(".pagination").bind("click.pagination", function () {
+            _d.handler.call(_2);
+        });
+        return a;
+    }
+
+    function _6(aa, _e) {
+        var _f = $.inArray(_e, aa);
+        if (_f >= 0) {
+            aa.splice(_f, 1);
+        }
+        return aa;
+    }
 }
-return aa;
-};
-};
 function _10(_11,_12){
 var _13=$.data(_11,"pagination").options;
 _14(_11,{pageNumber:_12});
 _13.onSelectPage.call(_11,_13.pageNumber,_13.pageSize);
-};
+}
 function _14(_15,_16){
 var _17=$.data(_15,"pagination");
 var _18=_17.options;
@@ -209,7 +211,7 @@ if(bb.last){
 bb.last.linkbutton({disabled:(_18.pageNumber==_19)});
 }
 _1d(_15,_18.loading);
-};
+}
 function _1d(_1e,_1f){
 var _20=$.data(_1e,"pagination");
 var _21=_20.options;
@@ -217,7 +219,7 @@ _21.loading=_1f;
 if(_21.showRefresh&&_20.bb.refresh){
 _20.bb.refresh.linkbutton({iconCls:(_21.loading?"pagination-loading":"pagination-load")});
 }
-};
+}
 $.fn.pagination=function(_22,_23){
 if(typeof _22=="string"){
 return $.fn.pagination.methods[_22](this,_23);

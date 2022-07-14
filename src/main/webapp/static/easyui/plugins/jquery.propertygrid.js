@@ -52,7 +52,7 @@ _6.onClickCell.call(_4,_a,_b,_c);
 _2(this);
 return _6.loadFilter.call(this,_e);
 }}));
-};
+}
 function _2(_f){
 var t=$(_f);
 if(!t.length){
@@ -68,7 +68,7 @@ t.datagrid("cancelEdit",_11);
 }
 });
 _10.editIndex=undefined;
-};
+}
 $.fn.propertygrid=function(_12,_13){
 if(typeof _12=="string"){
 var _14=$.fn.propertygrid.methods[_12];
@@ -166,7 +166,7 @@ _2e=css["style"]||"";
 }
 }
 return "class=\""+cls+(_2d?" "+_2d:"")+"\" "+"style=\""+_2e+"\"";
-};
+}
 },bindEvents:function(_2f){
 var _30=$.data(_2f,"datagrid");
 var dc=_30.dc;
@@ -224,12 +224,12 @@ return _41;
 }
 }
 return null;
-};
+}
 function _39(){
 if(!$("#datagrid-group-style").length){
 $("head").append("<style id=\"datagrid-group-style\">"+".datagrid-group{height:"+_38.groupHeight+"px;overflow:hidden;font-weight:bold;border-bottom:1px solid #ccc;white-space:nowrap;word-break:normal;}"+".datagrid-group-title,.datagrid-group-expander{display:inline-block;vertical-align:bottom;height:100%;line-height:"+_38.groupHeight+"px;padding:0 4px;}"+".datagrid-group-title{position:relative;}"+".datagrid-group-expander{width:"+_38.expanderWidth+"px;text-align:center;padding:0}"+".datagrid-row-expander{margin:"+Math.floor((_38.groupHeight-16)/2)+"px 0;display:inline-block;width:16px;height:16px;cursor:pointer}"+"</style>");
 }
-};
+}
 },onAfterRender:function(_42){
 $.fn.datagrid.defaults.view.onAfterRender.call(this,_42);
 var _43=this;
@@ -383,7 +383,7 @@ var _70=_6f?1:2;
 var _71=_6a.finder.getTr(_67,_6e-1,"body",_70);
 var tr=_6a.finder.getTr(_67,_6e,"body",_70);
 tr.insertAfter(_71);
-};
+}
 },updateRow:function(_72,_73,row){
 var _74=$.data(_72,"datagrid").options;
 $.fn.datagrid.defaults.view.updateRow.call(this,_72,_73,row);

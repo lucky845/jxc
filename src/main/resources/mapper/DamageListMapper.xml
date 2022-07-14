@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.atguigu.jxc.dao.DamageListDao">
+<mapper namespace="com.lucky845.jxc.dao.DamageListDao">
 
     <insert id="save" useGeneratedKeys="true" keyColumn="damage_list_id" keyProperty="damageListId">
         insert into t_damage_list(damage_list_id, damage_number, damage_date, remarks, user_id)
@@ -11,7 +11,7 @@
                 #{userId})
     </insert>
 
-    <select id="list" resultType="com.atguigu.jxc.entity.DamageList">
+    <select id="list" resultType="com.lucky845.jxc.entity.DamageList">
         select *
         from t_damage_list
         where damage_date between #{sTime} and #{eTime}

@@ -247,12 +247,12 @@ function openMenuSetDialog(roleId){
  */
 function checkParentMenu(node){
 	var parentNode = $('#menuTree').tree('getParent',node.target);
-	if(!parentNode){
-		return;
-	}else{
-		checkParentMenu(parentNode);
-		$('#menuTree').tree('check',parentNode.target);
-	}
+	if (!parentNode) {
+
+    } else {
+        checkParentMenu(parentNode);
+        $('#menuTree').tree('check', parentNode.target);
+    }
 }
 
 /**
@@ -261,19 +261,19 @@ function checkParentMenu(node){
  */
 function checkChildrenMenu(node){
 	var childrenNode = $('#menuTree').tree('getChildren',node.target);
-	if(!childrenNode || childrenNode.length<1){
-		return;
-	}else{
-		if(node.checked){//如果父菜单是选中状态，需要把所有子菜单也勾选
-			for(var i=0;i<childrenNode.length;i++){
-				$('#menuTree').tree('check',childrenNode[i].target);
-			}
-		}else{//如果父菜单是未选中状态，需要把所有子菜单也取消勾选
-			for(var i=0;i<childrenNode.length;i++){
-				$('#menuTree').tree('uncheck',childrenNode[i].target);
-			}
-		}
-	}
+    if (!childrenNode || childrenNode.length < 1) {
+
+    } else {
+        if (node.checked) {//如果父菜单是选中状态，需要把所有子菜单也勾选
+            for (var i = 0; i < childrenNode.length; i++) {
+                $('#menuTree').tree('check', childrenNode[i].target);
+            }
+        } else {//如果父菜单是未选中状态，需要把所有子菜单也取消勾选
+            for (var i = 0; i < childrenNode.length; i++) {
+                $('#menuTree').tree('uncheck', childrenNode[i].target);
+            }
+        }
+    }
 }
 
 /**

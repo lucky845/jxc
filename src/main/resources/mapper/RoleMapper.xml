@@ -3,24 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.atguigu.jxc.dao.RoleDao">
+<mapper namespace="com.lucky845.jxc.dao.RoleDao">
 
-    <resultMap id="BaseResultMap" type="com.atguigu.jxc.entity.Role">
-        <result column="role_id" property="roleId" jdbcType="INTEGER" />
-        <result column="role_name" property="roleName" jdbcType="VARCHAR" />
-        <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <resultMap id="BaseResultMap" type="com.lucky845.jxc.entity.Role">
+        <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="getRoleByUserId" resultMap="BaseResultMap">
-        SELECT
-            t_role.role_id,
-            t_role.role_name,
-            t_role.remarks
-        FROM
-            t_role
-            LEFT JOIN t_user_role ON t_user_role.role_id = t_role.role_id
-        WHERE
-            t_user_role.user_id = #{userId}
+        SELECT t_role.role_id,
+               t_role.role_name,
+               t_role.remarks
+        FROM t_role
+                 LEFT JOIN t_user_role ON t_user_role.role_id = t_role.role_id
+        WHERE t_user_role.user_id = #{userId}
     </select>
 
     <select id="getRoleByRoleIdUserId" resultMap="BaseResultMap">
@@ -74,13 +71,13 @@
             t_role.role_name = #{roleName}
     </select>
 
-    <insert id="insertRole" useGeneratedKeys="true" keyProperty="roleId" parameterType="com.atguigu.jxc.entity.Role">
+    <insert id="insertRole" useGeneratedKeys="true" keyProperty="roleId" parameterType="com.lucky845.jxc.entity.Role">
         INSERT INTO t_role
-        (role_name, remarks)
+            (role_name, remarks)
         VALUES (#{roleName}, #{remarks})
     </insert>
 
-    <update id="updateRole" parameterType="com.atguigu.jxc.entity.Role">
+    <update id="updateRole" parameterType="com.lucky845.jxc.entity.Role">
         UPDATE t_role
         SET
         role_name = #{roleName}

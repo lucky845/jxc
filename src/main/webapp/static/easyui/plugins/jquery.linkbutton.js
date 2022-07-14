@@ -33,7 +33,7 @@ _5.css(_9);
 _8.remove();
 }
 }
-};
+}
 function _b(_c){
 var _d=$.data(_c,"linkbutton").options;
 var t=$(_c).empty();
@@ -80,7 +80,7 @@ _d.onClick.call(this);
 });
 _f(_c,_d.selected);
 _10(_c,_d.disabled);
-};
+}
 function _f(_11,_12){
 var _13=$.data(_11,"linkbutton").options;
 if(_12){
@@ -101,7 +101,7 @@ $(_11).removeClass("l-btn-selected l-btn-plain-selected");
 _13.selected=false;
 }
 }
-};
+}
 function _10(_14,_15){
 var _16=$.data(_14,"linkbutton");
 var _17=_16.options;
@@ -127,7 +127,7 @@ if(_16.onclick){
 _14.onclick=_16.onclick;
 }
 }
-};
+}
 $.fn.linkbutton=function(_19,_1a){
 if(typeof _19=="string"){
 return $.fn.linkbutton.methods[_19](this,_1a);

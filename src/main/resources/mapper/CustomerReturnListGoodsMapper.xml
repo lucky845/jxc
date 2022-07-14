@@ -3,73 +3,63 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.atguigu.jxc.dao.CustomerReturnListGoodsDao">
+<mapper namespace="com.lucky845.jxc.dao.CustomerReturnListGoodsDao">
 
-    <resultMap id="BaseResultMap" type="com.atguigu.jxc.entity.CustomerReturnList">
-        <result column="customer_return_list_id" property="customerReturnListId" jdbcType="INTEGER" />
-        <result column="return_number" property="returnNumber" jdbcType="VARCHAR" />
-        <result column="amount_paid" property="amountPaid" jdbcType="DECIMAL" />
-        <result column="amount_payable" property="amountPayable" jdbcType="DECIMAL" />
-        <result column="return_date" property="returnDate" jdbcType="VARCHAR" />
-        <result column="remarks" property="remarks" jdbcType="VARCHAR" />
-        <result column="state" property="state" jdbcType="INTEGER" />
-        <result column="customer_id" property="customerId" jdbcType="INTEGER" />
-        <result column="user_id" property="userId" jdbcType="INTEGER" />
-        <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
-        <result column="true_name" property="trueName" jdbcType="VARCHAR" />
+    <resultMap id="BaseResultMap" type="com.lucky845.jxc.entity.CustomerReturnList">
+        <result column="customer_return_list_id" property="customerReturnListId" jdbcType="INTEGER"/>
+        <result column="return_number" property="returnNumber" jdbcType="VARCHAR"/>
+        <result column="amount_paid" property="amountPaid" jdbcType="DECIMAL"/>
+        <result column="amount_payable" property="amountPayable" jdbcType="DECIMAL"/>
+        <result column="return_date" property="returnDate" jdbcType="VARCHAR"/>
+        <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="INTEGER"/>
+        <result column="customer_id" property="customerId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="customer_name" property="customerName" jdbcType="VARCHAR"/>
+        <result column="true_name" property="trueName" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <resultMap id="BaseResultMap02" type="com.atguigu.jxc.entity.CustomerReturnListGoods">
-        <result column="customer_return_list_goods_id" property="customerReturnListGoodsId" jdbcType="INTEGER" />
-        <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
-        <result column="goods_code" property="goodsCode" jdbcType="VARCHAR" />
-        <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
-        <result column="goods_model" property="goodsModel" jdbcType="VARCHAR" />
-        <result column="goods_unit" property="goodsUnit" jdbcType="VARCHAR" />
-        <result column="goods_num" property="goodsNum" jdbcType="INTEGER" />
-        <result column="price" property="price" jdbcType="DECIMAL" />
-        <result column="total" property="total" jdbcType="DECIMAL" />
-        <result column="customer_return_list_id" property="customerReturnListId" jdbcType="INTEGER" />
-        <result column="goods_type_id" property="goodsTypeId" jdbcType="INTEGER" />
+    <resultMap id="BaseResultMap02" type="com.lucky845.jxc.entity.CustomerReturnListGoods">
+        <result column="customer_return_list_goods_id" property="customerReturnListGoodsId" jdbcType="INTEGER"/>
+        <result column="goods_id" property="goodsId" jdbcType="INTEGER"/>
+        <result column="goods_code" property="goodsCode" jdbcType="VARCHAR"/>
+        <result column="goods_name" property="goodsName" jdbcType="VARCHAR"/>
+        <result column="goods_model" property="goodsModel" jdbcType="VARCHAR"/>
+        <result column="goods_unit" property="goodsUnit" jdbcType="VARCHAR"/>
+        <result column="goods_num" property="goodsNum" jdbcType="INTEGER"/>
+        <result column="price" property="price" jdbcType="DECIMAL"/>
+        <result column="total" property="total" jdbcType="DECIMAL"/>
+        <result column="customer_return_list_id" property="customerReturnListId" jdbcType="INTEGER"/>
+        <result column="goods_type_id" property="goodsTypeId" jdbcType="INTEGER"/>
     </resultMap>
 
     <select id="getCustomerReturnTotalByGoodsId" resultType="java.lang.Integer">
-        SELECT
-            SUM(t_customer_return_list_goods.goods_num)
-        FROM
-            t_customer_return_list_goods
-            WHERE goods_id = #{goodsId}
+        SELECT SUM(t_customer_return_list_goods.goods_num)
+        FROM t_customer_return_list_goods
+        WHERE goods_id = #{goodsId}
     </select>
 
-    <insert id="saveCustomerReturnList" useGeneratedKeys="true" keyProperty="customerReturnListId" parameterType="com.atguigu.jxc.entity.CustomerReturnList">
+    <insert id="saveCustomerReturnList" useGeneratedKeys="true" keyProperty="customerReturnListId"
+            parameterType="com.lucky845.jxc.entity.CustomerReturnList">
         INSERT INTO t_customer_return_list
-        (
-        return_number, return_date, amount_paid, amount_payable,
-        remarks, state, customer_id, user_id
-        )
-        VALUES
-        (
-        #{returnNumber}, #{returnDate}, #{amountPaid}, #{amountPayable},
-        #{remarks}, #{state}, #{customerId}, #{userId}
-        )
+        (return_number, return_date, amount_paid, amount_payable,
+         remarks, state, customer_id, user_id)
+        VALUES (#{returnNumber}, #{returnDate}, #{amountPaid}, #{amountPayable},
+                #{remarks}, #{state}, #{customerId}, #{userId})
     </insert>
 
-    <insert id="saveCustomerReturnListGoods" useGeneratedKeys="true" keyProperty="customerReturnListGoodsId" parameterType="com.atguigu.jxc.entity.CustomerReturnListGoods">
+    <insert id="saveCustomerReturnListGoods" useGeneratedKeys="true" keyProperty="customerReturnListGoodsId"
+            parameterType="com.lucky845.jxc.entity.CustomerReturnListGoods">
         INSERT INTO t_customer_return_list_goods
-        (
-        goods_id, goods_code, goods_name, goods_model, goods_unit,
-        goods_num, price, total, customer_return_list_id, goods_type_id
-        )
-        VALUES
-        (
-        #{goodsId}, #{goodsCode}, #{goodsName}, #{goodsModel}, #{goodsUnit},
-        #{goodsNum}, #{price}, #{total}, #{customerReturnListId}, #{goodsTypeId}
-        )
+        (goods_id, goods_code, goods_name, goods_model, goods_unit,
+         goods_num, price, total, customer_return_list_id, goods_type_id)
+        VALUES (#{goodsId}, #{goodsCode}, #{goodsName}, #{goodsModel}, #{goodsUnit},
+                #{goodsNum}, #{price}, #{total}, #{customerReturnListId}, #{goodsTypeId})
     </insert>
 
     <select id="getCustomerReturnlist" resultMap="BaseResultMap">
         SELECT
-            t_customer_return_list.customer_return_list_id,
+        t_customer_return_list.customer_return_list_id,
             t_customer_return_list.return_number,
             t_customer_return_list.return_date,
             t_customer_return_list.amount_paid,

@@ -27,7 +27,7 @@ _6.call(_8);
 }
 };
 document.getElementsByTagName("head")[0].appendChild(_8);
-};
+}
 function _9(_a,_b){
 _4(_a,function(){
 document.getElementsByTagName("head")[0].removeChild(this);
@@ -35,7 +35,7 @@ if(_b){
 _b();
 }
 });
-};
+}
 function _c(_d,_e){
 var _f=document.createElement("link");
 _f.rel="stylesheet";
@@ -46,7 +46,7 @@ document.getElementsByTagName("head")[0].appendChild(_f);
 if(_e){
 _e.call(_f);
 }
-};
+}
 function _10(_11,_12){
 _3[_11]="loading";
 var _13=_1[_11];
@@ -66,24 +66,25 @@ _16();
 });
 }
 if(/^http/i.test(_13["js"])){
-var url=_13["js"];
-}else{
-var url=easyloader.base+"plugins/"+_13["js"];
+    var url = _13["js"];
+} else {
+    var url = easyloader.base + "plugins/" + _13["js"];
 }
-_4(url,function(){
-_14="loaded";
-if(_14=="loaded"&&_15=="loaded"){
-_16();
+    _4(url, function () {
+        _14 = "loaded";
+        if (_14 == "loaded" && _15 == "loaded") {
+            _16();
+        }
+    });
+
+    function _16() {
+        _3[_11] = "loaded";
+        easyloader.onProgress(_11);
+        if (_12) {
+            _12();
+        }
+    }
 }
-});
-function _16(){
-_3[_11]="loaded";
-easyloader.onProgress(_11);
-if(_12){
-_12();
-}
-};
-};
 function _17(_18,_19){
 var mm=[];
 var _1a=false;
@@ -105,13 +106,13 @@ add(d[i]);
 }
 }
 mm.push(_1b);
-};
+}
 function _1c(){
 if(_19){
 _19();
 }
 easyloader.onLoad(_18);
-};
+}
 var _1d=0;
 function _1e(){
 if(mm.length){
@@ -143,9 +144,9 @@ _1c();
 _1c();
 }
 }
-};
+}
 _1e();
-};
+}
 easyloader={modules:_1,locales:_2,base:".",theme:"default",css:true,locale:null,timeout:2000,load:function(_1f,_20){
 if(/\.css$/i.test(_1f)){
 if(/^http/i.test(_1f)){

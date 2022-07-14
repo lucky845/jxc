@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.atguigu.jxc.dao.SaleListGoodsDao">
+<mapper namespace="com.lucky845.jxc.dao.SaleListGoodsDao">
 
-    <resultMap id="BaseResultMap" type="com.atguigu.jxc.entity.SaleList">
+    <resultMap id="BaseResultMap" type="com.lucky845.jxc.entity.SaleList">
         <result column="sale_list_id" property="saleListId" jdbcType="INTEGER"/>
         <result column="sale_number" property="saleNumber" jdbcType="VARCHAR"/>
         <result column="amount_paid" property="amountPaid" jdbcType="DECIMAL"/>
@@ -19,7 +19,7 @@
         <result column="true_name" property="trueName" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <resultMap id="BaseResultMap02" type="com.atguigu.jxc.entity.SaleListGoods">
+    <resultMap id="BaseResultMap02" type="com.lucky845.jxc.entity.SaleListGoods">
         <result column="sale_list_goods_id" property="saleListGoodsId" jdbcType="INTEGER"/>
         <result column="goods_id" property="goodsId" jdbcType="INTEGER"/>
         <result column="goods_code" property="goodsCode" jdbcType="VARCHAR"/>
@@ -33,7 +33,7 @@
         <result column="goods_type_id" property="goodsTypeId" jdbcType="INTEGER"/>
     </resultMap>
 
-    <resultMap id="BaseResultMap03" type="com.atguigu.jxc.entity.SaleData">
+    <resultMap id="BaseResultMap03" type="com.lucky845.jxc.entity.SaleData">
         <result column="date" property="date" jdbcType="VARCHAR"/>
         <result column="saleTotal" property="saleTotal" jdbcType="DECIMAL"/>
         <result column="purchasingTotal" property="purchasingTotal" jdbcType="DECIMAL"/>
@@ -46,7 +46,7 @@
     </select>
 
     <insert id="saveSaleList" useGeneratedKeys="true" keyProperty="saleListId"
-            parameterType="com.atguigu.jxc.entity.SaleList">
+            parameterType="com.lucky845.jxc.entity.SaleList">
         INSERT INTO t_sale_list
         (sale_number, sale_date, amount_paid, amount_payable,
          remarks, state, customer_id, user_id)
@@ -55,7 +55,7 @@
     </insert>
 
     <insert id="saveSaleListGoods" useGeneratedKeys="true" keyProperty="saleListGoodsId"
-            parameterType="com.atguigu.jxc.entity.SaleListGoods">
+            parameterType="com.lucky845.jxc.entity.SaleListGoods">
         INSERT INTO t_sale_list_goods
         (goods_id, goods_code, goods_name, goods_model, goods_unit,
          goods_num, price, total, sale_list_id, goods_type_id)

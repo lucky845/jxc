@@ -4,13 +4,12 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.atguigu</groupId>
+	<groupId>com.lucky845</groupId>
 	<artifactId>jxc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>jxc</name>
-	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

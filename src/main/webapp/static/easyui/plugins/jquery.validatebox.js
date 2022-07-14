@@ -10,7 +10,7 @@
 (function($){
 function _1(_2){
 $(_2).addClass("validatebox-text");
-};
+}
 function _3(_4){
 var _5=$.data(_4,"validatebox");
 _5.validating=false;
@@ -23,7 +23,7 @@ clearTimeout(_5.ftimer);
 $(_4).tooltip("destroy");
 $(_4).unbind();
 $(_4).remove();
-};
+}
 function _6(_7){
 var _8=$.data(_7,"validatebox").options;
 $(_7).unbind(".validatebox");
@@ -33,7 +33,7 @@ return;
 for(var _9 in _8.events){
 $(_7).bind(_9+".validatebox",{target:_7},_8.events[_9]);
 }
-};
+}
 function _a(e){
 var _b=e.data.target;
 var _c=$.data(_b,"validatebox");
@@ -65,7 +65,7 @@ _d.err(_b,_c.message);
 _c.ftimer=setTimeout(arguments.callee,_d.interval);
 }
 })();
-};
+}
 function _f(e){
 var _10=e.data.target;
 var _11=$.data(_10,"validatebox");
@@ -85,19 +85,19 @@ $(_10).validatebox("validate");
 },0);
 }
 _12.err(_10,_11.message,"hide");
-};
+}
 function _13(e){
 var _14=e.data.target;
 var _15=$.data(_14,"validatebox");
 _15.options.err(_14,_15.message,"show");
-};
+}
 function _16(e){
 var _17=e.data.target;
 var _18=$.data(_17,"validatebox");
 if(!_18.validating){
 _18.options.err(_17,_18.message,"hide");
 }
-};
+}
 function _19(_1a,_1b,_1c){
 var _1d=$.data(_1a,"validatebox");
 var _1e=_1d.options;
@@ -109,7 +109,7 @@ if((t.is(":focus")&&_1d.validating)||_1c=="show"){
 t.tooltip($.extend({},_1e.tipOptions,{content:_1b,position:_1e.tipPosition,deltaX:_1e.deltaX,deltaY:_1e.deltaY})).tooltip("show");
 }
 }
-};
+}
 function _1f(_20){
 var _21=$.data(_20,"validatebox");
 var _22=_21.options;
@@ -122,7 +122,7 @@ _22.onValidate.call(_20,_23);
 return _23;
 function _25(msg){
 _21.message=msg;
-};
+}
 function _26(_27,_28){
 var _29=_22.val(_20);
 var _2a=/([a-zA-Z_]+)(.*)/.exec(_27);
@@ -141,7 +141,7 @@ return false;
 }
 }
 return true;
-};
+}
 function _24(){
 _25("");
 if(!_22._validateOnCreate){
@@ -171,19 +171,19 @@ if(typeof _22.validType=="string"){
 if(!_26(_22.validType)){
 return false;
 }
-}else{
-for(var _2e in _22.validType){
-var _2f=_22.validType[_2e];
-if(!_26(_2e,_2f)){
-return false;
+} else {
+    for (var _2e in _22.validType) {
+        var _2f = _22.validType[_2e];
+        if (!_26(_2e, _2f)) {
+            return false;
+        }
+    }
 }
 }
 }
+    return true;
 }
 }
-return true;
-};
-};
 function _30(_31,_32){
 var _33=$.data(_31,"validatebox").options;
 if(_32!=undefined){
@@ -194,7 +194,7 @@ $(_31).addClass("validatebox-disabled")._propAttr("disabled",true);
 }else{
 $(_31).removeClass("validatebox-disabled")._propAttr("disabled",false);
 }
-};
+}
 function _34(_35,_36){
 var _37=$.data(_35,"validatebox").options;
 _37.readonly=_36==undefined?true:_36;
@@ -204,7 +204,7 @@ $(_35).addClass("validatebox-readonly")._propAttr("readonly",true);
 }else{
 $(_35).removeClass("validatebox-readonly")._propAttr("readonly",false);
 }
-};
+}
 $.fn.validatebox=function(_38,_39){
 if(typeof _38=="string"){
 return $.fn.validatebox.methods[_38](this,_39);

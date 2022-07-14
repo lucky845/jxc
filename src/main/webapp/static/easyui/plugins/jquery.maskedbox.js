@@ -13,7 +13,7 @@ var _3=$(_2).data("maskedbox");
 var _4=_3.options;
 $(_2).textbox(_4);
 $(_2).maskedbox("initValue",_4.value);
-};
+}
 function _5(_6,_7){
 var _8=$(_6).maskedbox("options");
 var tt=(_7||$(_6).maskedbox("getText")||"").split("");
@@ -25,7 +25,7 @@ vv.push(t!=_8.promptChar?t:" ");
 }
 }
 return vv.join("");
-};
+}
 function _9(_a,_b){
 var _c=$(_a).maskedbox("options");
 var cc=_b.split("");
@@ -48,7 +48,7 @@ tt.push(m);
 }
 }
 return tt.join("");
-};
+}
 function _d(_e,c){
 var _f=$(_e).maskedbox("options");
 var _10=$(_e).maskedbox("getSelectionRange");
@@ -66,7 +66,7 @@ _11=_12(_e,++_11);
 $(_e).maskedbox("setSelectionRange",{start:_11,end:_11});
 }
 }
-};
+}
 function _16(_17,_18){
 var _19=$(_17).maskedbox("options");
 var vv=_5(_17).split("");
@@ -90,7 +90,7 @@ vv.splice(_1d,_1e-_1d+1);
 }
 $(_17).maskedbox("setValue",_9(_17,vv.join("")));
 $(_17).maskedbox("setSelectionRange",{start:_1b,end:_1b});
-};
+}
 function _14(_1f,pos){
 var _20=$(_1f).maskedbox("options");
 var _21=0;
@@ -103,7 +103,7 @@ _21++;
 }
 }
 return _21;
-};
+}
 function _12(_22,pos){
 var _23=$(_22).maskedbox("options");
 var m=_23.mask[pos];
@@ -114,7 +114,7 @@ m=_23.mask[pos];
 r=_23.masks[m];
 }
 return pos;
-};
+}
 function _1c(_24,pos){
 var _25=$(_24).maskedbox("options");
 var m=_25.mask[--pos];
@@ -125,7 +125,7 @@ m=_25.mask[pos];
 r=_25.masks[m];
 }
 return pos<0?0:pos;
-};
+}
 function _26(e){
 if(e.metaKey||e.ctrlKey){
 return;
@@ -165,7 +165,7 @@ _d(_27,c);
 }
 }
 return false;
-};
+}
 $.extend($.fn.textbox.methods,{inputMask:function(jq,_2a){
 return jq.each(function(){
 var _2b=this;
