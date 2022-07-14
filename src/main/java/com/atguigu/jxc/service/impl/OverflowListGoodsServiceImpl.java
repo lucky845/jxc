@@ -11,9 +11,9 @@ import com.atguigu.jxc.service.LogService;
 import com.atguigu.jxc.service.OverflowListGoodsService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,16 +25,16 @@ import java.util.Map;
 @Service
 public class OverflowListGoodsServiceImpl implements OverflowListGoodsService {
 
-    @Autowired
+    @Resource
     private LogService logService;
 
-    @Autowired
+    @Resource
     private OverflowListGoodsDao overflowListGoodsDao;
 
-    @Autowired
+    @Resource
     private OverflowListDao overflowListDao;
 
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
 
     /**

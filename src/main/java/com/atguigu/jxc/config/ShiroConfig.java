@@ -61,7 +61,7 @@ public class ShiroConfig {
     
     /**
      * 权限管理，配置主要是Realm的管理认证
-     * @return
+
      */
     @Bean
     public SecurityManager securityManager() {
@@ -73,7 +73,7 @@ public class ShiroConfig {
 
     /**
      * 身份认证realm; (账号密码校验；权限等)
-     * @return
+
      */
     @Bean
     public MyRealm myRealm() {
@@ -82,7 +82,7 @@ public class ShiroConfig {
 
     /**
      * Shiro生命周期处理器
-     * @return
+
      */
     @Bean
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor(){
@@ -92,7 +92,7 @@ public class ShiroConfig {
     /**
      * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
      * 配置以下两个bean(DefaultAdvisorAutoProxyCreator(可选)和AuthorizationAttributeSourceAdvisor)即可实现此功能
-     * @return
+
      */
     @Bean
     @DependsOn({"lifecycleBeanPostProcessor"})

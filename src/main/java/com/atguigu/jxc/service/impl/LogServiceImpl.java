@@ -4,14 +4,14 @@ import com.atguigu.jxc.dao.LogDao;
 import com.atguigu.jxc.dao.UserDao;
 import com.atguigu.jxc.entity.Log;
 import com.atguigu.jxc.entity.User;
+import com.atguigu.jxc.service.LogService;
 import com.atguigu.jxc.util.DateUtil;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.atguigu.jxc.service.LogService;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -22,9 +22,9 @@ import java.util.List;
 @Service
 public class LogServiceImpl implements LogService {
 
-    @Autowired
+    @Resource
     private LogDao logDao;
-    @Autowired
+    @Resource
     private UserDao userDao;
 
     @Override

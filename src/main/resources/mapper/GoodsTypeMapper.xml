@@ -54,5 +54,11 @@
         from t_goods_type
     </select>
 
+    <select id="getGoodsTypeById" resultType="com.atguigu.jxc.entity.GoodsType">
+        select *
+        from t_goods_type
+        where goods_type_id = #{goodsTypeId}
+    </select>
+
 
 </mapper>

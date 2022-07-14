@@ -10,7 +10,7 @@ public class BigDecimalUtil {
     /**
      * 保留两位小数
      * @param marth 需要处理的数据
-     * @return 保留两位小数的浮点型数据
+ 保留两位小数的浮点型数据
      */
     public static float keepTwoDecimalPlaces(float marth){
 
@@ -23,7 +23,7 @@ public class BigDecimalUtil {
     /**
      * 保留两位小数
      * @param marth 需要处理的数据
-     * @return 保留两位小数的浮点型数据
+ 保留两位小数的浮点型数据
      */
     public static float keepTwoDecimalPlaces(Double marth){
 

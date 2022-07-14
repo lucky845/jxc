@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface CustomerReturnListGoodsService {
 
-    /*Integer getCustomerReturnTotalByGoodsId(Integer goodsId);
+    Integer getCustomerReturnTotalByGoodsId(Integer goodsId);
 
     ServiceVO save(CustomerReturnList customerReturnList, String customerReturnListGoodsStr);
 
@@ -23,5 +23,5 @@ public interface CustomerReturnListGoodsService {
 
     ServiceVO updateState(Integer customerReturnListId);
 
-    String count(String sTime, String eTime, Integer goodsTypeId, String codeOrName);*/
+    String count(String sTime, String eTime, Integer goodsTypeId, String codeOrName);
 }

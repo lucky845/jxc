@@ -5,11 +5,11 @@ import com.atguigu.jxc.domain.SuccessCode;
 import com.atguigu.jxc.entity.DamageList;
 import com.atguigu.jxc.entity.User;
 import com.atguigu.jxc.service.DamageListGoodsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -21,7 +21,7 @@ import java.util.Map;
 @RequestMapping("/damageListGoods")
 public class DamageListGoodsController {
 
-    @Autowired
+    @Resource
     private DamageListGoodsService damageListGoodsService;
 
     /**

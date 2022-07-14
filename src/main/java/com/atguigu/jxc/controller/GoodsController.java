@@ -5,22 +5,21 @@ import com.atguigu.jxc.domain.SuccessCode;
 import com.atguigu.jxc.entity.Goods;
 import com.atguigu.jxc.service.GoodsService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 /**
  * @description 商品信息Controller
  */
+@RestController
 @RequestMapping("/goods")
-@Controller
 public class GoodsController {
 
-    @Autowired
+    @Resource
     private GoodsService goodsService;
 
     /**
@@ -31,7 +30,6 @@ public class GoodsController {
      * @param codeOrName  商品编码或名称
      * @param goodsTypeId 商品类别ID
      */
-    @ResponseBody
     @PostMapping("/listInventory")
     public Map<String, Object> listInventory(Integer page, Integer rows, String codeOrName, Integer goodsTypeId) {
         return goodsService.listInventory(page, rows, codeOrName, goodsTypeId);
@@ -46,7 +44,6 @@ public class GoodsController {
      * @param goodsName   商品名称
      * @param goodsTypeId 商品类别ID
      */
-    @ResponseBody
     @PostMapping("/list")
     public Map<String, Object> list(Integer page, Integer rows, String goodsName, Integer goodsTypeId) {
         return goodsService.list(page, rows, goodsName, goodsTypeId);
@@ -55,9 +52,8 @@ public class GoodsController {
     /**
      * 生成商品编码
      *
-     * @return
+
      */
-    @ResponseBody
     @PostMapping("/getCode")
     @RequiresPermissions(value = "商品管理")
     public ServiceVO getCode() {
@@ -69,7 +65,6 @@ public class GoodsController {
      *
      * @param goods 商品信息实体
      */
-    @ResponseBody
     @PostMapping("/save")
     public ServiceVO save(Goods goods) {
         goodsService.save(goods);
@@ -81,7 +76,6 @@ public class GoodsController {
      *
      * @param goodsId 商品ID
      */
-    @ResponseBody
     @PostMapping("/delete")
     public ServiceVO delete(Integer goodsId) {
         goodsService.delete(goodsId);
@@ -95,7 +89,6 @@ public class GoodsController {
      * @param rows       每页显示条数
      * @param nameOrCode 商品名称或商品编码
      */
-    @ResponseBody
     @PostMapping("/getNoInventoryQuantity")
     public Map<String, Object> getNoInventoryQuantity(Integer page, Integer rows, String nameOrCode) {
         return goodsService.getNoInventoryQuantity(page, rows, nameOrCode);
@@ -109,7 +102,6 @@ public class GoodsController {
      * @param rows       每页显示条数
      * @param nameOrCode 商品名称或商品编码
      */
-    @ResponseBody
     @PostMapping("/getHasInventoryQuantity")
     public Map<String, Object> getHasInventoryQuantity(Integer page, Integer rows, String nameOrCode) {
         return goodsService.getHasInventoryQuantity(page, rows, nameOrCode);
@@ -122,7 +114,6 @@ public class GoodsController {
      * @param inventoryQuantity 库存
      * @param purchasingPrice   成本价
      */
-    @ResponseBody
     @PostMapping("/saveStock")
     public ServiceVO saveStock(Integer goodsId, Integer inventoryQuantity, double purchasingPrice) {
         goodsService.saveStock(goodsId, inventoryQuantity, purchasingPrice);
@@ -134,7 +125,6 @@ public class GoodsController {
      *
      * @param goodsId 商品ID
      */
-    @ResponseBody
     @PostMapping("/deleteStock")
     public ServiceVO deleteStock(Integer goodsId) {
         goodsService.deleteStock(goodsId);
@@ -144,7 +134,6 @@ public class GoodsController {
     /**
      * 查询库存报警商品信息
      */
-    @ResponseBody
     @PostMapping("/listAlarm")
     public Map<String, Object> listAlarm() {
         return goodsService.listAlarm();

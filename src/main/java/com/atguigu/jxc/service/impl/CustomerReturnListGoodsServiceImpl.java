@@ -14,9 +14,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,15 +27,15 @@ import java.util.Map;
 @Service
 public class CustomerReturnListGoodsServiceImpl implements CustomerReturnListGoodsService {
 
-   /* @Autowired
+    @Resource
     private CustomerReturnListGoodsDao customerReturnListGoodsDao;
-    @Autowired
+    @Resource
     private UserDao userDao;
-    @Autowired
+    @Resource
     private LogService logService;
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
-    @Autowired
+    @Resource
     private GoodsTypeDao goodsTypeDao;
 
     @Override
@@ -68,7 +68,7 @@ public class CustomerReturnListGoodsServiceImpl implements CustomerReturnListGoo
             customerReturnListGoodsDao.saveCustomerReturnListGoods(customerReturnListGoods);
 
             // 修改商品库存，状态
-            Goods goods = goodsDao.findByGoodsId(customerReturnListGoods.getGoodsId());
+            Goods goods = goodsDao.getGoods(customerReturnListGoods.getGoodsId());
 
             goods.setInventoryQuantity(goods.getInventoryQuantity()+customerReturnListGoods.getGoodsNum());
 
@@ -203,5 +203,5 @@ public class CustomerReturnListGoodsServiceImpl implements CustomerReturnListGoo
         }
 
         return result.toString();
-    }*/
+    }
 }

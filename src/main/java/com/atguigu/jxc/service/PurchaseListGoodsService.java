@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface PurchaseListGoodsService {
 
-   /* ServiceVO save(PurchaseList purchaseList, String purchaseListGoodsStr);
+   ServiceVO save(PurchaseList purchaseList, String purchaseListGoodsStr);
 
     Map<String, Object> list(String purchaseNumber,
                             Integer supplierId,
@@ -24,5 +24,5 @@ public interface PurchaseListGoodsService {
 
     ServiceVO updateState(Integer purchaseListId);
 
-    String count(String sTime, String eTime ,Integer goodsTypeId, String codeOrName);*/
+    String count(String sTime, String eTime ,Integer goodsTypeId, String codeOrName);
 }

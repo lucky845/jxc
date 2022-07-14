@@ -16,9 +16,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,15 +29,15 @@ import java.util.Map;
 @Service
 public class SaleListGoodsServiceImpl implements SaleListGoodsService {
 
-   /* @Autowired
+    @Resource
     private SaleListGoodsDao saleListGoodsDao;
-    @Autowired
+    @Resource
     private UserDao userDao;
-    @Autowired
+    @Resource
     private LogService logService;
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
-    @Autowired
+    @Resource
     private GoodsTypeDao goodsTypeDao;
 
     @Override
@@ -70,7 +70,7 @@ public class SaleListGoodsServiceImpl implements SaleListGoodsService {
             saleListGoodsDao.saveSaleListGoods(saleListGoods);
 
             // 修改商品库存，状态
-            Goods goods = goodsDao.findByGoodsId(saleListGoods.getGoodsId());
+            Goods goods = goodsDao.getGoods(saleListGoods.getGoodsId());
 
             goods.setInventoryQuantity(goods.getInventoryQuantity()-saleListGoods.getGoodsNum());
 
@@ -334,5 +334,5 @@ public class SaleListGoodsServiceImpl implements SaleListGoodsService {
         }
 
         return result.toString();
-    }*/
+    }
 }

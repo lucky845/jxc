@@ -7,9 +7,9 @@ import com.atguigu.jxc.entity.Log;
 import com.atguigu.jxc.service.GoodsTypeService;
 import com.atguigu.jxc.service.LogService;
 import com.google.gson.Gson;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,13 +22,13 @@ import java.util.Map;
 @Service
 public class GoodsTypeServiceImpl implements GoodsTypeService {
 
-    @Autowired
+    @Resource
     private GoodsTypeDao goodsTypeDao;
 
-    @Autowired
+    @Resource
     private LogService logService;
 
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
 
     /**

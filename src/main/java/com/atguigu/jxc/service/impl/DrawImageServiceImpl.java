@@ -102,7 +102,7 @@ public class DrawImageServiceImpl implements DrawImageService {
     /**
      * 画随机字符
      * @param g
-     * @return
+
      */
     private String drawRandomNum(Graphics2D g) {
         StringBuffer sb = new StringBuffer();

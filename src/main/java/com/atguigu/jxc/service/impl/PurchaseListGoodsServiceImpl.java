@@ -15,9 +15,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,16 +27,16 @@ import java.util.Map;
  */
 @Service
 public class PurchaseListGoodsServiceImpl implements PurchaseListGoodsService {
-/*
-    @Autowired
+
+    @Resource
     private LogService logService;
-    @Autowired
+    @Resource
     private UserDao userDao;
-    @Autowired
+    @Resource
     private PurchaseListGoodsDao purchaseListGoodsDao;
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
-    @Autowired
+    @Resource
     private GoodsTypeDao goodsTypeDao;
 
     @Override
@@ -58,11 +58,11 @@ public class PurchaseListGoodsServiceImpl implements PurchaseListGoodsService {
         // 保存进货商品列表
         for (PurchaseListGoods p : purchaseListGoodsList) {
             p.setPurchaseListId(purchaseList.getPurchaseListId());
-            p.setGoodsTypeId(goodsDao.findByGoodsId(p.getGoodsId()).getGoodsTypeId());
+            p.setGoodsTypeId(goodsDao.getGoods(p.getGoodsId()).getGoodsTypeId());
             purchaseListGoodsDao.savePurchaseListGoods(p);
 
             // 修改商品上一次进货价，进货均价，库存，状态
-            Goods goods = goodsDao.findByGoodsId(p.getGoodsId());
+            Goods goods = goodsDao.getGoods(p.getGoodsId());
 
             goods.setLastPurchasingPrice(p.getPrice());
 
@@ -183,5 +183,5 @@ public class PurchaseListGoodsServiceImpl implements PurchaseListGoodsService {
         }
 
         return result.toString();
-    }*/
+    }
 }

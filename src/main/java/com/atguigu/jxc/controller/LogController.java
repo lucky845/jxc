@@ -1,9 +1,10 @@
 package com.atguigu.jxc.controller;
 
 import com.atguigu.jxc.service.LogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @description 系统日志
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/log")
 public class LogController {
 
-    @Autowired
+    @Resource
     private LogService logService;
 
     /**
@@ -23,7 +24,7 @@ public class LogController {
      * @param eTime 结束时间
      * @param page 当前页数
      * @param rows 每页条数
-     * @return
+
      */
     @RequestMapping("/list")
     public String list(String logType,String trueName,String sTime,String eTime,Integer page,Integer rows) {

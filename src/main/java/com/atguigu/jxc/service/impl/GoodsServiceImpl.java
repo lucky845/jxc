@@ -12,9 +12,9 @@ import com.atguigu.jxc.entity.Log;
 import com.atguigu.jxc.service.GoodsService;
 import com.atguigu.jxc.service.GoodsTypeService;
 import com.atguigu.jxc.service.LogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,22 +26,22 @@ import java.util.Map;
 @Service
 public class GoodsServiceImpl implements GoodsService {
 
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
 
-    @Autowired
+    @Resource
     private SaleListGoodsDao saleListGoodsDao;
 
-    @Autowired
+    @Resource
     private PurchaseListGoodsDao purchaseListGoodsDao;
 
-    @Autowired
+    @Resource
     private GoodsTypeService goodsTypeService;
 
-    @Autowired
+    @Resource
     private GoodsTypeDao goodsTypeDao;
 
-    @Autowired
+    @Resource
     private LogService logService;
 
     @Override

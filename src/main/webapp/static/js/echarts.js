@@ -1394,7 +1394,7 @@ Eventful.prototype = {
      * Whether any handler has bound.
      *
      * @param  {string}  event
-     * @return {boolean}
+ {boolean}
      */
     isSilent: function (event) {
         var _h = this._$handlers;
@@ -2176,7 +2176,7 @@ Handler.prototype = {
      * @param {number} x
      * @param {number} y
      * @param {module:zrender/graphic/Displayable} exclude
-     * @return {model:zrender/Element}
+ {model:zrender/Element}
      * @method
      */
     findHover: function (x, y, exclude) {
@@ -4433,7 +4433,7 @@ Animator.prototype = {
      * 设置动画关键帧
      * @param  {number} time 关键帧时间，单位是ms
      * @param  {Object} props 关键帧的属性值，key-value表示
-     * @return {module:zrender/animation/Animator}
+ {module:zrender/animation/Animator}
      */
     when: function (time /* ms */, props) {
         var tracks = this._tracks;
@@ -4471,7 +4471,7 @@ Animator.prototype = {
     /**
      * 添加动画每一帧的回调函数
      * @param  {Function} callback
-     * @return {module:zrender/animation/Animator}
+ {module:zrender/animation/Animator}
      */
     during: function (callback) {
         this._onframeList.push(callback);
@@ -4513,7 +4513,7 @@ Animator.prototype = {
      * @param  {string|Function} [easing]
      *         动画缓动函数，详见{@link module:zrender/animation/easing}
      * @param  {boolean} forceAnimate
-     * @return {module:zrender/animation/Animator}
+ {module:zrender/animation/Animator}
      */
     start: function (easing, forceAnimate) {
 
@@ -4589,7 +4589,7 @@ Animator.prototype = {
     /**
      * 设置动画延迟开始的时间
      * @param  {number} time 单位ms
-     * @return {module:zrender/animation/Animator}
+ {module:zrender/animation/Animator}
      */
     delay: function (time) {
         this._delay = time;
@@ -4598,7 +4598,7 @@ Animator.prototype = {
     /**
      * 添加动画结束的回调
      * @param  {Function} cb
-     * @return {module:zrender/animation/Animator}
+ {module:zrender/animation/Animator}
      */
     done: function (cb) {
         if (cb) {
@@ -4608,7 +4608,7 @@ Animator.prototype = {
     },
 
     /**
-     * @return {Array.<module:zrender/animation/Clip>}
+ {Array.<module:zrender/animation/Clip>}
      */
     getClips: function () {
         return this._clipList;
@@ -4681,7 +4681,7 @@ Animatable.prototype = {
      *
      * @param {string} path The path to fetch value from object, like 'a.b.c'.
      * @param {boolean} [loop] Whether to loop animation.
-     * @return {module:zrender/animation/Animator}
+ {module:zrender/animation/Animator}
      * @example:
      *     el.animate('style', false)
      *         .when(1000, {x: 10} )
@@ -5298,7 +5298,7 @@ BoundingRect.prototype = {
     /**
      * Calculate matrix of transforming from self to target rect
      * @param  {module:zrender/core/BoundingRect} b
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     calculateTransform: function (b) {
         var a = this;
@@ -5317,7 +5317,7 @@ BoundingRect.prototype = {
 
     /**
      * @param {(module:echarts/core/BoundingRect|Object)} b
-     * @return {boolean}
+ {boolean}
      */
     intersect: function (b) {
         if (!b) {
@@ -5352,7 +5352,7 @@ BoundingRect.prototype = {
     },
 
     /**
-     * @return {module:echarts/core/BoundingRect}
+ {module:echarts/core/BoundingRect}
      */
     clone: function () {
         return new BoundingRect(this.x, this.y, this.width, this.height);
@@ -5454,7 +5454,7 @@ Group.prototype = {
     silent: false,
 
     /**
-     * @return {Array.<module:zrender/Element>}
+ {Array.<module:zrender/Element>}
      */
     children: function () {
         return this._children.slice();
@@ -5463,7 +5463,7 @@ Group.prototype = {
     /**
      * 获取指定 index 的儿子节点
      * @param  {number} idx
-     * @return {module:zrender/Element}
+ {module:zrender/Element}
      */
     childAt: function (idx) {
         return this._children[idx];
@@ -5472,7 +5472,7 @@ Group.prototype = {
     /**
      * 获取指定名字的儿子节点
      * @param  {string} name
-     * @return {module:zrender/Element}
+ {module:zrender/Element}
      */
     childOfName: function (name) {
         var children = this._children;
@@ -5484,7 +5484,7 @@ Group.prototype = {
     },
 
     /**
-     * @return {number}
+ {number}
      */
     childCount: function () {
         return this._children.length;
@@ -5659,7 +5659,7 @@ Group.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getBoundingRect: function (includeChildren) {
         // TODO Caching
@@ -6410,7 +6410,7 @@ Storage.prototype = {
      * @param {boolean} [includeIgnore=false] 是否包含 ignore 的数组, 在 update 为 true 的时候有效
      *
      * 详见{@link module:zrender/graphic/Displayable.prototype.updateDisplayList}
-     * @return {Array.<module:zrender/graphic/Displayable>}
+ {Array.<module:zrender/graphic/Displayable>}
      */
     getDisplayList: function (update, includeIgnore) {
         includeIgnore = includeIgnore || false;
@@ -7067,7 +7067,7 @@ Style.prototype = {
 
     /**
      * Clone
-     * @return {zrender/graphic/Style} [description]
+ {zrender/graphic/Style} [description]
      */
     clone: function () {
         var newStyle = new this.constructor();
@@ -9013,7 +9013,7 @@ Displayable.prototype = {
 
     /**
      * 获取最小包围盒
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     // Interface
     getBoundingRect: function () {},
@@ -9023,7 +9023,7 @@ Displayable.prototype = {
      * If displayable element contain coord x, y
      * @param  {number} x
      * @param  {number} y
-     * @return {boolean}
+ {boolean}
      */
     contain: function (x, y) {
         return this.rectContain(x, y);
@@ -9042,7 +9042,7 @@ Displayable.prototype = {
      * If bounding rect of element contain coord x, y
      * @param  {number} x
      * @param  {number} y
-     * @return {boolean}
+ {boolean}
      */
     rectContain: function (x, y) {
         var coord = this.transformCoordToLocal(x, y);
@@ -9065,7 +9065,7 @@ Displayable.prototype = {
     /**
      * 图形是否会触发事件
      * If displayable object binded any event
-     * @return {boolean}
+ {boolean}
      */
     // TODO, 通过 bind 绑定的事件
     // isSilent: function () {
@@ -9445,13 +9445,13 @@ Painter.prototype = {
 
     /**
      * If painter use a single canvas
-     * @return {boolean}
+ {boolean}
      */
     isSingleCanvas: function () {
         return this._singleCanvas;
     },
     /**
-     * @return {HTMLDivElement}
+ {HTMLDivElement}
      */
     getViewportRoot: function () {
         return this._domRoot;
@@ -9757,7 +9757,7 @@ Painter.prototype = {
      * 获取 zlevel 所在层，如果不存在则会创建一个新的层
      * @param {number} zlevel
      * @param {boolean} virtual Virtual layer will not be inserted into dom.
-     * @return {module:zrender/Layer}
+ {module:zrender/Layer}
      */
     getLayer: function (zlevel, virtual) {
         if (this._singleCanvas && !this._needsManuallyCompositing) {
@@ -10501,7 +10501,7 @@ Animation.prototype = {
      * @param  {boolean} [options.loop=false] Whether loop animation.
      * @param  {Function} [options.getter=null] Get value from target.
      * @param  {Function} [options.setter=null] Set value to target.
-     * @return {module:zrender/animation/Animation~Animator}
+ {module:zrender/animation/Animation~Animator}
      */
     // TODO Gap
     animate: function (target, options) {
@@ -11024,7 +11024,7 @@ ZRender.prototype = {
     constructor: ZRender,
     /**
      * 获取实例唯一标识
-     * @return {string}
+ {string}
      */
     getId: function () {
         return this.id;
@@ -11207,7 +11207,7 @@ ZRender.prototype = {
      * Export the canvas as Base64 URL
      * @param {string} type
      * @param {string} [backgroundColor='#fff']
-     * @return {string} Base64 URL
+ {string} Base64 URL
      */
     // toDataURL: function(type, backgroundColor) {
     //     return this.painter.getRenderedCanvas({
@@ -11238,7 +11238,7 @@ ZRender.prototype = {
      * Find hovered element
      * @param {number} x
      * @param {number} y
-     * @return {Object} {target, topTarget}
+ {Object} {target, topTarget}
      */
     findHover: function (x, y) {
         return this.handler.findHover(x, y);
@@ -12052,7 +12052,7 @@ function enableClassManagement(entity, options) {
     };
 
     /**
-     * @return {Array.<string>} Like ['aa', 'bb'], but can not be ['aa.xx']
+ {Array.<string>} Like ['aa', 'bb'], but can not be ['aa.xx']
      */
     entity.getAllClassMainTypes = function () {
         var types = [];
@@ -12065,7 +12065,7 @@ function enableClassManagement(entity, options) {
     /**
      * If a main type is container and has sub types
      * @param  {string}  mainType
-     * @return {boolean}
+ {boolean}
      */
     entity.hasSubTypes = function (componentType) {
         componentType = parseClassType$1(componentType);
@@ -13069,7 +13069,7 @@ PathProxy.prototype = {
 
     /**
      * @param  {CanvasRenderingContext2D} ctx
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     beginPath: function (ctx) {
 
@@ -13096,7 +13096,7 @@ PathProxy.prototype = {
     /**
      * @param  {number} x
      * @param  {number} y
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     moveTo: function (x, y) {
         this.addData(CMD.M, x, y);
@@ -13118,7 +13118,7 @@ PathProxy.prototype = {
     /**
      * @param  {number} x
      * @param  {number} y
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     lineTo: function (x, y) {
         var exceedUnit = mathAbs(x - this._xi) > this._ux
@@ -13147,7 +13147,7 @@ PathProxy.prototype = {
      * @param  {number} y2
      * @param  {number} x3
      * @param  {number} y3
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     bezierCurveTo: function (x1, y1, x2, y2, x3, y3) {
         this.addData(CMD.C, x1, y1, x2, y2, x3, y3);
@@ -13165,7 +13165,7 @@ PathProxy.prototype = {
      * @param  {number} y1
      * @param  {number} x2
      * @param  {number} y2
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     quadraticCurveTo: function (x1, y1, x2, y2) {
         this.addData(CMD.Q, x1, y1, x2, y2);
@@ -13185,7 +13185,7 @@ PathProxy.prototype = {
      * @param  {number} startAngle
      * @param  {number} endAngle
      * @param  {boolean} anticlockwise
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     arc: function (cx, cy, r, startAngle, endAngle, anticlockwise) {
         this.addData(
@@ -13214,7 +13214,7 @@ PathProxy.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     closePath: function () {
         this.addData(CMD.Z);
@@ -13236,7 +13236,7 @@ PathProxy.prototype = {
      * Context 从外部传入，因为有可能是 rebuildPath 完之后再 fill。
      * stroke 同样
      * @param {CanvasRenderingContext2D} ctx
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     fill: function (ctx) {
         ctx && ctx.fill();
@@ -13245,7 +13245,7 @@ PathProxy.prototype = {
 
     /**
      * @param {CanvasRenderingContext2D} ctx
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     stroke: function (ctx) {
         ctx && ctx.stroke();
@@ -13255,7 +13255,7 @@ PathProxy.prototype = {
     /**
      * 必须在其它绘制命令前调用
      * Must be invoked before all other path drawing methods
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     setLineDash: function (lineDash) {
         if (lineDash instanceof Array) {
@@ -13275,7 +13275,7 @@ PathProxy.prototype = {
     /**
      * 必须在其它绘制命令前调用
      * Must be invoked before all other path drawing methods
-     * @return {module:zrender/core/PathProxy}
+ {module:zrender/core/PathProxy}
      */
     setLineDashOffset: function (offset) {
         this._dashOffset = offset;
@@ -13284,7 +13284,7 @@ PathProxy.prototype = {
 
     /**
      *
-     * @return {boolean}
+ {boolean}
      */
     len: function () {
         return this._len;
@@ -13370,7 +13370,7 @@ PathProxy.prototype = {
 
     /**
      * If needs js implemented dashed line
-     * @return {boolean}
+ {boolean}
      * @private
      */
     _needsDash: function () {
@@ -13520,7 +13520,7 @@ PathProxy.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getBoundingRect: function () {
         min$1[0] = min$1[1] = min2[0] = min2[1] = Number.MAX_VALUE;
@@ -15989,7 +15989,7 @@ var Line = Path.extend({
     /**
      * Get point at percent
      * @param  {number} percent
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointAt: function (p) {
         var shape = this.shape;
@@ -16108,7 +16108,7 @@ var BezierCurve = Path.extend({
     /**
      * Get point at percent
      * @param  {number} t
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointAt: function (t) {
         return someVectorAt(this.shape, t, false);
@@ -16117,7 +16117,7 @@ var BezierCurve = Path.extend({
     /**
      * Get tangent at percent
      * @param  {number} t
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     tangentAt: function (t) {
         var p = someVectorAt(this.shape, t, true);
@@ -17740,7 +17740,7 @@ var textStyleMixin = {
     /**
      * Get color property or get color from option.textStyle.color
      * @param {boolean} [isEmphasis]
-     * @return {string}
+ {string}
      */
     getTextColor: function (isEmphasis) {
         var ecModel = this.ecModel;
@@ -17752,7 +17752,7 @@ var textStyleMixin = {
 
     /**
      * Create font string from fontStyle, fontWeight, fontSize, fontFamily
-     * @return {string}
+ {string}
      */
     getFont: function () {
         return getFont({
@@ -17908,7 +17908,7 @@ Model.prototype = {
     /**
      * @param {string|Array.<string>} path
      * @param {boolean} [ignoreParent=false]
-     * @return {*}
+ {*}
      */
     get: function (path, ignoreParent) {
         if (path == null) {
@@ -17925,7 +17925,7 @@ Model.prototype = {
     /**
      * @param {string} key
      * @param {boolean} [ignoreParent=false]
-     * @return {*}
+ {*}
      */
     getShallow: function (key, ignoreParent) {
         var option = this.option;
@@ -17941,7 +17941,7 @@ Model.prototype = {
     /**
      * @param {string|Array.<string>} [path]
      * @param {module:echarts/model/Model} [parentModel]
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getModel: function (path, parentModel) {
         var obj = path == null
@@ -19924,7 +19924,7 @@ var colorPaletteMixin = {
      *                 twise with the same parameters will get different result.
      * @param {Object} [scope=this]
      * @param {Object} [requestColorNum]
-     * @return {string} color string.
+ {string} color string.
      */
     getColorFromPalette: function (name, scope, requestColorNum) {
         scope = scope || this;
@@ -20941,7 +20941,7 @@ var GlobalModel = Model.extend({
      *                      'recreate': force recreate all.
      *                      'timeline': only reset timeline option
      *                      'media': only reset media query option
-     * @return {boolean} Whether option changed.
+ {boolean} Whether option changed.
      */
     resetOption: function (type) {
         var optionChanged = false;
@@ -21107,7 +21107,7 @@ var GlobalModel = Model.extend({
     /**
      * Get option for output (cloned option and inner info removed)
      * @public
-     * @return {Object}
+ {Object}
      */
     getOption: function () {
         var option = clone(this.option);
@@ -21131,7 +21131,7 @@ var GlobalModel = Model.extend({
     },
 
     /**
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getTheme: function () {
         return this._theme;
@@ -21140,7 +21140,7 @@ var GlobalModel = Model.extend({
     /**
      * @param {string} mainType
      * @param {number} [idx=0]
-     * @return {module:echarts/model/Component}
+ {module:echarts/model/Component}
      */
     getComponent: function (mainType, idx) {
         var list = this._componentsMap.get(mainType);
@@ -21157,7 +21157,7 @@ var GlobalModel = Model.extend({
      * @param {number|Array.<number>} [condition.index] Either input index or id or name.
      * @param {string|Array.<string>} [condition.id] Either input index or id or name.
      * @param {string|Array.<string>} [condition.name] Either input index or id or name.
-     * @return {Array.<module:echarts/model/Component>}
+ {Array.<module:echarts/model/Component>}
      */
     queryComponents: function (condition) {
         var mainType = condition.mainType;
@@ -21235,7 +21235,7 @@ var GlobalModel = Model.extend({
      *        do not filtering by query conditions, which is convenient for
      *        no-payload situations or when target of action is global.
      * @param {Function} [condition.filter] parameter: component, return boolean.
-     * @return {Array.<module:echarts/model/Component>}
+ {Array.<module:echarts/model/Component>}
      */
     findComponents: function (condition) {
         var query = condition.query;
@@ -21320,7 +21320,7 @@ var GlobalModel = Model.extend({
 
     /**
      * @param {string} name
-     * @return {Array.<module:echarts/model/Series>}
+ {Array.<module:echarts/model/Series>}
      */
     getSeriesByName: function (name) {
         var series = this._componentsMap.get('series');
@@ -21331,7 +21331,7 @@ var GlobalModel = Model.extend({
 
     /**
      * @param {number} seriesIndex
-     * @return {module:echarts/model/Series}
+ {module:echarts/model/Series}
      */
     getSeriesByIndex: function (seriesIndex) {
         return this._componentsMap.get('series')[seriesIndex];
@@ -21342,7 +21342,7 @@ var GlobalModel = Model.extend({
      * FIXME: rename to getRawSeriesByType?
      *
      * @param {string} subType
-     * @return {Array.<module:echarts/model/Series>}
+ {Array.<module:echarts/model/Series>}
      */
     getSeriesByType: function (subType) {
         var series = this._componentsMap.get('series');
@@ -21352,14 +21352,14 @@ var GlobalModel = Model.extend({
     },
 
     /**
-     * @return {Array.<module:echarts/model/Series>}
+ {Array.<module:echarts/model/Series>}
      */
     getSeries: function () {
         return this._componentsMap.get('series').slice();
     },
 
     /**
-     * @return {number}
+ {number}
      */
     getSeriesCount: function () {
         return this._componentsMap.get('series').length;
@@ -21428,7 +21428,7 @@ var GlobalModel = Model.extend({
     },
 
     /**
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getCurrentSeriesIndices: function () {
         return (this._seriesIndices || []).slice();
@@ -21859,7 +21859,7 @@ OptionManager.prototype = {
      * @param {Object} rawOption Raw option.
      * @param {module:echarts/model/Global} ecModel
      * @param {Array.<Function>} optionPreprocessorFuncs
-     * @return {Object} Init option
+ {Object} Init option
      */
     setOption: function (rawOption, optionPreprocessorFuncs) {
         if (rawOption) {
@@ -21908,7 +21908,7 @@ OptionManager.prototype = {
 
     /**
      * @param {boolean} isRecreate
-     * @return {Object}
+ {Object}
      */
     mountOption: function (isRecreate) {
         var optionBackup = this._optionBackup;
@@ -21933,7 +21933,7 @@ OptionManager.prototype = {
 
     /**
      * @param {module:echarts/model/Global} ecModel
-     * @return {Object}
+ {Object}
      */
     getTimelineOption: function (ecModel) {
         var option;
@@ -21956,7 +21956,7 @@ OptionManager.prototype = {
 
     /**
      * @param {module:echarts/model/Global} ecModel
-     * @return {Array.<Object>}
+ {Array.<Object>}
      */
     getMediaOption: function (ecModel) {
         var ecWidth = this._api.getWidth();
@@ -23098,7 +23098,7 @@ var dataFormatMixin = {
      * Get params for formatter
      * @param {number} dataIndex
      * @param {string} [dataType]
-     * @return {Object}
+ {Object}
      */
     getDataParams: function (dataIndex, dataType) {
         var data = this.getData(dataType);
@@ -23144,7 +23144,7 @@ var dataFormatMixin = {
      * @param {string} [dataType]
      * @param {number} [dimIndex]
      * @param {string} [labelProp='label']
-     * @return {string} If not formatter, return null/undefined
+ {string} If not formatter, return null/undefined
      */
     getFormattedLabel: function (dataIndex, status, dataType, dimIndex, labelProp) {
         status = status || 'normal';
@@ -23185,7 +23185,7 @@ var dataFormatMixin = {
      * Get raw value in option
      * @param {number} idx
      * @param {string} [dataType]
-     * @return {Array|number|string}
+ {Array|number|string}
      */
     getRawValue: function (idx, dataType) {
         return retrieveRawValue(this.getData(dataType), idx);
@@ -23196,7 +23196,7 @@ var dataFormatMixin = {
      * @param {number} dataIndex
      * @param {boolean} [multipleSeries=false]
      * @param {number} [dataType]
-     * @return {string} tooltip string
+ {string} tooltip string
      */
     formatTooltip: function () {
         // Empty function
@@ -23752,7 +23752,7 @@ var SeriesModel = ComponentModel.extend({
      * data in the stream procedure. So we fetch data from upstream
      * each time `task.perform` called.
      * @param {string} [dataType]
-     * @return {module:echarts/data/List}
+ {module:echarts/data/List}
      */
     getData: function (dataType) {
         var task = getCurrentTask(this);
@@ -23798,7 +23798,7 @@ var SeriesModel = ComponentModel.extend({
 
     /**
      * @see {module:echarts/data/helper/sourceHelper#getSource}
-     * @return {module:echarts/data/Source} source
+ {module:echarts/data/Source} source
      */
     getSource: function () {
         return getSource(this);
@@ -23806,7 +23806,7 @@ var SeriesModel = ComponentModel.extend({
 
     /**
      * Get data before processed
-     * @return {module:echarts/data/List}
+ {module:echarts/data/List}
      */
     getRawData: function () {
         return inner$4(this).dataBeforeProcessed;
@@ -23816,7 +23816,7 @@ var SeriesModel = ComponentModel.extend({
      * Get base axis if has coordinate system and has axis.
      * By default use coordSys.getBaseAxis();
      * Can be overrided for some chart.
-     * @return {type} description
+ {type} description
      */
     getBaseAxis: function () {
         var coordSys = this.coordinateSystem;
@@ -23835,7 +23835,7 @@ var SeriesModel = ComponentModel.extend({
      *                                     string is used as DOM HTML content.
      *                                     'richText' is used for rendering tooltip in rich text form, for those where
      *                                     DOM operation is not supported.
-     * @return {Object} formatted tooltip with `html` and `markers`
+ {Object} formatted tooltip with `html` and `markers`
      */
     formatTooltip: function (dataIndex, multipleSeries, dataType, renderMode) {
 
@@ -23972,7 +23972,7 @@ var SeriesModel = ComponentModel.extend({
     },
 
     /**
-     * @return {boolean}
+ {boolean}
      */
     isAnimationEnabled: function () {
         if (env$1.node) {
@@ -24012,7 +24012,7 @@ var SeriesModel = ComponentModel.extend({
 
     /**
      * Get progressive rendering count each step
-     * @return {number}
+ {number}
      */
     getProgressive: function () {
         return this.get('progressive');
@@ -24020,7 +24020,7 @@ var SeriesModel = ComponentModel.extend({
 
     /**
      * Get progressive rendering count each step
-     * @return {number}
+ {number}
      */
     getProgressiveThreshold: function () {
         return this.get('progressiveThreshold');
@@ -24032,7 +24032,7 @@ var SeriesModel = ComponentModel.extend({
      * @param {Array.<string>|string} dim
      * @param {Array.<number>} value
      * @param {module:echarts/coord/single/SingleAxis} baseAxis
-     * @return {Object} {dataIndices, nestestValue}.
+ {Object} {dataIndices, nestestValue}.
      */
     getAxisTooltipData: null,
 
@@ -24040,7 +24040,7 @@ var SeriesModel = ComponentModel.extend({
      * See tooltip.
      * @abstract
      * @param {number} dataIndex
-     * @return {Array.<number>} Point of tooltip. null/undefined can be returned.
+ {Array.<number>} Point of tooltip. null/undefined can be returned.
      */
     getTooltipPosition: null,
 
@@ -24192,7 +24192,7 @@ Component.prototype = {
      * @param {Object} query
      * @param {module:zrender/Element} targetEl
      * @param {Object} packedEvent
-     * @return {boolen} Pass only when return `true`.
+ {boolen} Pass only when return `true`.
      */
     filterForExposedEvent: null
 
@@ -24376,7 +24376,7 @@ Chart.prototype = {
      * @param  {module:echarts/model/Global} ecModel
      * @param  {module:echarts/ExtensionAPI} api
      * @param  {Object} payload
-     * @return {Object} {update: true}
+ {Object} {update: true}
      */
     updateTransform: null,
 
@@ -24384,7 +24384,7 @@ Chart.prototype = {
      * The view contains the given point.
      * @interface
      * @param {Array.<number>} point
-     * @return {boolean}
+ {boolean}
      */
     // containPoint: function () {}
 
@@ -24393,7 +24393,7 @@ Chart.prototype = {
      * @param {Object} query
      * @param {module:zrender/Element} targetEl
      * @param {Object} packedEvent
-     * @return {boolen} Pass only when return `true`.
+ {boolen} Pass only when return `true`.
      */
     filterForExposedEvent: null
 
@@ -32312,7 +32312,7 @@ var OrdinalScale = Scale.extend({
     /**
      * Normalize given rank or name to linear [0, 1]
      * @param {number|string} [val]
-     * @return {number}
+ {number}
      */
     normalize: function (val) {
         return scaleProto.normalize.call(this, this.parse(val));
@@ -32323,7 +32323,7 @@ var OrdinalScale = Scale.extend({
     },
 
     /**
-     * @return {Array}
+ {Array}
      */
     getTicks: function () {
         var ticks = [];
@@ -32341,7 +32341,7 @@ var OrdinalScale = Scale.extend({
     /**
      * Get item on rank n
      * @param {number} n
-     * @return {string}
+ {string}
      */
     getLabel: function (n) {
         if (!this.isBlank()) {
@@ -32351,7 +32351,7 @@ var OrdinalScale = Scale.extend({
     },
 
     /**
-     * @return {number}
+ {number}
      */
     count: function () {
         return this._extent[1] - this._extent[0] + 1;
@@ -32576,7 +32576,7 @@ var IntervalScale = Scale.extend({
     },
 
     /**
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getTicks: function () {
         return intervalScaleGetTicks(
@@ -32589,7 +32589,7 @@ var IntervalScale = Scale.extend({
      * @param {Object} [opt]
      * @param {number|string} [opt.precision] If 'auto', use nice presision.
      * @param {boolean} [opt.pad] returns 1.50 but not 1.5 if precision is 2.
-     * @return {string}
+ {string}
      */
     getLabel: function (data, opt) {
         if (data == null) {
@@ -33404,7 +33404,7 @@ var LogScale = Scale.extend({
     },
 
     /**
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getTicks: function () {
         var originalScale = this._originalScale;
@@ -33428,13 +33428,13 @@ var LogScale = Scale.extend({
 
     /**
      * @param {number} val
-     * @return {string}
+ {string}
      */
     getLabel: intervalScaleProto$1.getLabel,
 
     /**
      * @param  {number} val
-     * @return {number}
+ {number}
      */
     scale: function (val) {
         val = scaleProto$1.scale.call(this, val);
@@ -33453,7 +33453,7 @@ var LogScale = Scale.extend({
     },
 
     /**
-     * @return {number} end
+ {number} end
      */
     getExtent: function () {
         var base = this.base;
@@ -33972,7 +33972,7 @@ var axisModelCommonMixin = {
 
     /**
      * @param {boolean} origin
-     * @return {number|string} min value or 'dataMin' or null/undefined (means auto) or NaN
+ {number|string} min value or 'dataMin' or null/undefined (means auto) or NaN
      */
     getMin: function (origin) {
         var option = this.option;
@@ -33992,7 +33992,7 @@ var axisModelCommonMixin = {
 
     /**
      * @param {boolean} origin
-     * @return {number|string} max value or 'dataMax' or null/undefined (means auto) or NaN
+ {number|string} max value or 'dataMax' or null/undefined (means auto) or NaN
      */
     getMax: function (origin) {
         var option = this.option;
@@ -34011,7 +34011,7 @@ var axisModelCommonMixin = {
     },
 
     /**
-     * @return {boolean}
+ {boolean}
      */
     getNeedCrossZero: function () {
         var option = this.option;
@@ -34021,7 +34021,7 @@ var axisModelCommonMixin = {
 
     /**
      * Should be implemented by each axis model if necessary.
-     * @return {module:echarts/model/Component} coordinate system model
+ {module:echarts/model/Component} coordinate system model
      */
     getCoordSysModel: noop,
 
@@ -34590,7 +34590,7 @@ Region.prototype = {
     properties: null,
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getBoundingRect: function () {
         var rect = this._rect;
@@ -34627,7 +34627,7 @@ Region.prototype = {
 
     /**
      * @param {<Array.<number>} coord
-     * @return {boolean}
+ {boolean}
      */
     contain: function (coord) {
         var rect = this.getBoundingRect();
@@ -35266,7 +35266,7 @@ Axis.prototype = {
     /**
      * If axis extent contain given coord
      * @param {number} coord
-     * @return {boolean}
+ {boolean}
      */
     contain: function (coord) {
         var extent = this._extent;
@@ -35278,7 +35278,7 @@ Axis.prototype = {
     /**
      * If axis extent contain given data
      * @param {number} data
-     * @return {boolean}
+ {boolean}
      */
     containData: function (data) {
         return this.contain(this.dataToCoord(data));
@@ -35286,7 +35286,7 @@ Axis.prototype = {
 
     /**
      * Get coord extent.
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getExtent: function () {
         return this._extent.slice();
@@ -35295,7 +35295,7 @@ Axis.prototype = {
     /**
      * Get precision used for formatting
      * @param {Array.<number>} [dataExtent]
-     * @return {number}
+ {number}
      */
     getPixelPrecision: function (dataExtent) {
         return getPixelPrecision(
@@ -35319,7 +35319,7 @@ Axis.prototype = {
      * Convert data to coord. Data is the rank if it has an ordinal scale
      * @param {number} data
      * @param  {boolean} clamp
-     * @return {number}
+ {number}
      */
     dataToCoord: function (data, clamp) {
         var extent = this._extent;
@@ -35338,7 +35338,7 @@ Axis.prototype = {
      * Convert coord to data. Data is the rank if it has an ordinal scale
      * @param {number} coord
      * @param  {boolean} clamp
-     * @return {number}
+ {number}
      */
     coordToData: function (coord, clamp) {
         var extent = this._extent;
@@ -35358,7 +35358,7 @@ Axis.prototype = {
      * Convert pixel point to data in axis
      * @param {Array.<number>} point
      * @param  {boolean} clamp
-     * @return {number} data
+ {number} data
      */
     pointToData: function (point, clamp) {
         // Should be implemented in derived class if necessary.
@@ -35373,7 +35373,7 @@ Axis.prototype = {
      * @param {boolean} [opt.clamp] If `true`, the first and the last
      *        tick must be at the axis end points. Otherwise, clip ticks
      *        that outside the axis extent.
-     * @return {Array.<Object>} [{
+ {Array.<Object>} [{
      *     coord: ...,
      *     tickValue: ...
      * }, ...]
@@ -35402,7 +35402,7 @@ Axis.prototype = {
     },
 
     /**
-     * @return {Array.<Object>} [{
+ {Array.<Object>} [{
      *     formattedLabel: string,
      *     rawLabel: axis.scale.getLabel(tickValue)
      *     tickValue: number
@@ -35413,7 +35413,7 @@ Axis.prototype = {
     },
 
     /**
-     * @return {module:echarts/coord/model/Model}
+ {module:echarts/coord/model/Model}
      */
     getLabelModel: function () {
         return this.model.getModel('axisLabel');
@@ -35425,7 +35425,7 @@ Axis.prototype = {
      * manually when calling `getTicksCoords`.
      * In GL, this method may be overrided to:
      * `axisModel.getModel('axisTick', grid3DModel.getModel('axisTick'));`
-     * @return {module:echarts/coord/model/Model}
+ {module:echarts/coord/model/Model}
      */
     getTickModel: function () {
         return this.model.getModel('axisTick');
@@ -35433,7 +35433,7 @@ Axis.prototype = {
 
     /**
      * Get width of band
-     * @return {number}
+ {number}
      */
     getBandWidth: function () {
         var axisExtent = this._extent;
@@ -35450,20 +35450,20 @@ Axis.prototype = {
 
     /**
      * @abstract
-     * @return {boolean} Is horizontal
+ {boolean} Is horizontal
      */
     isHorizontal: null,
 
     /**
      * @abstract
-     * @return {number} Get axis rotate, by degree.
+ {number} Get axis rotate, by degree.
      */
     getRotate: null,
 
     /**
      * Only be called in category axis.
      * Can be overrided, consider other axes like in 3D.
-     * @return {number} Auto interval for cateogry axis tick and label
+ {number} Auto interval for cateogry axis tick and label
      */
     calculateCategoryInterval: function () {
         return calculateCategoryInterval(this);
@@ -38165,7 +38165,7 @@ Cartesian.prototype = {
     /**
      * Get axis
      * @param  {number|string} dim
-     * @return {module:echarts/coord/Cartesian~Axis}
+ {module:echarts/coord/Cartesian~Axis}
      */
     getAxis: function (dim) {
         return this._axes[dim];
@@ -38173,7 +38173,7 @@ Cartesian.prototype = {
 
     /**
      * Get axes list
-     * @return {Array.<module:echarts/coord/Cartesian~Axis>}
+ {Array.<module:echarts/coord/Cartesian~Axis>}
      */
     getAxes: function () {
         return map(this._dimList, dimAxisMapper, this);
@@ -38207,7 +38207,7 @@ Cartesian.prototype = {
     /**
      * Convert data to coord in nd space
      * @param {Array.<number>|Object.<string, number>} val
-     * @return {Array.<number>|Object.<string, number>}
+ {Array.<number>|Object.<string, number>}
      */
     dataToCoord: function (val) {
         return this._dataCoordConvert(val, 'dataToCoord');
@@ -38216,7 +38216,7 @@ Cartesian.prototype = {
     /**
      * Convert coord in nd space to data
      * @param  {Array.<number>|Object.<string, number>} val
-     * @return {Array.<number>|Object.<string, number>}
+ {Array.<number>|Object.<string, number>}
      */
     coordToData: function (val) {
         return this._dataCoordConvert(val, 'coordToData');
@@ -38278,7 +38278,7 @@ Cartesian2D.prototype = {
     /**
      * Base axis will be used on stacking.
      *
-     * @return {module:echarts/coord/cartesian/Axis2D}
+ {module:echarts/coord/cartesian/Axis2D}
      */
     getBaseAxis: function () {
         return this.getAxesByScale('ordinal')[0]
@@ -38289,7 +38289,7 @@ Cartesian2D.prototype = {
     /**
      * If contain point
      * @param {Array.<number>} point
-     * @return {boolean}
+ {boolean}
      */
     containPoint: function (point) {
         var axisX = this.getAxis('x');
@@ -38301,7 +38301,7 @@ Cartesian2D.prototype = {
     /**
      * If contain data
      * @param {Array.<number>} data
-     * @return {boolean}
+ {boolean}
      */
     containData: function (data) {
         return this.getAxis('x').containData(data[0])
@@ -38311,7 +38311,7 @@ Cartesian2D.prototype = {
     /**
      * @param {Array.<number>} data
      * @param {Array.<number>} out
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     dataToPoint: function (data, reserved, out) {
         var xAxis = this.getAxis('x');
@@ -38325,7 +38325,7 @@ Cartesian2D.prototype = {
     /**
      * @param {Array.<number>} data
      * @param {Array.<number>} out
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     clampData: function (data, out) {
         var xScale = this.getAxis('x').scale;
@@ -38350,7 +38350,7 @@ Cartesian2D.prototype = {
     /**
      * @param {Array.<number>} point
      * @param {Array.<number>} out
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointToData: function (point, out) {
         var xAxis = this.getAxis('x');
@@ -38435,7 +38435,7 @@ Axis2D.prototype = {
 
     /**
      * Implemented in <module:echarts/coord/cartesian/Grid>.
-     * @return {Array.<module:echarts/coord/cartesian/Axis2D>}
+ {Array.<module:echarts/coord/cartesian/Axis2D>}
      *         If not on zero of other axis, return null/undefined.
      *         If no axes, return an empty array.
      */
@@ -38458,7 +38458,7 @@ Axis2D.prototype = {
      * unless `asc` is input.
      *
      * @param {boolean} [asc]
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getGlobalExtent: function (asc) {
         var ret = this.getExtent();
@@ -38846,7 +38846,7 @@ var AxisModel = ComponentModel.extend({
 
     /**
      * @override
-     * @return {module:echarts/model/Component}
+ {module:echarts/model/Component}
      */
     getCoordSysModel: function () {
         return this.ecModel.queryComponents({
@@ -44976,7 +44976,7 @@ var geoJSONLoader = {
     /**
      * @param {string} mapName
      * @param {Object} mapRecord {specialAreas, geoJSON}
-     * @return {Object} {regions, boundingRect}
+ {Object} {regions, boundingRect}
      */
     load: function (mapName, mapRecord) {
 
@@ -45060,7 +45060,7 @@ var geoSVGLoader = {
     /**
      * @param {string} mapName
      * @param {Object} mapRecord {specialAreas, geoJSON}
-     * @return {Object} {root, boundingRect}
+ {Object} {root, boundingRect}
      */
     load: function (mapName, mapRecord) {
         var originRoot = inner$8(mapRecord).originRoot;
@@ -45200,7 +45200,7 @@ var geoSourceManager = {
     /**
      * @param {string} mapName
      * @param {Object} nameMap
-     * @return {Object} source {regions, regionsMap, nameCoordMap, boundingRect}
+ {Object} source {regions, regionsMap, nameCoordMap, boundingRect}
      */
     load: function (mapName, nameMap) {
         var regions = [];
@@ -45245,7 +45245,7 @@ var geoSourceManager = {
     /**
      * @param {string} mapName
      * @param {string} hostKey For cache.
-     * @return {Array.<module:zrender/Element>} Roots.
+ {Array.<module:zrender/Element>} Roots.
      */
     makeGraphic: makeInvoker('makeGraphic'),
 
@@ -45399,7 +45399,7 @@ var MapSeries = SeriesModel.extend({
     /**
      * Get model of region
      * @param  {string} name
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getRegionModel: function (regionName) {
         var data = this.getData();
@@ -46846,7 +46846,7 @@ View.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     // PENDING to getRect
     getBoundingRect: function () {
@@ -46938,7 +46938,7 @@ View.prototype = {
     },
 
     /**
-     * @return {Array.<number}
+ {Array.<number}
      */
     getRoamTransform: function () {
         return this._roamTransformable.getLocalTransform();
@@ -46992,7 +46992,7 @@ View.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getViewRect: function () {
         return this._viewRect;
@@ -47000,7 +47000,7 @@ View.prototype = {
 
     /**
      * Get view rect after roam transform
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getViewRectAfterRoam: function () {
         var rect = this.getBoundingRect().clone();
@@ -47013,7 +47013,7 @@ View.prototype = {
      * @param {Array.<number>} data
      * @param {boolean} noRoam
      * @param {Array.<number>} [out]
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     dataToPoint: function (data, noRoam, out) {
         var transform = noRoam ? this._rawTransform : this.transform;
@@ -47026,7 +47026,7 @@ View.prototype = {
     /**
      * Convert a (x, y) point to (lon, lat) data
      * @param {Array.<number>} point
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointToData: function (point) {
         var invTransform = this.invTransform;
@@ -47056,7 +47056,7 @@ View.prototype = {
     }
 
     /**
-     * @return {number}
+ {number}
      */
     // getScalarScale: function () {
     //     // Use determinant square root of transform to mutiply scalar
@@ -47193,7 +47193,7 @@ Geo.prototype = {
 
     /**
      * @param {string} name
-     * @return {module:echarts/coord/geo/Region}
+ {module:echarts/coord/geo/Region}
      */
     getRegion: function (name) {
         return this._regionsMap.get(name);
@@ -47220,7 +47220,7 @@ Geo.prototype = {
     /**
      * Get geoCoord by name
      * @param {string} name
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getGeoCoord: function (name) {
         return this._nameCoordMap.get(name);
@@ -47237,7 +47237,7 @@ Geo.prototype = {
      * @param {string|Array.<number>} data
      * @param {boolean} noRoam
      * @param {Array.<number>} [out]
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     dataToPoint: function (data, noRoam, out) {
         if (typeof data === 'string') {
@@ -47486,7 +47486,7 @@ var geoCreator = {
      * @param  {Array.<Object>} originRegionArr
      * @param  {string} mapName
      * @param  {Object} [nameMap]
-     * @return {Array}
+ {Array}
      */
     getFilledRegions: function (originRegionArr, mapName, nameMap) {
         // Not use the original
@@ -48028,7 +48028,7 @@ TreeNode.prototype = {
 
     /**
      * The node is removed.
-     * @return {boolean} is removed.
+ {boolean} is removed.
      */
     isRemoved: function () {
         return this.dataIndex < 0;
@@ -48097,7 +48097,7 @@ TreeNode.prototype = {
 
     /**
      * @param  {string} id
-     * @return {module:echarts/data/Tree~TreeNode}
+ {module:echarts/data/Tree~TreeNode}
      */
     getNodeById: function (id) {
         if (this.getId() === id) {
@@ -48113,7 +48113,7 @@ TreeNode.prototype = {
 
     /**
      * @param {module:echarts/data/Tree~TreeNode} node
-     * @return {boolean}
+ {boolean}
      */
     contains: function (node) {
         if (node === this) {
@@ -48129,7 +48129,7 @@ TreeNode.prototype = {
 
     /**
      * @param {boolean} includeSelf Default false.
-     * @return {Array.<module:echarts/data/Tree~TreeNode>} order: [root, child, grandchild, ...]
+ {Array.<module:echarts/data/Tree~TreeNode>} order: [root, child, grandchild, ...]
      */
     getAncestors: function (includeSelf) {
         var ancestors = [];
@@ -48144,7 +48144,7 @@ TreeNode.prototype = {
 
     /**
      * @param {string|Array=} [dimension='value'] Default 'value'. can be 0, 1, 2, 3
-     * @return {number} Value.
+ {number} Value.
      */
     getValue: function (dimension) {
         var data = this.hostTree.data;
@@ -48161,7 +48161,7 @@ TreeNode.prototype = {
     },
 
     /**
-     * @return {Object} layout
+ {Object} layout
      */
     getLayout: function () {
         return this.hostTree.data.getItemLayout(this.dataIndex);
@@ -48169,7 +48169,7 @@ TreeNode.prototype = {
 
     /**
      * @param {string} [path]
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getModel: function (path) {
         if (this.dataIndex < 0) {
@@ -48186,14 +48186,14 @@ TreeNode.prototype = {
     },
 
     /**
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getLevelModel: function () {
         return (this.hostTree.levelModels || [])[this.depth];
     },
 
     /**
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getLeavesModel: function () {
         return this.hostTree.leavesModel;
@@ -48220,7 +48220,7 @@ TreeNode.prototype = {
 
     /**
      * @public
-     * @return {number}
+ {number}
      */
     getRawIndex: function () {
         return this.hostTree.data.getRawIndex(this.dataIndex);
@@ -48228,7 +48228,7 @@ TreeNode.prototype = {
 
     /**
      * @public
-     * @return {string}
+ {string}
      */
     getId: function () {
         return this.hostTree.data.getId(this.dataIndex);
@@ -48239,7 +48239,7 @@ TreeNode.prototype = {
      *
      * @public
      * @param {TreeNode} node another node
-     * @return {boolean} if is ancestor
+ {boolean} if is ancestor
      */
     isAncestorOf: function (node) {
         var parent = node.parentNode;
@@ -48257,7 +48257,7 @@ TreeNode.prototype = {
      *
      * @public
      * @param {TreeNode} node another node
-     * @return {boolean} if is descendant
+ {boolean} if is descendant
      */
     isDescendantOf: function (node) {
         return node !== this && node.isAncestorOf(this);
@@ -48339,7 +48339,7 @@ Tree.prototype = {
 
     /**
      * @param {number} dataIndex
-     * @return {module:echarts/data/Tree~TreeNode}
+ {module:echarts/data/Tree~TreeNode}
      */
     getNodeByDataIndex: function (dataIndex) {
         var rawIndex = this.data.getRawIndex(dataIndex);
@@ -48348,7 +48348,7 @@ Tree.prototype = {
 
     /**
      * @param {string} name
-     * @return {module:echarts/data/Tree~TreeNode}
+ {module:echarts/data/Tree~TreeNode}
      */
     getNodeByName: function (name) {
         return this.root.getNodeByName(name);
@@ -48505,7 +48505,7 @@ SeriesModel.extend({
     /**
      * Init a tree data structure from data in option series
      * @param  {Object} option  the object used to config echarts view
-     * @return {module:echarts/data/List} storage initial data
+ {module:echarts/data/List} storage initial data
      */
     getInitialData: function (option) {
 
@@ -48545,7 +48545,7 @@ SeriesModel.extend({
 
     /**
      * Make the configuration 'orient' backward compatibly, with 'horizontal = LR', 'vertical = TB'.
-     * @returns {string} orient
+s {string} orient
      */
     getOrient: function () {
         var orient = this.get('orient');
@@ -49977,7 +49977,7 @@ SeriesModel.extend({
      *
      * @override
      * @param {number} dataIndex
-     * @return {Object}
+ {Object}
      */
     getDataParams: function (dataIndex) {
         var params = SeriesModel.prototype.getDataParams.apply(this, arguments);
@@ -50008,7 +50008,7 @@ SeriesModel.extend({
 
     /**
      * @param  {string} id
-     * @return {number} index
+ {number} index
      */
     mapIdToIndex: function (id) {
         // A feature is implemented:
@@ -50366,7 +50366,7 @@ function createWrap() {
          * @param {number} [time=500]
          * @param {number} [delay=0]
          * @param {string} [easing='linear']
-         * @return {boolean} Whether adding succeeded.
+     {boolean} Whether adding succeeded.
          *
          * @example
          *     add(el, target, time, delay, easing);
@@ -51039,10 +51039,10 @@ extendChartView({
      * @public
      * @param {number} x Global coord x.
      * @param {number} y Global coord y.
-     * @return {Object} info If not found, return undefined;
-     * @return {number} info.node Target node.
-     * @return {number} info.offsetX x refer to target node.
-     * @return {number} info.offsetY y refer to target node.
+ {Object} info If not found, return undefined;
+ {number} info.node Target node.
+ {number} info.offsetX x refer to target node.
+ {number} info.offsetY y refer to target node.
      */
     findTarget: function (x, y) {
         var targetInfo;
@@ -51551,7 +51551,7 @@ var visualHandlers = VisualMapping.visualHandlers = {
 
         /**
          * Create a mapper function
-         * @return {Function}
+     {Function}
          */
         getColorMapper: function () {
             var thisOption = this.option;
@@ -53291,14 +53291,14 @@ Node.prototype = {
     constructor: Node,
 
     /**
-     * @return {number}
+ {number}
      */
     degree: function () {
         return this.edges.length;
     },
 
     /**
-     * @return {number}
+ {number}
      */
     inDegree: function () {
         return this.inEdges.length;
@@ -53313,7 +53313,7 @@ Node.prototype = {
 
     /**
      * @param {string} [path]
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getModel: function (path) {
         if (this.dataIndex < 0) {
@@ -53368,7 +53368,7 @@ var createGraphDataProxyMixin = function (hostName, dataName) {
     return {
         /**
          * @param {string=} [dimension='value'] Default 'value'. can be 'a', 'b', 'c', 'd', 'e'.
-         * @return {number}
+     {number}
          */
         getValue: function (dimension) {
             var data = this[hostName][dataName];
@@ -53386,7 +53386,7 @@ var createGraphDataProxyMixin = function (hostName, dataName) {
 
         /**
          * @param {string} key
-         * @return {boolean}
+     {boolean}
          */
         getVisual: function (key, ignoreParent) {
             return this[hostName][dataName].getItemVisual(this.dataIndex, key, ignoreParent);
@@ -53394,7 +53394,7 @@ var createGraphDataProxyMixin = function (hostName, dataName) {
 
         /**
          * @param {Object} layout
-         * @return {boolean} [merge=false]
+     {boolean} [merge=false]
          */
         setLayout: function (layout, merge$$1) {
             this.dataIndex >= 0
@@ -53402,21 +53402,21 @@ var createGraphDataProxyMixin = function (hostName, dataName) {
         },
 
         /**
-         * @return {Object}
+     {Object}
          */
         getLayout: function () {
             return this[hostName][dataName].getItemLayout(this.dataIndex);
         },
 
         /**
-         * @return {module:zrender/Element}
+     {module:zrender/Element}
          */
         getGraphicEl: function () {
             return this[hostName][dataName].getItemGraphicEl(this.dataIndex);
         },
 
         /**
-         * @return {number}
+     {number}
          */
         getRawIndex: function () {
             return this[hostName][dataName].getRawIndex(this.dataIndex);
@@ -53622,21 +53622,21 @@ var GraphSeries = extendSeriesModel({
     },
 
     /**
-     * @return {module:echarts/data/Graph}
+ {module:echarts/data/Graph}
      */
     getGraph: function () {
         return this.getData().graph;
     },
 
     /**
-     * @return {module:echarts/data/List}
+ {module:echarts/data/List}
      */
     getEdgeData: function () {
         return this.getGraph().edgeData;
     },
 
     /**
-     * @return {module:echarts/data/List}
+ {module:echarts/data/List}
      */
     getCategoriesData: function () {
         return this._categoriesData;
@@ -57521,7 +57521,7 @@ Parallel.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getRect: function () {
         return this._rect;
@@ -57664,7 +57664,7 @@ Parallel.prototype = {
     /**
      * Get axis by dim.
      * @param {string} dim
-     * @return {module:echarts/coord/parallel/ParallelAxis} [description]
+ {module:echarts/coord/parallel/ParallelAxis} [description]
      */
     getAxis: function (dim) {
         return this._axesMap.get(dim);
@@ -57674,7 +57674,7 @@ Parallel.prototype = {
      * Convert a dim value of a single item of series data to Point.
      * @param {*} value
      * @param {string} dim
-     * @return {Array}
+ {Array}
      */
     dataToPoint: function (value, dim) {
         return this.axisCoordToPoint(
@@ -57732,7 +57732,7 @@ Parallel.prototype = {
 
     /**
      * Whether has any activeSet.
-     * @return {boolean}
+ {boolean}
      */
     hasAxisBrushed: function () {
         var dimensions = this.dimensions;
@@ -57753,7 +57753,7 @@ Parallel.prototype = {
      *  Return point. For example: [10, 20]
      * @param {Array.<number>} coords
      * @param {string} dim
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     axisCoordToPoint: function (coord, dim) {
         var axisLayout = this._axesLayout[dim];
@@ -57769,7 +57769,7 @@ Parallel.prototype = {
 
     /**
      * @param {Array.<number>} point
-     * @return {Object} {axisExpandWindow, delta, behavior: 'jump' | 'slide' | 'none'}.
+ {Object} {axisExpandWindow, delta, behavior: 'jump' | 'slide' | 'none'}.
      */
     getSlidedAxisExpandWindow: function (point) {
         var layoutInfo = this._makeLayoutInfo();
@@ -57969,7 +57969,7 @@ var AxisModel$2 = ComponentModel.extend({
     activeIntervals: [],
 
     /**
-     * @return {Object}
+ {Object}
      */
     getAreaSelectStyle: function () {
         return makeStyleMapper(
@@ -58007,7 +58007,7 @@ var AxisModel$2 = ComponentModel.extend({
     /**
      * @param {number|string} [value] When attempting to detect 'no activeIntervals set',
      *                         value can not be input.
-     * @return {string} 'normal': no activeIntervals set,
+ {string} 'normal': no activeIntervals set,
      *                  'active',
      *                  'inactive'.
      * @public
@@ -58502,7 +58502,7 @@ BrushController.prototype = {
 
     /**
      * @param {Object} [opt]
-     * @return {boolean} [opt.enableGlobalPan=false]
+ {boolean} [opt.enableGlobalPan=false]
      */
     mount: function (opt) {
         opt = opt || {};
@@ -59692,7 +59692,7 @@ SeriesModel.extend({
      *
      * @public
      * @param {string} activeState 'active' or 'inactive' or 'normal'
-     * @return {Array.<number>} Raw indices
+ {Array.<number>} Raw indices
      */
     getRawIndicesByActiveState: function (activeState) {
         var coordSys = this.coordinateSystem;
@@ -60154,7 +60154,7 @@ var SankeySeries = SeriesModel.extend({
      * Init a graph data structure from data in option series
      *
      * @param  {Object} option  the object used to config echarts view
-     * @return {module:echarts/data/List} storage initial data
+ {module:echarts/data/List} storage initial data
      */
     getInitialData: function (option) {
         var links = option.edges || option.links;
@@ -60174,7 +60174,7 @@ var SankeySeries = SeriesModel.extend({
     /**
      * Return the graphic data structure
      *
-     * @return {module:echarts/data/Graph} graphic data structure
+ {module:echarts/data/Graph} graphic data structure
      */
     getGraph: function () {
         return this.getData().graph;
@@ -60183,7 +60183,7 @@ var SankeySeries = SeriesModel.extend({
     /**
      * Get edge data of graphic data structure
      *
-     * @return {module:echarts/data/List} data structure of list
+ {module:echarts/data/List} data structure of list
      */
     getEdgeData: function () {
         return this.getGraph().edgeData;
@@ -62216,7 +62216,7 @@ var CandlestickSeries = SeriesModel.extend({
 
     /**
      * Get dimension for shadow in dataZoom
-     * @return {string} dimension name
+ {string} dimension name
      */
     getShadowDim: function () {
         return 'open';
@@ -64805,7 +64805,7 @@ Heatmap.prototype = {
     /**
      * get canvas of a black circle brush used for canvas to draw later
      * @private
-     * @returns {Object} circle brush canvas
+s {Object} circle brush canvas
      */
     _getBrush: function () {
         var brushCanvas = this._brushCanvas || (this._brushCanvas = createCanvas());
@@ -66136,7 +66136,7 @@ SingleAxis.prototype = {
 
     /**
      * Judge the orient of the axis.
-     * @return {boolean}
+ {boolean}
      */
     isHorizontal: function () {
         var position = this.position;
@@ -66318,7 +66318,7 @@ Single.prototype = {
     },
 
     /**
-     * @return {module:zrender/core/BoundingRect}
+ {module:zrender/core/BoundingRect}
      */
     getRect: function () {
         return this._rect;
@@ -66372,7 +66372,7 @@ Single.prototype = {
     /**
      * Get axis.
      *
-     * @return {module:echarts/coord/single/SingleAxis}
+ {module:echarts/coord/single/SingleAxis}
      */
     getAxis: function () {
         return this._axis;
@@ -66381,21 +66381,21 @@ Single.prototype = {
     /**
      * Get axis, add it just for draw tooltip.
      *
-     * @return {[type]} [description]
+ {[type]} [description]
      */
     getBaseAxis: function () {
         return this._axis;
     },
 
     /**
-     * @return {Array.<module:echarts/coord/Axis>}
+ {Array.<module:echarts/coord/Axis>}
      */
     getAxes: function () {
         return [this._axis];
     },
 
     /**
-     * @return {Object} {baseAxes: [], otherAxes: []}
+ {Object} {baseAxes: [], otherAxes: []}
      */
     getTooltipAxes: function () {
         return {baseAxes: [this.getAxis()]};
@@ -66405,7 +66405,7 @@ Single.prototype = {
      * If contain point.
      *
      * @param  {Array.<number>} point
-     * @return {boolean}
+ {boolean}
      */
     containPoint: function (point) {
         var rect = this.getRect();
@@ -66423,7 +66423,7 @@ Single.prototype = {
 
     /**
      * @param {Array.<number>} point
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointToData: function (point) {
         var axis = this.getAxis();
@@ -66436,7 +66436,7 @@ Single.prototype = {
      * Convert the series data to concrete point.
      *
      * @param  {number|Array.<number>} val
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     dataToPoint: function (val) {
         var axis = this.getAxis();
@@ -68029,7 +68029,7 @@ BaseAxisPointer.prototype = {
      * @param {number} value
      * @param {module:echarts/model/Model} axisModel
      * @param {module:echarts/model/Model} axisPointerModel
-     * @return {Object} {position: [x, y], rotation: 0}
+ {Object} {position: [x, y], rotation: 0}
      */
     getHandleTransform: null,
 
@@ -68040,7 +68040,7 @@ BaseAxisPointer.prototype = {
      * @param {Array.<number>} delta [dx, dy]
      * @param {module:echarts/model/Model} axisModel
      * @param {module:echarts/model/Model} axisPointerModel
-     * @return {Object} {position: [x, y], rotation: 0, cursorPoint: [x, y]}
+ {Object} {position: [x, y], rotation: 0, cursorPoint: [x, y]}
      */
     updateHandleTransform: null,
 
@@ -68771,7 +68771,7 @@ var ThemeRiverSeries = SeriesModel.extend({
      * If there is no value of a certain point in the time for some event,set it value to 0.
      *
      * @param {Array} data  initial data in the option
-     * @return {Array}
+ {Array}
      */
     fixData: function (data) {
         var rawDataLength = data.length;
@@ -68835,7 +68835,7 @@ var ThemeRiverSeries = SeriesModel.extend({
      * @override
      * @param  {Object} option  the initial option that user gived
      * @param  {module:echarts/model/Model} ecModel  the model object for themeRiver option
-     * @return {module:echarts/data/List}
+ {module:echarts/data/List}
      */
     getInitialData: function (option, ecModel) {
 
@@ -68899,7 +68899,7 @@ var ThemeRiverSeries = SeriesModel.extend({
      * The raw data is divided into multiple layers and each layer
      *     has same name.
      *
-     * @return {Array.<Array.<number>>}
+ {Array.<Array.<number>>}
      */
     getLayerSeries: function () {
         var data = this.getData();
@@ -68943,7 +68943,7 @@ var ThemeRiverSeries = SeriesModel.extend({
      * @param {number} value axis value
      * @param {module:echarts/coord/single/SingleAxis} baseAxis  single Axis used
      *     the themeRiver.
-     * @return {Object} {dataIndices, nestestValue}
+ {Object} {dataIndices, nestestValue}
      */
     getAxisTooltipData: function (dim, value, baseAxis) {
         if (!isArray(dim)) {
@@ -70472,7 +70472,7 @@ var sunburstLayout = function (seriesType, ecModel, api, payload) {
 
         /**
          * Render a tree
-         * @return increased angle
+     increased angle
          */
         var renderNode = function (node, startAngle) {
             if (!node) {
@@ -71302,7 +71302,7 @@ function makeRenderItem(customSeries, data, ecModel, api) {
      * @public
      * @param {number|string} dim
      * @param {number} [dataIndexInside=currDataIndexInside]
-     * @return {number|string} value
+ {number|string} value
      */
     function value(dim, dataIndexInside) {
         dataIndexInside == null && (dataIndexInside = currDataIndexInside);
@@ -71388,7 +71388,7 @@ function makeRenderItem(customSeries, data, ecModel, api) {
      * @param {number} [opt.barMaxWidth]
      * @param {number} [opt.barGap]
      * @param {number} [opt.barCategoryGap]
-     * @return {Object} {width, offset, offsetCenter} is not support, return undefined.
+ {Object} {width, offset, offsetCenter} is not support, return undefined.
      */
     function barLayout(opt) {
         if (coordSys.getBaseAxis) {
@@ -71399,7 +71399,7 @@ function makeRenderItem(customSeries, data, ecModel, api) {
 
     /**
      * @public
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     function currentSeriesIndices() {
         return ecModel.getCurrentSeriesIndices();
@@ -71412,7 +71412,7 @@ function makeRenderItem(customSeries, data, ecModel, api) {
      * @param {number} [opt.fontWeight]
      * @param {number} [opt.fontSize]
      * @param {string} [opt.fontFamily]
-     * @return {string} font string
+ {string} font string
      */
     function font(opt) {
         return getFont(opt, ecModel);
@@ -72309,7 +72309,7 @@ var LegendModel = extendComponentModel({
     },
 
     /**
-     * @return {Array.<module:echarts/model/Model>}
+ {Array.<module:echarts/model/Model>}
      */
     getData: function () {
         return this._data;
@@ -73439,7 +73439,7 @@ var ScrollableLegendView = LegendView.extend({
 
     /**
      * @param {module:echarts/model/Model} legendModel
-     * @return {Object} {
+ {Object} {
      *  contentPosition: Array.<number>, null when data item not found.
      *  pageIndex: number, null when data item not found.
      *  pageCount: number, always be a number, can be 0.
@@ -74838,7 +74838,7 @@ extendComponentView({
      * @param  {Object|<Array.<Object>} params
      * @param  {module:zrender/Element} el target element
      * @param  {module:echarts/ExtensionAPI} api
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     _updatePosition: function (tooltipModel, positionExpr, x, y, content, params, el) {
         var viewWidth = this._api.getWidth();
@@ -75530,7 +75530,7 @@ AngleAxis.prototype = {
      * Angle axis uses text height to decide interval
      *
      * @override
-     * @return {number} Auto interval for cateogry axis tick and label
+ {number} Auto interval for cateogry axis tick and label
      */
     calculateCategoryInterval: function () {
         var axis = this;
@@ -75677,7 +75677,7 @@ Polar.prototype = {
     /**
      * If contain coord
      * @param {Array.<number>} point
-     * @return {boolean}
+ {boolean}
      */
     containPoint: function (point) {
         var coord = this.pointToCoord(point);
@@ -75688,7 +75688,7 @@ Polar.prototype = {
     /**
      * If contain data
      * @param {Array.<number>} data
-     * @return {boolean}
+ {boolean}
      */
     containData: function (data) {
         return this._radiusAxis.containData(data[0])
@@ -75697,14 +75697,14 @@ Polar.prototype = {
 
     /**
      * @param {string} dim
-     * @return {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
+ {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
      */
     getAxis: function (dim) {
         return this['_' + dim + 'Axis'];
     },
 
     /**
-     * @return {Array.<module:echarts/coord/Axis>}
+ {Array.<module:echarts/coord/Axis>}
      */
     getAxes: function () {
         return [this._radiusAxis, this._angleAxis];
@@ -75713,7 +75713,7 @@ Polar.prototype = {
     /**
      * Get axes by type of scale
      * @param {string} scaleType
-     * @return {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
+ {module:echarts/coord/polar/AngleAxis|module:echarts/coord/polar/RadiusAxis}
      */
     getAxesByScale: function (scaleType) {
         var axes = [];
@@ -75726,14 +75726,14 @@ Polar.prototype = {
     },
 
     /**
-     * @return {module:echarts/coord/polar/AngleAxis}
+ {module:echarts/coord/polar/AngleAxis}
      */
     getAngleAxis: function () {
         return this._angleAxis;
     },
 
     /**
-     * @return {module:echarts/coord/polar/RadiusAxis}
+ {module:echarts/coord/polar/RadiusAxis}
      */
     getRadiusAxis: function () {
         return this._radiusAxis;
@@ -75741,7 +75741,7 @@ Polar.prototype = {
 
     /**
      * @param {module:echarts/coord/polar/Axis}
-     * @return {module:echarts/coord/polar/Axis}
+ {module:echarts/coord/polar/Axis}
      */
     getOtherAxis: function (axis) {
         var angleAxis = this._angleAxis;
@@ -75751,7 +75751,7 @@ Polar.prototype = {
     /**
      * Base axis will be used on stacking.
      *
-     * @return {module:echarts/coord/polar/Axis}
+ {module:echarts/coord/polar/Axis}
      */
     getBaseAxis: function () {
         return this.getAxesByScale('ordinal')[0]
@@ -75761,7 +75761,7 @@ Polar.prototype = {
 
     /**
      * @param {string} [dim] 'radius' or 'angle' or 'auto' or null/undefined
-     * @return {Object} {baseAxes: [], otherAxes: []}
+ {Object} {baseAxes: [], otherAxes: []}
      */
     getTooltipAxes: function (dim) {
         var baseAxis = (dim != null && dim !== 'auto')
@@ -75777,7 +75777,7 @@ Polar.prototype = {
      * Parameter data is an array which the first element is radius and the second is angle
      * @param {Array.<number>} data
      * @param {boolean} [clamp=false]
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     dataToPoint: function (data, clamp) {
         return this.coordToPoint([
@@ -75790,7 +75790,7 @@ Polar.prototype = {
      * Convert a (x, y) point to data
      * @param {Array.<number>} point
      * @param {boolean} [clamp=false]
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointToData: function (point, clamp) {
         var coord = this.pointToCoord(point);
@@ -75803,7 +75803,7 @@ Polar.prototype = {
     /**
      * Convert a (x, y) point to (radius, angle) coord
      * @param {Array.<number>} point
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     pointToCoord: function (point) {
         var dx = point[0] - this.cx;
@@ -75836,7 +75836,7 @@ Polar.prototype = {
     /**
      * Convert a (radius, angle) coord to (x, y) point
      * @param {Array.<number>} coord
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     coordToPoint: function (coord) {
         var radius = coord[0];
@@ -75956,7 +75956,7 @@ extendComponentModel({
 
     /**
      * @param {string} axisType
-     * @return {module:echarts/coord/polar/AxisModel}
+ {module:echarts/coord/polar/AxisModel}
      */
     findAxisModel: function (axisType) {
         var foundAxisModel;
@@ -76913,7 +76913,7 @@ var GeoModel = ComponentModel.extend({
     /**
      * Get model of region
      * @param  {string} name
-     * @return {module:echarts/model/Model}
+ {module:echarts/model/Model}
      */
     getRegionModel: function (name) {
         return this._optionModelMap.get(name) || new Model(null, this, this.ecModel);
@@ -76923,7 +76923,7 @@ var GeoModel = ComponentModel.extend({
      * Format label
      * @param {string} name Region name
      * @param {string} [status='normal'] 'normal' or 'emphasis'
-     * @return {string}
+ {string}
      */
     getFormattedLabel: function (name, status) {
         var regionModel = this.getRegionModel(name);
@@ -78888,7 +78888,7 @@ Calendar.prototype = {
      *     0 : start at Sunday
      *     1 : start at Monday
      *
-     * @return {number}
+ {number}
      */
     getFirstDayOfWeek: function () {
         return this._firstDayOfWeek;
@@ -78898,7 +78898,7 @@ Calendar.prototype = {
      * get date info
      *
      * @param  {string|number} date date
-     * @return {Object}
+ {Object}
      * {
      *      y: string, local full year, eg., '1940',
      *      m: string, local month, from '01' ot '12',
@@ -78995,7 +78995,7 @@ Calendar.prototype = {
      * @override
      * @param  {Array|number} data data
      * @param  {boolean} [clamp=true] out of range
-     * @return {Array} point
+ {Array} point
      */
     dataToPoint: function (data, clamp) {
         isArray(data) && (data = data[0]);
@@ -79036,7 +79036,7 @@ Calendar.prototype = {
      *
      * @override
      * @param  {string} point point
-     * @return {string}       data
+ {string}       data
      */
     pointToData: function (point) {
 
@@ -79050,7 +79050,7 @@ Calendar.prototype = {
      *
      * @param  {Array} data  date[0] is date
      * @param  {boolean} [clamp=true]  out of range
-     * @return {Object}       point
+ {Object}       point
      */
     dataToRect: function (data, clamp) {
         var point = this.dataToPoint(data, clamp);
@@ -79092,7 +79092,7 @@ Calendar.prototype = {
      * Convert a (x, y) point to time date
      *
      * @param  {Array} point point
-     * @return {Object}       date
+ {Object}       date
      */
     pointToDate: function (point) {
         var nthX = Math.floor((point[0] - this._rect.x) / this._sw) + 1;
@@ -79120,7 +79120,7 @@ Calendar.prototype = {
      * initRange
      *
      * @private
-     * @return {Array} [start, end]
+ {Array} [start, end]
      */
     _initRangeOption: function () {
         var range = this._model.get('range');
@@ -79164,7 +79164,7 @@ Calendar.prototype = {
      * @private
      * @param  {Array} range range ['2017-01-01', '2017-07-08']
      *  If range[0] > range[1], they will not be reversed.
-     * @return {Object}       obj
+ {Object}       obj
      */
     _getRangeInfo: function (range) {
         range = [
@@ -79227,7 +79227,7 @@ Calendar.prototype = {
      * @param  {number} nthWeek the week
      * @param  {number} day   the week day
      * @param  {Array} range [d1, d2]
-     * @return {Object}
+ {Object}
      */
     _getDateByWeeksAndDay: function (nthWeek, day, range) {
         var rangeInfo = this._getRangeInfo(range);
@@ -80441,21 +80441,21 @@ AxisProxy.prototype = {
      *
      * @public
      * @param {module: echarts/component/dataZoom/DataZoomModel} dataZoomModel
-     * @return {boolean}
+ {boolean}
      */
     hostedBy: function (dataZoomModel) {
         return this._dataZoomModel === dataZoomModel;
     },
 
     /**
-     * @return {Array.<number>} Value can only be NaN or finite value.
+ {Array.<number>} Value can only be NaN or finite value.
      */
     getDataValueWindow: function () {
         return this._valueWindow.slice();
     },
 
     /**
-     * @return {Array.<number>}
+ {Array.<number>}
      */
     getDataPercentWindow: function () {
         return this._percentWindow.slice();
@@ -80464,7 +80464,7 @@ AxisProxy.prototype = {
     /**
      * @public
      * @param {number} axisIndex
-     * @return {Array} seriesModels
+ {Array} seriesModels
      */
     getTargetSeriesModels: function () {
         var seriesModels = [];
@@ -81274,7 +81274,7 @@ var DataZoomModel = extendComponentModel({
     /**
      * @param {string} dimName
      * @param {number} axisIndex
-     * @return {module:echarts/component/dataZoom/AxisProxy} If not found, return null/undefined.
+ {module:echarts/component/dataZoom/AxisProxy} If not found, return null/undefined.
      */
     getAxisProxy: function (dimName, axisIndex) {
         return this._axisProxies[dimName + '_' + axisIndex];
@@ -81283,7 +81283,7 @@ var DataZoomModel = extendComponentModel({
     /**
      * @param {string} dimName
      * @param {number} axisIndex
-     * @return {module:echarts/model/Model} If not found, return null/undefined.
+ {module:echarts/model/Model} If not found, return null/undefined.
      */
     getAxisModel: function (dimName, axisIndex) {
         var axisProxy = this.getAxisProxy(dimName, axisIndex);
@@ -81320,7 +81320,7 @@ var DataZoomModel = extendComponentModel({
 
     /**
      * @public
-     * @return {Array.<number>} [startPercent, endPercent]
+ {Array.<number>} [startPercent, endPercent]
      */
     getPercentRange: function () {
         var axisProxy = this.findRepresentativeAxisProxy();
@@ -81335,7 +81335,7 @@ var DataZoomModel = extendComponentModel({
      *
      * @param {string} [axisDimName]
      * @param {number} [axisIndex]
-     * @return {Array.<number>} [startValue, endValue] value can only be '-' or finite number.
+ {Array.<number>} [startValue, endValue] value can only be '-' or finite number.
      */
     getValueRange: function (axisDimName, axisIndex) {
         if (axisDimName == null && axisIndex == null) {
@@ -81353,7 +81353,7 @@ var DataZoomModel = extendComponentModel({
      * @public
      * @param {module:echarts/model/Model} [axisModel] If axisModel given, find axisProxy
      *      corresponding to the axisModel
-     * @return {module:echarts/component/dataZoom/AxisProxy}
+ {module:echarts/component/dataZoom/AxisProxy}
      */
     findRepresentativeAxisProxy: function (axisModel) {
         if (axisModel) {
@@ -81381,7 +81381,7 @@ var DataZoomModel = extendComponentModel({
     },
 
     /**
-     * @return {Array.<string>}
+ {Array.<string>}
      */
     getRangePropMode: function () {
         return this._rangePropMode.slice();
@@ -81456,7 +81456,7 @@ var DataZoomView = Component.extend({
      * Find the first target coordinate system.
      *
      * @protected
-     * @return {Object} {
+ {Object} {
      *                   grid: [
      *                       {model: coord0, axisModels: [axis1, axis3], coordIndex: 1},
      *                       {model: coord1, axisModels: [axis0, axis2], coordIndex: 0},
@@ -82135,7 +82135,7 @@ var SliderZoomView = DataZoomView.extend({
      * @private
      * @param {(number|string)} handleIndex 0 or 1 or 'all'
      * @param {number} delta
-     * @return {boolean} changed
+ {boolean} changed
      */
     _updateInterval: function (handleIndex, delta) {
         var dataZoomModel = this.dataZoomModel;
@@ -83556,7 +83556,7 @@ var VisualMapModel = extendComponentModel({
 
     /**
      * @protected
-     * @return {Array.<number>} An array of series indices.
+ {Array.<number>} An array of series indices.
      */
     getTargetSeriesIndices: function () {
         var optionSeriesIndex = this.option.seriesIndex;
@@ -83605,7 +83605,7 @@ var VisualMapModel = extendComponentModel({
      * @param {number|Array.<number>} value Real value, or this.dataBound[0 or 1].
      * @param {boolean} [isCategory=false] Only available when value is number.
      * @param {Array.<string>} edgeSymbols Open-close symbol when value is interval.
-     * @return {string}
+ {string}
      * @protected
      */
     formatValueText: function (value, isCategory, edgeSymbols) {
@@ -83682,7 +83682,7 @@ var VisualMapModel = extendComponentModel({
     /**
      * @public
      * @param {module:echarts/data/List} list
-     * @return {string} Concrete dimention. If return null/undefined,
+ {string} Concrete dimention. If return null/undefined,
      *                  no dimension used.
      */
     getDataDimension: function (list) {
@@ -83888,7 +83888,7 @@ var VisualMapModel = extendComponentModel({
      * @abstract
      * @param {*|module:echarts/data/List} valueOrData
      * @param {number} dataIndex
-     * @return {string} state See this.stateList
+ {string} state See this.stateList
      */
     getValueState: noop$2,
 
@@ -83903,7 +83903,7 @@ var VisualMapModel = extendComponentModel({
      * @param {Function} getColorVisual
      *        params: value, valueState
      *        return: color
-     * @return {Object} visualMeta
+ {Object} visualMeta
      *        should includes {stops, outerColors}
      *        outerColor means [colorBeyondMinValue, colorBeyondMaxValue]
      */
@@ -84068,7 +84068,7 @@ var ContinuousModel = VisualMapModel.extend({
 
     /**
      * @params {Array.<number>} range target value: range[0] <= value && value <= range[1]
-     * @return {Array.<Object>} [{seriesId, dataIndices: <Array.<number>>}, ...]
+ {Array.<Object>} [{seriesId, dataIndices: <Array.<number>>}, ...]
      */
     findTargetDataIndices: function (range) {
         var result = [];
@@ -84262,7 +84262,7 @@ var VisualMapView = extendComponentView({
      * @param {Object} [opts]
      * @param {string=} [opts.forceState] Specify state, instead of using getValueState method.
      * @param {string=} [opts.convertOpacityToAlpha=false] For color gradient in controller widget.
-     * @return {*} Visual value.
+ {*} Visual value.
      */
     getControllerVisual: function (targetValue, visualCluster, opts) {
         opts = opts || {};
@@ -85544,7 +85544,7 @@ var PiecewiseModel = VisualMapModel.extend({
 
     /**
      * @private
-     * @return {string}
+ {string}
      */
     _determineMode: function () {
         var option = this.option;
@@ -85581,7 +85581,7 @@ var PiecewiseModel = VisualMapModel.extend({
     /**
      * @public
      * @params {number} pieceIndex piece index in visualMapModel.getPieceList()
-     * @return {Array.<Object>} [{seriesId, dataIndices: <Array.<number>>}, ...]
+ {Array.<Object>} [{seriesId, dataIndices: <Array.<number>>}, ...]
      */
     findTargetDataIndices: function (pieceIndex) {
         var result = [];
@@ -85605,7 +85605,7 @@ var PiecewiseModel = VisualMapModel.extend({
     /**
      * @private
      * @param {Object} piece piece.value or piece.interval is required.
-     * @return {number} Can be Infinity or -Infinity
+ {number} Can be Infinity or -Infinity
      */
     getRepresentValue: function (piece) {
         var representValue;
@@ -86016,7 +86016,7 @@ var PiecewiseVisualMapView = VisualMapView.extend({
 
     /**
      * @private
-     * @return {Object} {peiceList, endsText} The order is the same as screen pixel order.
+ {Object} {peiceList, endsText} The order is the same as screen pixel order.
      */
     _getViewData: function () {
         var visualMapModel = this.visualMapModel;
@@ -86175,7 +86175,7 @@ var MarkerModel = extendComponentModel({
     },
 
     /**
-     * @return {boolean}
+ {boolean}
      */
     isAnimationEnabled: function () {
         if (env$1.node) {
@@ -87977,14 +87977,14 @@ var TimelineModel = ComponentModel.extend({
     },
 
     /**
-     * @return {number} currentIndex
+ {number} currentIndex
      */
     getCurrentIndex: function () {
         return this.option.currentIndex;
     },
 
     /**
-     * @return {boolean}
+ {boolean}
      */
     isIndexMax: function () {
         return this.getCurrentIndex() >= this._data.count() - 1;
@@ -87998,7 +87998,7 @@ var TimelineModel = ComponentModel.extend({
     },
 
     /**
-     * @return {boolean} true: play, false: stop
+ {boolean} true: play, false: stop
      */
     getPlayState: function () {
         return !!this.option.autoPlay;
@@ -88051,7 +88051,7 @@ var TimelineModel = ComponentModel.extend({
 
     /**
      * @public
-     * @return {Array.<string>} categoreis
+ {Array.<string>} categoreis
      */
     getCategories: function () {
         if (this.get('axisType') === 'category') {
@@ -91829,7 +91829,7 @@ VMLPainter.prototype = {
     },
 
     /**
-     * @return {HTMLDivElement}
+ {HTMLDivElement}
      */
     getViewportRoot: function () {
         return this._vmlViewport;

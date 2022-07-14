@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface SaleListGoodsService {
 
-  /*  Integer getSaleTotalByGoodsId(Integer goodsId);
+    Integer getSaleTotalByGoodsId(Integer goodsId);
 
     ServiceVO save(SaleList saleList, String saleListGoodsStr);
 
@@ -27,5 +27,5 @@ public interface SaleListGoodsService {
 
     String getSaleDataByDay(String sTime, String eTime);
 
-    String getSaleDataByMonth(String sTime, String eTime);*/
+    String getSaleDataByMonth(String sTime, String eTime);
 }

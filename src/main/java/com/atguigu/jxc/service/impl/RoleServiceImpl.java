@@ -13,9 +13,9 @@ import com.atguigu.jxc.entity.User;
 import com.atguigu.jxc.service.LogService;
 import com.atguigu.jxc.service.RoleService;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -27,13 +27,13 @@ import java.util.Map;
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
+    @Resource
     private UserDao userDao;
-    @Autowired
+    @Resource
     private RoleDao roleDao;
-    @Autowired
+    @Resource
     private LogService logService;
-    @Autowired
+    @Resource
     private RoleMenuDao roleMenuDao;
 
     @Override

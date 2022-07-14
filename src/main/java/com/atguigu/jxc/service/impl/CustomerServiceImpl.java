@@ -5,9 +5,9 @@ import com.atguigu.jxc.entity.Customer;
 import com.atguigu.jxc.entity.Log;
 import com.atguigu.jxc.service.CustomerService;
 import com.atguigu.jxc.service.LogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +19,10 @@ import java.util.Map;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    @Autowired
+    @Resource
     private CustomerDao customerDao;
 
-    @Autowired
+    @Resource
     private LogService logService;
 
     /**

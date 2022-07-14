@@ -8,10 +8,10 @@ import com.atguigu.jxc.service.LogService;
 import com.atguigu.jxc.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -22,16 +22,16 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserService userService;
-    @Autowired
+    @Resource
     private LogService logService;
 
     /**
      * 系统登录
      * @param userLogin
      * @param session 用于取出系统生成的验证码
-     * @return 登录结果JSON
+ 登录结果JSON
      */
     @PostMapping("/login")
     @ResponseBody
@@ -42,7 +42,7 @@ public class UserController {
     /**
      * 从缓存中获取当前登录的用户相关信息，包括用户真实姓名和角色名称
      * @param session
-     * @return
+
      */
     @GetMapping("/loadUserInfo")
     @ResponseBody
@@ -55,7 +55,7 @@ public class UserController {
      * @param page 当前页数
      * @param rows 每页显示的记录数
      * @param userName 用户名
-     * @return
+
      */
     @RequestMapping("/list")
     @ResponseBody
@@ -67,7 +67,7 @@ public class UserController {
     /**
      * 添加或修改用户信息
      * @param user 用户信息实体
-     * @return
+
      */
     @RequestMapping(value = "/save")
     @ResponseBody
@@ -79,7 +79,7 @@ public class UserController {
     /**
      * 删除用户信息
      * @param userId 用户ID
-     * @return
+
      */
     @RequestMapping("/delete")
     @ResponseBody
@@ -92,7 +92,7 @@ public class UserController {
      * 设置用户角色
      * @param userId 用户ID
      * @param roles 角色ID数组字符串，用逗号分割
-     * @return
+
      */
     @RequestMapping("/setRole")
     @ResponseBody
@@ -105,7 +105,7 @@ public class UserController {
      * 修改密码
      * @param newPassword
      * @param session
-     * @return
+
      */
     @RequestMapping("/updatePassword")
     @ResponseBody
@@ -116,7 +116,7 @@ public class UserController {
 
     /**
      * 安全退出
-     * @return
+
      */
     @GetMapping("/logOut")
     @RequiresPermissions(value = "安全退出")

@@ -14,9 +14,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,15 +27,15 @@ import java.util.Map;
 @Service
 public class ReturnListGoodsServiceImpl implements ReturnListGoodsService {
 
-    /*@Autowired
+    @Resource
     private LogService logService;
-    @Autowired
+    @Resource
     private UserDao userDao;
-    @Autowired
+    @Resource
     private ReturnListGoodsDao returnListGoodsDao;
-    @Autowired
+    @Resource
     private GoodsDao goodsDao;
-    @Autowired
+    @Resource
     private GoodsTypeDao goodsTypeDao;
 
     @Override
@@ -59,12 +59,12 @@ public class ReturnListGoodsServiceImpl implements ReturnListGoodsService {
 
             returnListGoods.setReturnListId(returnList.getReturnListId());
 
-            returnListGoods.setGoodsTypeId(goodsDao.findByGoodsId(returnListGoods.getGoodsId()).getGoodsTypeId());
+            returnListGoods.setGoodsTypeId(goodsDao.getGoods(returnListGoods.getGoodsId()).getGoodsTypeId());
 
             returnListGoodsDao.saveReturnListGoods(returnListGoods);
 
             // 修改商品库存，状态
-            Goods goods = goodsDao.findByGoodsId(returnListGoods.getGoodsId());
+            Goods goods = goodsDao.getGoods(returnListGoods.getGoodsId());
 
             goods.setInventoryQuantity(goods.getInventoryQuantity()-returnListGoods.getGoodsNum());
 
@@ -182,5 +182,5 @@ public class ReturnListGoodsServiceImpl implements ReturnListGoodsService {
         }
 
         return result.toString();
-    }*/
+    }
 }

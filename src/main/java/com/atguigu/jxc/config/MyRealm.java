@@ -15,8 +15,8 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -24,13 +24,13 @@ import java.util.List;
  */
 public class MyRealm extends AuthorizingRealm{
 	
-	@Autowired
+	@Resource
 	private UserDao userDao;
 	
-	@Autowired
+	@Resource
 	private RoleDao roleDao;
 	
-	@Autowired
+	@Resource
 	private MenuDao menuDao;
 
 	/**

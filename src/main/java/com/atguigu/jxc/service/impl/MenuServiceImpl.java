@@ -8,9 +8,9 @@ import com.atguigu.jxc.service.LogService;
 import com.atguigu.jxc.service.MenuService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import java.util.List;
 @Service
 public class MenuServiceImpl implements MenuService {
 
-    @Autowired
+    @Resource
     private MenuDao menuDao;
-    @Autowired
+    @Resource
     private LogService logService;
 
     @Override
@@ -36,7 +36,7 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * 递归查询当前角色下的所有菜单
-     * @return
+
      */
     public JsonArray getAllMenu(Integer parentId, Integer roleId){
 
@@ -63,7 +63,7 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * 根据父菜单ID获取菜单
-     * @return
+
      */
     public JsonArray getMenuByParentId(Integer parentId,Integer roleId){
 
@@ -123,7 +123,7 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * 递归查询所有菜单
-     * @return
+
      */
     public JsonArray getCheckAllMenu(Integer parentId,List<Integer> menuIds){
 
@@ -150,7 +150,7 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * 根据父菜单ID获取所有子菜单
-     * @return
+
      */
     public JsonArray getCheckMenuByParentId(Integer parentId,List<Integer> menuIds){
 

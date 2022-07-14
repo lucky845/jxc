@@ -10,19 +10,19 @@ import java.util.Map;
  */
 public interface ReturnListGoodsService {
 
-  /*  ServiceVO save(ReturnList returnList, String returnListGoodsStr);
+    ServiceVO save(ReturnList returnList, String returnListGoodsStr);
 
-    Map<String,Object> list(String returnNumber,
-                            Integer supplierId,
-                            Integer state,
-                            String sTime,
-                            String eTime);
+    Map<String, Object> list(String returnNumber,
+                             Integer supplierId,
+                             Integer state,
+                             String sTime,
+                             String eTime);
 
-    Map<String,Object> goodsList(Integer returnListId);
+    Map<String, Object> goodsList(Integer returnListId);
 
     ServiceVO delete(Integer returnListId);
 
     ServiceVO updateState(Integer returnListId);
 
-    String count(String sTime, String eTime ,Integer goodsTypeId, String codeOrName);*/
+    String count(String sTime, String eTime, Integer goodsTypeId, String codeOrName);
 }
